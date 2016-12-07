@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
+
+    <EditText android:id="@+id/edit_message_User"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "24dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/edit_message_User"
+        android:inputType="textPersonName" />
+
+    <EditText android:id="@+id/edit_message_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "8dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/edit_message_Password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorText"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/edit_check_contraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_alignLeft="@+id/edit_check_contraseña"
+        android:layout_alignStart="@+id/edit_check_contraseña"
+        android:layout_below="@+id/edit_check_contraseña"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        android:onClick="mostrarContraseña"
+        android:text="¿Mostrar contraseña?" />
+
+    <Button android:id="@+id/button_login"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button_login"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="logIn (MainActivity)" />
+
+    <Button android:id="@+id/button_signup"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "8dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/button_signup"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:textSize="11sp" />
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
+
+    <EditText android:id="@+id/edit_message_Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "24dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Name"
+        android:textColor="@color/colorText"
+        android:inputType="textPersonName" />
+
+    <EditText android:id="@+id/edit_message_Surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Surname"
+        android:textColor="@color/colorText"
+        android:inputType="textEmailAddress" />
+
+    <EditText android:id="@+id/edit_message_Number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Number"
+        android:textColor="@color/colorText"
+        android:inputType="numberSigned" />
+
+    <EditText android:id="@+id/edit_message_Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Email"
+        android:textColor="@color/colorText"
+        android:inputType="phone" />
+
+    <EditText android:id="@+id/edit_message_Telephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Telephone"
+        android:textColor="@color/colorText"
+        android:inputType="phone" />
+
+    <EditText android:id="@+id/edit_message_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/edit_message_Password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorText"
+        android:textSize="18sp" />
+
+    <Button android:id="@+id/button_create"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "24dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/button_create"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="logIn" />
+
+    <Button android:id="@+id/button_login2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop= "8dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/button_login2"
+        android:textColor="@color/colorText"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:background="@color/colorPrimary" />
+
+</LinearLayout>
