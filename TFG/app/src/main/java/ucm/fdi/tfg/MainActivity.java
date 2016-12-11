@@ -133,21 +133,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Medico doInBackground(String... strings) {
 
-            System.out.println("phoenix dark");
-
-
             return DAOCardiovascular.getInstance().login(strings[0],strings[1]);
         }
 
         @Override
         protected void onPostExecute(Medico usu1) {
 
-            System.out.println("phoenix light");
-
             if (usu1==null) {
 
-
-                System.out.println("phoenix rainbow");
                 /*if(primero){
                     //inicializarVentana();
                 }else {*/
@@ -155,20 +148,20 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),
                                 "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
                 toast.show();
-
-               /* Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-                EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);*/
                 //}
             } else {
-
-                System.out.println("phoenix fire");
                 Medico medico;
                 medico = Medico.getIntsance();
                 System.out.println( medico.getNombre());
-                System.out.println("phoenix");
+
+                medico = Medico.getIntsance();
+                medico.setId(usu1.getId());
+                medico.setColegiado(usu1.getColegiado());
+                medico.setNombre(usu1.getNombre());
+                medico.setApellidos(usu1.getApellidos());
+                medico.setTelefono(usu1.getTelefono());
+                medico.setPassword(usu1.getPassword());
+                //usu.setImagen(usu1.getImagen());
 
                 Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
                 EditText editText = (EditText) findViewById(R.id.edit_message_User);
@@ -176,22 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
 
-                System.out.println("phoenix ice");
-
-                /*Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setNickname(usu1.getNickname());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());*/
-
-                //usu.setImagen(usu1.getImagen());
-
                 //IniciarAplicacion(usu);
-
-
             }
         }
     }

@@ -6,7 +6,7 @@ public class Medico implements Serializable {
 
     private final static Medico medico=new Medico();
     private int id;
-    private String nickname;
+    private String colegiado;
     private String password;
     private String telefono;
     private String nombre;
@@ -24,10 +24,10 @@ public class Medico implements Serializable {
     }
 
     // Constructor con parámetros
-    public Medico(int id, String nickname, String password, String telefono, String nombre, String apellidos) {
+    public Medico(int id, String colegiado, String password, String telefono, String nombre, String apellidos) {
 
         this.id = id;
-        this.nickname = nickname;
+        this.colegiado = colegiado;
         this.password = password;
         this.telefono = telefono;
         this.nombre = nombre;
@@ -51,12 +51,12 @@ public class Medico implements Serializable {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getColegiado() {
+        return colegiado;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setColegiado(String colegiado) {
+        this.colegiado = colegiado;
     }
 
     public String getPassword() {

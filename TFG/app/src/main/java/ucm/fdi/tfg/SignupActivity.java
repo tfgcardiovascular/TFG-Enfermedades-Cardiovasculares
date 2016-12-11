@@ -149,7 +149,7 @@ public class SignupActivity extends AppCompatActivity {
                 Medico medico;
                 medico = Medico.getIntsance();
                 medico.setId(usu1.getId());
-                medico.setNickname(usu1.getNickname());
+                medico.setColegiado(usu1.getColegiado());
                 medico.setNombre(usu1.getNombre());
                 medico.setApellidos(usu1.getApellidos());
                 medico.setTelefono(usu1.getTelefono());
