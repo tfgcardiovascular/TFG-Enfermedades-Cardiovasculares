@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "25.0.1"
+
     defaultConfig {
         applicationId "ucm.fdi.tfg"
         minSdkVersion 15
@@ -26,5 +27,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile files ('libs/mysql-connector-java-3.0.17-ga-bin.jar')
+    //compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    //compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.4'
+    //compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.4'
+    //compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
     testCompile 'junit:junit:4.12'
 }

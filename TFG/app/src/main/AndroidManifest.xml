@@ -19,7 +19,10 @@
         <activity
             android:name=".SignupActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".DisplayMessageActivity"></activity>
+        <activity android:name=".InicioActivity"></activity>
+        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity android:name=".Main_MenuActivity"></activity>
     </application>
 
 </manifest>
