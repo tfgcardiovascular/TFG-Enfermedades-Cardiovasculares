@@ -238,7 +238,7 @@ public class SignupActivity extends AppCompatActivity {
                 System.out.println("phoenix blue");
 
                 // Enter URL address where your php file resides
-                url = new URL("http://192.168.1.199:8888/php/SignUp.php");//192.168.1.17:8888
+                url = new URL("http://147.96.114.47:8888/php/SignUp.php");//192.168.1.17:8888
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
