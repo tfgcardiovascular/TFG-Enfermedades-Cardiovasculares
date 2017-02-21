@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DAOCardiovascular {
 
     private static final DAOCardiovascular dao = new DAOCardiovascular();
-    private String IP = "192.168.56.1:3306";
+    private String IP = "192.168.1.199:3306"; //10.0.2.2
     private String baseDatos = "/cardiovascular";
     private String usbd = "root";
     private String contbd = "";
@@ -32,14 +32,14 @@ public class DAOCardiovascular {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://"+IP+baseDatos,  usbd, contbd);
 
-            String peticion = "select * from usuario WHERE nombre= ? AND password = ?";
+            //conn.setConnectTimeout(50);
+
+            String peticion = "select * from medico WHERE nombre= ? AND password = ?";
             PreparedStatement consulta = conn.prepareStatement(peticion);
             System.out.println("Conexion establecida");
             consulta.setString(1,usun);
             consulta.setString(2,cont);
             ResultSet result = consulta.executeQuery();
-
-            System.out.println( "phoenix shadow");
 
             if (result != null) {
                 if (!result.next()) {
@@ -48,14 +48,11 @@ public class DAOCardiovascular {
                 } else {
                     usu= new Medico();
                     usu.setId(result.getInt("id"));
-                    usu.setNickname(result.getString("nickname"));
+                    usu.setColegiado(result.getString("colegiado"));
                     usu.setNombre(result.getString("nombre"));
                     usu.setApellidos(result.getString("apellidos"));
                     usu.setTelefono(result.getString("telefono"));
                     usu.setPassword(result.getString("password"));
-
-                    System.out.println( "phoenix chaos");
-
 
                     /*Blob bl=result.getBlob("imagen");
                     if(bl!=null){

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
+
+    <Button android:id="@+id/button_autores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_autores"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/button_empezar"
+        android:layout_alignStart="@+id/button_empezar" />
+
+    <Button android:id="@+id/button_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_intro"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/button_autores"
+        android:layout_alignLeft="@+id/button_autores"
+        android:layout_alignStart="@+id/button_autores"/>
+
+    <Button android:id="@+id/button_empezar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_start"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_above="@+id/button_intro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+
+    <ImageView android:src="@mipmap/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_gravity="center_horizontal"
+
+        android:contentDescription="@string/imagen_logo"
+        android:layout_above="@+id/button_empezar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="73dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginLeft="93dp"
+        android:layout_marginRight="93dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginEnd="93dp"/>
+
+</RelativeLayout>

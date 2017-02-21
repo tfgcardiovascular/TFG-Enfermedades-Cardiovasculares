@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"><![CDATA[
+
+
+        //android:layout_below="@+id/category" />
+        //android:layout_toRightOf="@+id/imageView4"
+        //android:layout_toEndOf="@+id/imageView4" />
+
+    //android:layout_toRightOf="@+id/imageView4"
+        //android:layout_toEndOf="@+id/imageView4" />
+
+
+
+    ]]>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mail"
+        android:id="@+id/mail"
+        android:textSize="15sp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/nombre"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/nombre"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/mail"
+        android:layout_alignBottom="@+id/mail"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Colegiado"
+        android:id="@+id/colegiado"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!--<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/imageView4"
+        android:cropToPadding="false"
+        android:src="@drawable/iniciocomillas"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/texto"
+        android:maxHeight="35dp"
+        android:maxWidth="74dp"
+        android:adjustViewBounds="true" /> -->
+
+</RelativeLayout>

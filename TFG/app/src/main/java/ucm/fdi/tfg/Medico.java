@@ -6,11 +6,13 @@ public class Medico implements Serializable {
 
     private final static Medico medico=new Medico();
     private int id;
-    private String nickname;
+    private String colegiado;
     private String password;
     private String telefono;
     private String nombre;
     private String apellidos;
+    private String mail;
+    private String rol;
     //private byte[] imagen;
 
     public static final Medico getIntsance(){
@@ -24,14 +26,16 @@ public class Medico implements Serializable {
     }
 
     // Constructor con parámetros
-    public Medico(int id, String nickname, String password, String telefono, String nombre, String apellidos) {
+    public Medico(int id, String colegiado, String password, String telefono, String nombre, String apellidos, String mail, String rol) {
 
         this.id = id;
-        this.nickname = nickname;
+        this.colegiado = colegiado;
         this.password = password;
         this.telefono = telefono;
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.mail = mail;
+        this.rol = rol;
     }
 
     // Getters and setters
@@ -51,12 +55,12 @@ public class Medico implements Serializable {
         this.id = id;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getColegiado() {
+        return colegiado;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setColegiado(String colegiado) {
+        this.colegiado = colegiado;
     }
 
     public String getPassword() {
@@ -90,4 +94,21 @@ public class Medico implements Serializable {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {this.mail = mail;}
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+
+
 }

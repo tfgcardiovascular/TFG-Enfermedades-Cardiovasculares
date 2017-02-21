@@ -1,16 +1,32 @@
 <resources>
     <string name="app_name">Enfermedades Cardiovasculares</string>
+
     <string name="edit_message_User">Usuario</string>
     <string name="edit_message_Password">Contraseña</string>
     <string name="edit_check_contraseña">¿Mostrar contraseña?</string>
+
     <string name="button_login">Iniciar sesión</string>
     <string name="button_signup">Registrate</string>
     <string name="button_login2">Ya tienes cuenta? Inicia sesión</string>
     <string name="button_create">Crear cuenta</string>
+
     <string name="edit_message_Name">Nombre</string>
     <string name="edit_message_Surname">Apellidos</string>
     <string name="edit_message_Number">Nº Colegiado</string>
     <string name="edit_message_Telephone">Telefono</string>
     <string name="edit_message_Email">Mail</string>
+
+    <string name="button_intro">Introducción</string>
+    <string name="button_autores">Sobre nosotros</string>
+    <string name="button_start">Comenzar</string>
+    <string name="imagen_logo">Comenzar</string>
+
+    <string name="button_new_patient">Nuevo registro</string>
+    <string name="button_patients">Pacientes guardados</string>
+    <string name="button_algorithms">Algorítmos Dx</string>
+    <string name="button_drugs">Fármacos</string>
+
+    <string name="button_validate">Validar</string>
+    <string name="button_refused">Rechazar</string>
 </resources>
 

@@ -2,15 +2,28 @@ package ucm.fdi.tfg;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -21,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText user_text;
     private EditText password_text;
     private CheckBox opcionMostrar;
+
+    // CONNECTION_TIMEOUT and READ_TIMEOUT are in milliseconds
+
+    public static final int CONNECTION_TIMEOUT=10000;
+    public static final int READ_TIMEOUT=15000;
+    private String url_usuario = "http://localhost:8888/android_connect/Usuario.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,33 +71,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /** Called when the user clicks the Send button */
-    /*public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message_User);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-    }*/
-
-    public void logIn (View view){
+      public void logIn (View view){
 
         if (!validate()) {
             onLoginFailed();
             return;
         }
 
-        LogIn_Button.setEnabled(false);
+        //LogIn_Button.setEnabled(false);
 
-        final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this,
-                R.style.AppTheme);
-        //PENDIENTE!!!
-        progressDialog.setMessage("Autenticando...");
-        progressDialog.setIndeterminate(false);
-        progressDialog.show();
+       // final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this,
+           //     R.style.AppTheme);
 
+        // Get info
         String user = user_text.getText().toString();
         String password = password_text.getText().toString();
+
+        // Function to do the login
+        new AsyncLogin().execute( user,password);
+
+        /*
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
@@ -92,14 +104,204 @@ public class MainActivity extends AppCompatActivity {
 
         new SelectInicio().execute(user, password);
 
+        */
     }
 
-    public void onLoginSuccess() {
-        LogIn_Button.setEnabled(true);
-        finish();
+    private class AsyncLogin extends AsyncTask<String, String, Medico>{
+
+        ProgressDialog pdLoading = new ProgressDialog(MainActivity.this);
+        HttpURLConnection conn;
+        URL url = null;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            //this method will be running on UI thread
+            pdLoading.setMessage("\tLoading...");
+            pdLoading.setCancelable(false);
+            pdLoading.show();
+        }
+
+        @Override
+        protected Medico doInBackground(String... params) {
+            try {
+                // Enter URL address where your php file resides
+                url = new URL("http://192.168.1.199:8888/php/login.php");//192.168.1.199:8888
+
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+               // return "exception";
+            }
+            try {
+                // Setup HttpURLConnection class to send and receive data from php and mysql
+                conn = (HttpURLConnection)url.openConnection();
+                conn.setReadTimeout(READ_TIMEOUT);
+                conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                conn.setRequestMethod("POST");
+
+                // setDoInput and setDoOutput method depict handling of both send and receive
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+
+                // Append parameters to URL
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("username", params[0])
+                        .appendQueryParameter("password", params[1]);
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+
+                conn.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return null;
+                //return "exception";
+            }
+
+            try {
+
+                int response_code = conn.getResponseCode();
+
+                // Check if successful connection made
+                if (response_code == HttpURLConnection.HTTP_OK) {
+
+                    // Read data sent from server
+                    InputStream input = conn.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+
+
+                    System.out.println( "phoenix lion" );
+                    System.out.println( reader );
+                    System.out.println( "phoenix falcon" );
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    // New Medico Object
+                    Medico medic = new Medico();
+
+                    ArrayList< String > linePhp = new ArrayList < String > ();
+
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println( "phoenix fox" );
+                        System.out.println( line  );
+                        System.out.println( "phoenix wolf" );
+
+                        linePhp.add( line );
+                        //result.append(line);
+                    }
+
+                    if ( linePhp.size() <= 1 )
+                    {
+
+                        medic = null;
+
+                    }else {
+
+                        // Update medic
+                        medic.setNombre(linePhp.get(0));
+                        medic.setApellidos(linePhp.get(1));
+                        medic.setTelefono(linePhp.get(2));
+                        medic.setPassword(linePhp.get(3));
+                        medic.setColegiado(linePhp.get(4));
+                        medic.setMail(linePhp.get(5));
+                        medic.setRol(linePhp.get(6));
+                    }
+
+                    // Pass data to onPostExecute method
+                    return medic;
+                    //return(result.toString());
+
+                }else{
+                    return null;
+                    //return("unsuccessful");
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+               // return "exception";
+            } finally {
+                conn.disconnect();
+            }
+        }
+
+
+
+       // @Override
+        protected void onPostExecute(Medico result) {
+
+            // Check obtained result
+
+            //this method will be running on UI thread
+            System.out.println( "Phoenix blue wave");
+            System.out.println( result );
+            System.out.println( "Phoenix alter ego");
+
+            pdLoading.dismiss();
+
+            if ( result != null ) {
+                //if(result.equalsIgnoreCase("true")){
+                /* Here launching another activity when login successful. If you persist login state
+                use sharedPreferences of Android. and logout button to clear sharedPreferences.
+                 */
+
+                // Clear the fields
+                user_text.getText().clear();
+                password_text.getText().clear();
+
+                // Restaurar cursor
+                user_text.requestFocus();
+//Aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii!!
+                // Change frame
+                Intent intent = new Intent(MainActivity.this, ValidateActivity.class);
+
+                // Medico -> Menu Inicio
+                if (result.getRol() == "1") {
+
+                    intent = new Intent(MainActivity.this, InicioActivity.class);
+
+                    // Admin -> Menú admin
+                } else if (result.getRol() == "0"){
+
+                    intent = new Intent(MainActivity.this, ValidateActivity.class);
+                }
+
+                // Start new frame
+                startActivity(intent);
+
+                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
+                //String message = editText.getText().toString();
+                //intent.putExtra(EXTRA_MESSAGE, message);
+
+               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
+                startActivity(intent);
+                MainActivity.this.finish();*/
+
+            }else{
+            //if (result.equalsIgnoreCase("false")){
+                onLoginFailed();
+                // If username and password does not match display a error message
+                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
+
+            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
+                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
+            }*/
+        }
     }
 
-    public void onLoginFailed() {
+    public void onLoginFailed(){
         Toast.makeText(getBaseContext(), "Login incorrecto", Toast.LENGTH_LONG).show();
         LogIn_Button.setEnabled(true);
     }
@@ -111,14 +313,18 @@ public class MainActivity extends AppCompatActivity {
         String password = password_text.getText().toString();
 
        // if (user.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(user).matches()) {
-        if (user.isEmpty()){
-            user_text.setError("Introduce un usuario correcto");
+
+        // Validate user
+        if ( user.isEmpty() || user.length() != 9 ){
+            user_text.setError("Introduce un Nº Colegiado correcto (9 cifras numéricas)");
             valid = false;
         } else {
             user_text.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 0 || password.length() > 10) {
+
+        // Validate Password
+        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
             password_text.setError("Introduce entre 4 y 10 carácteres alfanumericos");
             valid = false;
         } else {
@@ -126,74 +332,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return valid;
-    }
-
-    private class SelectInicio extends AsyncTask<String,Void,Medico> {
-
-        @Override
-        protected Medico doInBackground(String... strings) {
-
-            System.out.println("phoenix dark");
-
-
-            return DAOCardiovascular.getInstance().login(strings[0],strings[1]);
-        }
-
-        @Override
-        protected void onPostExecute(Medico usu1) {
-
-            System.out.println("phoenix light");
-
-            if (usu1==null) {
-
-
-                System.out.println("phoenix rainbow");
-                /*if(primero){
-                    //inicializarVentana();
-                }else {*/
-                Toast toast =
-                        Toast.makeText(getApplicationContext(),
-                                "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                toast.show();
-
-               /* Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-                EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);*/
-                //}
-            } else {
-
-                System.out.println("phoenix fire");
-                Medico medico;
-                medico = Medico.getIntsance();
-                System.out.println( medico.getNombre());
-                System.out.println("phoenix");
-
-                Intent intent = new Intent(MainActivity.this, DisplayMessageActivity.class);
-                EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);
-
-                System.out.println("phoenix ice");
-
-                /*Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setNickname(usu1.getNickname());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());*/
-
-                //usu.setImagen(usu1.getImagen());
-
-                //IniciarAplicacion(usu);
-
-
-            }
-        }
     }
 
     public void mostrarContraseña(View v){
