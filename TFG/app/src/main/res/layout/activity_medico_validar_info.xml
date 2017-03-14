@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/listPreferredItemHeight"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="8dp">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button android:id="@+id/button_validar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_validate"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="360dp"/>
+
+    <Button android:id="@+id/button_rechazar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_refused"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="425dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Número Colegiado: "
+        android:id="@+id/numero_colegiado"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Colegiado"
+        android:id="@+id/colegiado"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_alignBaseline="@+id/numero_colegiado"
+        android:layout_alignBottom="@+id/numero_colegiado"
+        android:layout_toRightOf="@+id/numero_colegiado"
+        android:layout_toEndOf="@+id/numero_colegiado" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Telefono: "
+        android:id="@+id/numero_telefono"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="200dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Telefono"
+        android:id="@+id/telefono"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignBaseline="@+id/numero_telefono"
+        android:layout_alignBottom="@+id/numero_telefono"
+        android:layout_alignLeft="@+id/mail"
+        android:layout_alignStart="@+id/mail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mail: "
+        android:id="@+id/email"
+        android:textSize="18sp"
+        android:textColor="@color/colorText"
+        android:layout_marginTop="150dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Mail"
+        android:id="@+id/mail"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignBaseline="@+id/email"
+        android:layout_alignBottom="@+id/email"
+        android:layout_alignLeft="@+id/apellidos"
+        android:layout_alignStart="@+id/apellidos" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: "
+        android:textColor="@color/colorText"
+        android:id="@+id/name"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/nombre"
+        android:textSize="18sp"
+        android:layout_below="@+id/colegiado"
+        android:layout_alignLeft="@+id/colegiado"
+        android:layout_alignStart="@+id/colegiado" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellidos: "
+        android:textColor="@color/colorText"
+        android:id="@+id/surname"
+        android:textSize="18sp"
+        android:layout_marginTop="100dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellidos"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/apellidos"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/surname"
+        android:layout_alignBottom="@+id/surname"
+        android:layout_alignLeft="@+id/nombre"
+        android:layout_alignStart="@+id/nombre" />
+
+</RelativeLayout>

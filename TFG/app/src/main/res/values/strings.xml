@@ -28,5 +28,35 @@
 
     <string name="button_validate">Validar</string>
     <string name="button_refused">Rechazar</string>
+
+    <string name="button_refused_all">Eliminar todos</string>
+
+    <string name="button_add">Añadir</string>
+
+    <string name="button_save">Guardar cambios</string>
+    <string name="button_delete">Eliminar paciente</string>
+
+    <string name="button_diabetes">Tratamineto diabetes</string>
+    <string name="button_colesterol">Tratamiento colesterol</string>
+    <string name="button_riesgo">Calcular riesgo cardiovascular</string>
+
+    <string name="button_col_total">Col Total</string>
+    <string name="button_col_HDL">Col HDL</string>
+    <string name="button_calcular_HTA">Calcular HTA</string>
+    <string name="button_calcular_IMC">Calcular IMC</string>
+    <string name="button_calcular_riesgo_cardiovascular">Calcular Riesgo</string>
+
+    <string name="button_calcular_diabetes">Calcular Diabetes</string>
+    <string name="button_calcular_icm">Calcular IMC</string>
+    <string name="button_calcular_hta">Calcular HTA</string>
+    <string name="button_calcular_tabaquismo">Calcular Tabaquismo</string>
+
+    <string name="button_pacientes_guardados">Pacientes</string>
+    <string name="button_medicos_guardados">Médicos</string>
+
+
+
+
+
 </resources>
 

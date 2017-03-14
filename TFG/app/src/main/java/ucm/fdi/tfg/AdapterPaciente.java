@@ -11,11 +11,11 @@ import java.util.List;
 
 
 //public class AdapterCategory extends BaseAdapter {
-public class AdapterCategory extends ArrayAdapter <Medico> {
+public class AdapterPaciente extends ArrayAdapter <Paciente> {
 
 
     //public AdapterCategory (Activity activity, ArrayList<Category> items) {
-    public AdapterCategory( Context activity, List< Medico > objects )
+    public AdapterPaciente(Context activity, List< Paciente > objects )
     {
 
 
@@ -60,19 +60,19 @@ public class AdapterCategory extends ArrayAdapter <Medico> {
         LayoutInflater inf = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (null == convertView) {
-            convertView = inf.inflate(R.layout.activity_item_category, parent, false);
+            convertView = inf.inflate(R.layout.activity_item_paciente, parent, false);
         }
 
-        Medico dir = getItem(position);
+        Paciente dir = getItem(position);
 
-        TextView nombre = (TextView) convertView.findViewById(R.id.nombre);
-        nombre.setText(dir.getNombre());
+        TextView paciente = (TextView) convertView.findViewById(R.id.paciente);
+        paciente.setText(dir.getId());
 
-        TextView colegiado = (TextView) convertView.findViewById(R.id.colegiado);
-        colegiado.setText(dir.getColegiado());
+        TextView sexo = (TextView) convertView.findViewById(R.id.height);
+        sexo.setText(dir.getSexo());
 
-        TextView mail = (TextView) convertView.findViewById(R.id.mail);
-        mail.setText(dir.getMail());
+        TextView edad = (TextView) convertView.findViewById(R.id.weight);
+        edad.setText(dir.getEdad());
 
         //ImageView imagen = (ImageView) v.findViewById(R.id.imageView);
         //imagen.setImageDrawable(dir.getImage());

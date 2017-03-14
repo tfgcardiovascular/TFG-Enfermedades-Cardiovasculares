@@ -1,12 +1,8 @@
 package ucm.fdi.tfg;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -15,16 +11,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 
 //import java.util.ArrayList;
 
-public class ValidateActivity extends AppCompatActivity{
+public class AdminPacientesActivity extends AppCompatActivity{
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
-    private static final String TAG = "ValidateActivity";
+    private static final String TAG = "MisPacientesActivity";
     private ListView mListView;
     private Button Validar_Button;
     private Button Rechazar_Button;
@@ -38,7 +33,6 @@ public class ValidateActivity extends AppCompatActivity{
         startActivity(intent);
 
     }
-
 
     protected void onResume(){
 
@@ -58,7 +52,7 @@ public class ValidateActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         //Crear lista
-        setContentView(R.layout.activity_validar);
+        setContentView(R.layout.activity_lista_paciente);
 
         System.out.println( "2" );
         // Get the medics from the database
@@ -74,15 +68,15 @@ public class ValidateActivity extends AppCompatActivity{
        // setSupportActionBar(toolbar);
 
 
-        //FragmentCategory leadsFragment = (FragmentCategory)
+        //FragmentPaciente leadsFragment = (FragmentPaciente)
                 //getSupportFragmentManager().findFragmentById(R.id.category_container);
 
-        FragmentCategory leadsFragment = (FragmentCategory)
+        FragmentPaciente leadsFragment = (FragmentPaciente)
                 getSupportFragmentManager().findFragmentById(R.id.leads_container);
 
 
         if (leadsFragment == null) {
-            leadsFragment = FragmentCategory.newInstance();
+            leadsFragment = FragmentPaciente.newInstance();
             //leadsFragment.onCreateView( R.id.category_container, android.R.layout.simple_list_item_1, false );
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.leads_container, leadsFragment)

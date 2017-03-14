@@ -233,18 +233,10 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
 
-            try {
+            url = DAOCardiovascular.getInstance().getUrl( "SignUp.php" );
 
-                System.out.println("phoenix blue");
 
-                // Enter URL address where your php file resides
-                url = new URL("http://192.168.1.199:8888/php/SignUp.php");//192.168.1.17:8888
 
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                //return "exception";
-            }
             try {
 
                 System.out.println("phoenix white");

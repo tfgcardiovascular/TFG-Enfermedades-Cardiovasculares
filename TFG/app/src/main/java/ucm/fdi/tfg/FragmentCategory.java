@@ -1,10 +1,19 @@
 package ucm.fdi.tfg;
 
-
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,77 +22,234 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-public class DAOCardiovascular {
+public class FragmentCategory extends Fragment {
 
-    private static DAOCardiovascular dao = new DAOCardiovascular();
-    private String IP = "192.168.1.199:3306"; //10.0.2.2
-    private String baseDatos = "/cardiovascular";
-    private String usbd = "root";
-    private String contbd = "";
-
-
-    private Medico loggedUser;
+    private ListView mLeadsList;
+    private AdapterCategory mLeadsAdapter;
 
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
 
-    private DAOCardiovascular() {
+
+
+    public FragmentCategory() {
+        // Required empty public constructor
+    }
+
+    public static FragmentCategory newInstance(/*parámetros*/) {
+        FragmentCategory fragment = new FragmentCategory();
+        // Setup parámetros
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            // Gets parámetros
+        }
+    }
+
+    @Override
+    public void onResume()
+    {
+
+
+        super.onResume();
+
+        System.out.println( "umbrah phoenix" );
+        System.out.println( "fulgor phoenix" );
+
+        new AsyncMedicValidate().execute( null, null );
+        System.out.println( "hope phoenix" );
+
+        update();
+        System.out.println( "despair phoenix" );
+
 
 
     }
 
-    public void setLoggedUser( Medico medic )
-    {
 
-        loggedUser = medic;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.activity_fragment_category, container, false);
 
+        System.out.println( "prueba onCreateView" );
+        System.out.println( inflater );
+        System.out.println( container );
+        System.out.println( savedInstanceState );
+        System.out.println( R.id.leads_list );
+        System.out.println( root );
+
+        // Instancia del ListView.
+        mLeadsList = (ListView) root.findViewById(R.id.leads_list);
+
+        //Inicializar lista
+        /*List<Category> category = new ArrayList<>();
+
+        category.add ( new Category ( "1", "Ricardo Cajigas", "555555555", "ricardo@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
+        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );*/
+
+        mLeadsAdapter = new AdapterCategory(getActivity(),
+                LeadsRepository.getInstance().getCategorys());
+
+        System.out.println( "Black clock" );
+        System.out.println( getActivity() );
+        System.out.println( LeadsRepository.getInstance().getCategorys() );
+
+        System.out.println( "system panther jungle");
+        System.out.println( mLeadsAdapter );
+        System.out.println( mLeadsList );
+
+        //Relacionando la lista con el adaptador
+        mLeadsList.setAdapter(mLeadsAdapter);
+
+        System.out.println( "wolf of the dark moon" );
+        // Update with the database
+        new AsyncMedicValidate().execute( null, null );
+        update();
+
+
+        /*System.out.println( "Black clock" );
+        System.out.println( getActivity() );
+        System.out.println( category );
+
+
+        // Inicializar el adaptador con la fuente de datos.
+        mLeadsAdapter = new AdapterCategory( getActivity(), category);
+
+        System.out.println( "system panther jungle");
+        System.out.println( mLeadsAdapter );
+        System.out.println( mLeadsList );
+
+        //Relacionando la lista con el adaptador
+        mLeadsList.setAdapter(mLeadsAdapter);*/
+
+        System.out.println( "wolf of the light moon" );
+
+
+        // Eventos
+        mLeadsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Medico currentLead = mLeadsAdapter.getItem(position);
+                Toast.makeText(getActivity(),
+                        "Vista detalle para: " + currentLead.getNombre(),
+                        Toast.LENGTH_SHORT).show();
+
+
+                Intent intent = new Intent(getActivity(), MedicoValidarActivity.class);
+                intent.putExtra( "medic", currentLead);
+               // intent.putExtra("colegiado", currentLead.getColegiado());
+                startActivity(intent);
+            }
+        });
+
+        setHasOptionsMenu(true);
+        return root;
     }
 
-    public Medico getLoggedUser(  )
-    {
-
-        return loggedUser;
-
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.activity_menu_category_list, menu);
     }
 
-    public URL getUrl( String phpFile )
-    {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        URL url = null;
-        String dir = "http://147.96.126.127:8888/php/" + phpFile;
 
-        try {
+        int id = item.getItemId();
 
-            url = new URL( dir );
+        if (id == R.id.action_delete_all) {
+            System.out.println( "devil phoenix" );
+            // Eliminar todos los leads
+            mLeadsAdapter.clear();
+           /* ArrayList<Medico> result = new ArrayList<>();
+            Medico medic = new Medico( "35346", "345436346", "s", "35", "pegaso", "fgdsdfdsf",  "sdgasdgasad@gmail", "1" );
+            result.add( medic );
 
-        } catch (MalformedURLException e) {
 
-            e.printStackTrace();
+            // Let LeadsRepository know the result
+            System.out.println( "phoenix artic ");
+            System.out.println( LeadsRepository.getInstance().getCategorys() );
+           LeadsRepository.getInstance().saveMedicList( result );
+            System.out.println( LeadsRepository.getInstance().getCategorys() );
+            System.out.println( "phoenix antartic" );
 
+           // medic = new Medico( "35346", "345436346", "s", "35", "fire phoenix", "fgdsdfdsf",  "sdgasdgasad@gmail", "1" );
+           // LeadsRepository.getInstance().saveCategory( medic );
+
+            System.out.println( "god phoenix" );
+
+            update();*/
+            return true;
         }
 
-        return url;
+        return super.onOptionsItemSelected(item);
     }
 
-
-
-
-    public String prueba()
+    public void update()
     {
-        return "PHOENIX";
+       // mLeadsAdapter.clear();
+        mLeadsAdapter.notifyDataSetChanged();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     // Get all the medics to validate on the database
-    public class AsyncMedicValidate extends AsyncTask<   String, String,  ArrayList<Medico> > {
+    private class AsyncMedicValidate extends AsyncTask<   String, String,  ArrayList<Medico> > {
 
         HttpURLConnection conn;
         URL url = null;
@@ -95,15 +261,9 @@ public class DAOCardiovascular {
 
         @Override
         protected ArrayList<Medico> doInBackground(String... params) {
-            try {
-                // Enter URL address where your php file resides
-                url = new URL("http://147.96.164.247:8888/php/getMedicValidate.php");//192.168.1.199:8888
 
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                // return "exception";
-            }
+            url = DAOCardiovascular.getInstance().getUrl( "getMedicValidate.php" );
+
             try {
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection)url.openConnection();
@@ -172,7 +332,7 @@ public class DAOCardiovascular {
 
                         linePhp.add( line );
 
-                        if ( linePhp.size() == 6 )
+                        if ( linePhp.size() == 7 )
                         {
 
                             // Create medic Object
@@ -185,6 +345,7 @@ public class DAOCardiovascular {
                             medic.setPassword(linePhp.get(3));
                             medic.setColegiado(linePhp.get(4));
                             medic.setMail(linePhp.get(5));
+                            medic.setId(linePhp.get(6));
 
                             // Update Medic ArrayList
                             medicPhp.add( medic );
@@ -243,12 +404,14 @@ public class DAOCardiovascular {
 
                 System.out.println( "phoenix de hielo y storm" );
                 System.out.println( LeadsRepository.getInstance().getCategorys() );
+                update();
 
-               // Class<? extends Activity> activityClass;
-               // activityClass = ValidateActivity.class;
 
-              //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-               // startActivity(intent);
+                // Class<? extends Activity> activityClass;
+                // activityClass = ValidateActivity.class;
+
+                //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
+                // startActivity(intent);
 
 
 
@@ -309,9 +472,6 @@ public class DAOCardiovascular {
 
 
 
-    public static DAOCardiovascular getInstance() {
-        return dao;
-    }
 
     /*
 
@@ -363,4 +523,7 @@ public class DAOCardiovascular {
         }
         return null;
     }*/
+
+
+
 }

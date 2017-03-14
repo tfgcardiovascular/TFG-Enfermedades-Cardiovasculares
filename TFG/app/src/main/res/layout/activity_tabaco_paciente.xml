@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button android:id="@+id/button_calcular_tabaco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_calcular_tabaquismo"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:layout_below="@+id/años"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/identificacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Identificacion"
+        android:id="@+id/id"
+        android:textSize="18sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="113dp"
+        android:layout_marginEnd="113dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Cantidad diaria:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="70dp"/>
+
+    <EditText
+        android:id="@+id/cantidadData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="aprox"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/cantidad"
+        android:layout_alignBottom="@+id/cantidad"
+        android:layout_alignLeft="@+id/id"
+        android:layout_alignStart="@+id/id" />
+
+    <TextView
+        android:id="@+id/años"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/cantidad"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Años adicción:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/añosData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="aprox"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/años"
+        android:layout_alignBottom="@+id/años"
+        android:layout_alignLeft="@+id/cantidadData"
+        android:layout_alignStart="@+id/cantidadData" />
+
+
+
+
+
+</RelativeLayout>

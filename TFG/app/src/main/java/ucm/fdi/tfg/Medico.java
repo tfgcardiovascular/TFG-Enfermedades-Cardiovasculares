@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Medico implements Serializable {
 
     private final static Medico medico=new Medico();
-    private int id;
+    private String id;
     private String colegiado;
     private String password;
     private String telefono;
@@ -26,7 +26,7 @@ public class Medico implements Serializable {
     }
 
     // Constructor con parámetros
-    public Medico(int id, String colegiado, String password, String telefono, String nombre, String apellidos, String mail, String rol) {
+    public Medico(String id, String colegiado, String password, String telefono, String nombre, String apellidos, String mail, String rol) {
 
         this.id = id;
         this.colegiado = colegiado;
@@ -47,11 +47,11 @@ public class Medico implements Serializable {
         this.imagen = imagen;
     }*/
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -107,6 +107,19 @@ public class Medico implements Serializable {
 
     public void setRol(String rol) {
         this.rol = rol;
+    }
+
+    @Override
+    public String toString() {
+        return "Medico{" +
+                "ID='" + id + '\'' +
+                ", colegiado='" + colegiado + '\'' +
+                ", Nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", password='" + password + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", mail='" + mail + '\'' +
+                '}';
     }
 
 

@@ -7,7 +7,7 @@
     android:weightSum="1"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="ucm.fdi.tfg.ValidateActivity">
+    tools:context="ucm.fdi.tfg.MisPacientesActivity">
 
     <!--<android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
     </android.support.design.widget.AppBarLayout>
 -->
 
-    <include layout="@layout/activity_category_container"/>
+    <include layout="@layout/activity_paciente_container"/>
 
 </LinearLayout>
 

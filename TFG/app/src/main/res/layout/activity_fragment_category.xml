@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="8dp"
+    tools:context="ucm.fdi.tfg.FragmentCategory">
+
+    <ListView
+        android:id="@+id/leads_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawSelectorOnTop="true"
+        android:divider="@null"
+        android:listSelector="@drawable/item_list_indicator"
+        tools:listitem="@layout/activity_item_category"/>
+
+
+
+</FrameLayout>

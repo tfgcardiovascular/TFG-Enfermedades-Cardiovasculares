@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button android:id="@+id/button_calcular_tabaco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_calcular_icm"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:layout_below="@+id/weight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/identificacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Identificacion"
+        android:id="@+id/id"
+        android:textSize="18sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Altura:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="70dp"/>
+
+    <EditText
+        android:id="@+id/heightData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Altura"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/height"
+        android:layout_alignBottom="@+id/height"
+        android:layout_alignLeft="@+id/id"
+        android:layout_alignStart="@+id/id" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Peso:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/añosData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Peso"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/weight"
+        android:layout_alignBottom="@+id/weight"
+        android:layout_alignLeft="@+id/heightData"
+        android:layout_alignStart="@+id/heightData" />
+
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="RESULTADO:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/button_calcular_tabaco"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/resultData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/result"
+        android:layout_alignBottom="@+id/result"
+        android:layout_alignLeft="@+id/añosData"
+        android:layout_alignStart="@+id/añosData" />
+
+    <TextView
+        android:id="@+id/clasifData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/resultData"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

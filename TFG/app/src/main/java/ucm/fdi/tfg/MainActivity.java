@@ -1,6 +1,9 @@
 package ucm.fdi.tfg;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -40,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
     private String url_usuario = "http://localhost:8888/android_connect/Usuario.php";
+
+    public void onBackPressed() {
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,15 +134,9 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Medico doInBackground(String... params) {
-            try {
-                // Enter URL address where your php file resides
-                url = new URL("http://192.168.1.199:8888/php/login.php");//192.168.1.199:8888
 
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-               // return "exception";
-            }
+            url = DAOCardiovascular.getInstance().getUrl( "login.php" );
+
             try {
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection)url.openConnection();
@@ -263,22 +266,32 @@ public class MainActivity extends AppCompatActivity {
 
                 // Restaurar cursor
                 user_text.requestFocus();
-//Aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii!!
+
                 // Change frame
-                Intent intent = new Intent(MainActivity.this, ValidateActivity.class);
+                Class<? extends Activity> activityClass;
+                activityClass = InicioActivity.class;
 
                 // Medico -> Menu Inicio
-                if (result.getRol() == "1") {
+                String i = result.getRol();
+                System.out.println("Llega aqui");
+                System.out.println(i);
 
-                    intent = new Intent(MainActivity.this, InicioActivity.class);
+                // Set logged user
+                DAOCardiovascular.getInstance().setLoggedUser( result );
+
+
+
+                if (i.equals( "1") ) {
+                    activityClass = InicioActivity.class;
 
                     // Admin -> Menú admin
-                } else if (result.getRol() == "0"){
+                } else if (i.equals( "0")){
+                    activityClass = adminActivity.class;
 
-                    intent = new Intent(MainActivity.this, ValidateActivity.class);
                 }
 
                 // Start new frame
+                Intent intent = new Intent(MainActivity.this, activityClass);
                 startActivity(intent);
 
                 //EditText editText = (EditText) findViewById(R.id.edit_message_User);

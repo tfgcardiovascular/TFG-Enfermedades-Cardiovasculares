@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button
+        android:id="@+id/button_diabetes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="57dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/button_calcular_diabetes"
+        android:textColor="@color/colorText" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/identificacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Identificacion"
+        android:id="@+id/id"
+        android:textSize="18sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/spinner_tipo"
+        android:layout_alignStart="@+id/spinner_tipo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Tipo: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/tipo"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/añosData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"/>
+
+    <Spinner
+        android:id="@+id/spinner_tipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tratamiento"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_alignEnd="@+id/radioGroup"
+        android:layout_alignLeft="@+id/resultado_hbac"
+        android:layout_alignStart="@+id/resultado_hbac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Tratamiento: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/tratamiento"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/tipo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp" />
+
+    <Spinner
+        android:id="@+id/spinner2_tratamiento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/hbac"
+        android:layout_alignEnd="@+id/spinner_tipo"
+        android:layout_alignRight="@+id/spinner_tipo"
+        android:layout_alignLeft="@+id/resultado_hbac"
+        android:layout_alignStart="@+id/resultado_hbac" />
+
+    <Spinner
+        android:id="@+id/spinner3_glucosa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/monitor"
+        android:layout_toRightOf="@+id/monitor" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="textPersonName"
+    android:text="HbAc: "
+    android:ems="10"
+    android:textSize="18sp"
+    android:id="@+id/hbac"
+    android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tratamiento"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/resultado_hbac"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/hbac"
+        android:layout_alignBottom="@+id/hbac"
+        android:layout_alignRight="@+id/hbac"
+        android:layout_alignEnd="@+id/hbac" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="textPersonName"
+    android:text="Monitor Continuo Glucosa: "
+    android:ems="10"
+    android:textSize="18sp"
+    android:id="@+id/monitor"
+    android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/hbac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Años Enfermedad: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/años"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/monitor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/años_enfermedad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/años"
+        android:layout_alignBottom="@+id/años"
+        android:layout_alignLeft="@+id/resultado_hbac"
+        android:layout_alignStart="@+id/resultado_hbac"
+        android:layout_toLeftOf="@+id/ultimo"
+        android:layout_toStartOf="@+id/ultimo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Último Fondo de Ojos: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/fondo_ojos"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/años"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/ultimo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_below="@+id/años_enfermedad"
+        android:layout_toRightOf="@+id/fondo_ojos"
+        android:layout_toEndOf="@+id/fondo_ojos" />
+
+
+</RelativeLayout>

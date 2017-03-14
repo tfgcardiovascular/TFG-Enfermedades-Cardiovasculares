@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/button_medicos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="185dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/button_medicos_guardados"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"/>
+
+    <Button
+        android:id="@+id/button_patients"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="@string/button_pacientes_guardados"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

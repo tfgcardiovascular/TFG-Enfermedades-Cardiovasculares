@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button android:id="@+id/button_calcular_tabaco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_calcular_hta"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:layout_below="@+id/diastolica"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/identificacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Identificacion"
+        android:id="@+id/id"
+        android:textSize="18sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/sistolica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sistolica: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:id="@+id/mmHg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mmHg "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/sistolicaData"
+        android:layout_alignBottom="@+id/sistolicaData"
+        android:layout_toRightOf="@+id/sistolicaData"
+        android:layout_toEndOf="@+id/sistolicaData"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
+
+    <TextView
+        android:id="@+id/mmHg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mmHg "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/añosData"
+        android:layout_alignBottom="@+id/añosData"
+        android:layout_alignLeft="@+id/mmHg1"
+        android:layout_alignStart="@+id/mmHg1" />
+
+    <EditText
+        android:id="@+id/sistolicaData"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/sistolica"
+        android:layout_alignBottom="@+id/sistolica"
+        android:layout_alignLeft="@+id/id"
+        android:layout_alignStart="@+id/id" />
+
+    <TextView
+        android:id="@+id/diastolica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Diastolica:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/añosData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/diastolica"
+        android:layout_alignBottom="@+id/diastolica"
+        android:layout_alignLeft="@+id/sistolicaData"
+        android:layout_alignStart="@+id/sistolicaData"
+        android:layout_alignRight="@+id/sistolicaData"
+        android:layout_alignEnd="@+id/sistolicaData" />
+
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="RESULTADO:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/button_calcular_tabaco"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/resultData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/result"
+        android:layout_alignBottom="@+id/result"
+        android:layout_alignLeft="@+id/añosData"
+        android:layout_alignStart="@+id/añosData"
+        android:layout_alignRight="@+id/añosData"
+        android:layout_alignEnd="@+id/añosData" />
+
+
+</RelativeLayout>
