@@ -20,6 +20,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
 public class NuevoPacienteActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
@@ -32,10 +33,12 @@ public class NuevoPacienteActivity extends AppCompatActivity {
     private TextView sexo;
 
     private EditText identificacion;
-    private EditText edad;
+    //private EditText edad;
 
     private RadioButton Masculino;
     private RadioButton Femenino;
+
+    int ageValue;
 
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
@@ -80,11 +83,11 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         Validar = (Button) findViewById(R.id.button_add);
 
         identif = (TextView) findViewById(R.id.identificacion);
-        eda = (TextView) findViewById(R.id.weight);
+        //eda = (TextView) findViewById(R.id.weight);
         sexo = (TextView) findViewById(R.id.height);
 
         identificacion = (EditText) findViewById(R.id.id);
-        edad = (EditText) findViewById(R.id.añosData);
+       // edad = (EditText) findViewById(R.id.diastolicaData);
 
         Masculino = (RadioButton) findViewById(R.id.RB_genero_hombre);
         Femenino = (RadioButton) findViewById(R.id.RB_genero_mujer);
@@ -92,6 +95,9 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         Masculino.setChecked( true );
 
 
+        //edad.setEnabled( false );
+
+        /*identificacion.addTextChangedListener();*/
 
         Validar.setOnClickListener(new View.OnClickListener() {
 
@@ -142,15 +148,21 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         return valid;
     }
 
-    private boolean validatePatient( String id, String age, String sex )
+    private boolean validatePatient( String id, int edad, String sex )
     {
 
         boolean valid = true;
 
+        if ( sex.equals( "N" ) )
+        {
+            Femenino.setError( "El campo sexo es obligatorio" );
+            valid = false;
+        }
 
-        if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
+       // else if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
+        else if ( edad < 0 ){
 
-            edad.setError( "Valor entre 0 y 99" );
+            identificacion.setError( "La fecha introducida es posterior a la actual" );
             valid = false;
         }
 
@@ -179,6 +191,46 @@ public class NuevoPacienteActivity extends AppCompatActivity {
             {
                 identificacion.setError( "el día y el mes no son válidos" );
                 valid = false;
+            }else
+            {
+                Calendar c1 = Calendar.getInstance();
+
+                // Get info current date Happy Birthday!!!
+                int dia = c1.get( Calendar.DATE );
+                int mes = c1.get( Calendar.MONTH ) + 1;
+                int annio = c1.get( Calendar.YEAR );
+
+                System.out.println( "date phoenix" );
+                System.out.println( dia );
+                System.out.println( mes );
+                System.out.println( annio );
+
+                System.out.println( "birth phoenix" );
+                System.out.println( day );
+                System.out.println( month );
+                System.out.println( year );
+
+                // Transform annio
+                annio = annio % 100;
+
+                // Get year
+                if ( annio < year )
+                {
+                    annio = annio + 100;
+                }
+
+                ageValue = annio - year;
+
+                if ( mes < month ){
+
+                    ageValue = ageValue -1;
+                }
+                else if ( dia < day && mes == month )
+                {
+                    ageValue = ageValue -1;
+                }
+
+
             }
 
         }
@@ -190,16 +242,12 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
         // Get data
         String identifier = identificacion.getText().toString();
-        String age = edad.getText().toString();
+        ageValue = 0;
+
+        //String age = edad.getText().toString();
+
 
         String sex = "N";
-
-        if (!validatePatient( identifier, age, sex )) {
-            //onLoginFailed();
-            return;
-        }
-
-
 
         if ( Masculino.isChecked() )
         {
@@ -213,10 +261,19 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
         }
 
+        if (!validatePatient( identifier, ageValue, sex )) {
+            //onLoginFailed();
+            return;
+        }
+
+
+
+
+
         String colegiado = DAOCardiovascular.getInstance().getLoggedUser().getColegiado();
 
         // AsyncTask
-        new NuevoPacienteActivity.RegisterPatient().execute( identifier, age, sex, colegiado );
+        new NuevoPacienteActivity.RegisterPatient().execute( identifier, Integer.toString( ageValue ), sex, colegiado );
 
 
         //LogIn_Button.setEnabled(false);
@@ -423,7 +480,7 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Registrado con éxito", Toast.LENGTH_LONG).show();
 
                 identificacion.getText().clear();
-                edad.getText().clear();
+               // edad.getText().clear();
                 Masculino.setChecked( true );
                 Femenino.setChecked( false );
 

@@ -21,6 +21,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Calendar;
 
 /**
  * Created by PC on 02/03/2017.
@@ -51,6 +52,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
     private String identifier;
     private String sex;
     private String age;
+
+    int ageValue;
 
 
 
@@ -169,6 +172,48 @@ public class PacienteValidarActivity extends AppCompatActivity {
             {
                 identificacion.setError( "el día y el mes no son válidos" );
                 valid = false;
+            }else
+            {
+                Calendar c1 = Calendar.getInstance();
+
+                // Get info current date Happy Birthday!!!
+                int dia = c1.get( Calendar.DATE );
+                int mes = c1.get( Calendar.MONTH ) + 1;
+                int annio = c1.get( Calendar.YEAR );
+
+                System.out.println( "date phoenix" );
+                System.out.println( dia );
+                System.out.println( mes );
+                System.out.println( annio );
+
+                System.out.println( "birth phoenix" );
+                System.out.println( day );
+                System.out.println( month );
+                System.out.println( year );
+
+                // Transform annio
+                annio = annio % 100;
+
+                // Get year
+                if ( annio < year )
+                {
+                    annio = annio + 100;
+                }
+
+                ageValue = annio - year;
+
+                if ( mes < month ){
+
+                    ageValue = ageValue -1;
+                }
+                else if ( dia < day && mes == month )
+                {
+                    ageValue = ageValue -1;
+                }
+
+                edad.setText( Integer.toString( ageValue ) );
+
+
             }
 
         }
@@ -202,7 +247,7 @@ public class PacienteValidarActivity extends AppCompatActivity {
             return false;
         }else
         {
-
+            age = edad.getText().toString();
             return true;
         }
 
@@ -222,7 +267,7 @@ public class PacienteValidarActivity extends AppCompatActivity {
         sexo = (TextView) findViewById(R.id.height);
 
         identificacion = (EditText) findViewById(R.id.id);
-        edad = (EditText) findViewById(R.id.añosData);
+        edad = (EditText) findViewById(R.id.diastolicaData);
 
         Masculino = (RadioButton) findViewById(R.id.RB_genero_hombre);
         Femenino = (RadioButton) findViewById(R.id.RB_genero_mujer);
@@ -252,8 +297,10 @@ public class PacienteValidarActivity extends AppCompatActivity {
         // Set info data
         identificacion.setText( argumentPaciente.getId() );
         edad.setText( argumentPaciente.getEdad() );
+        edad.setEnabled(false);
 
         String sexValue =  argumentPaciente.getSexo();
+
 
         if ( sexValue.equals ( "M" ) )
         {
@@ -517,6 +564,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Error actualizando", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Actualizado con exito")) {
+
+                argumentPaciente.setId( identificacion.getText().toString () );
 
                 Toast.makeText(getBaseContext(), "Actualizado con exito", Toast.LENGTH_LONG).show();
 

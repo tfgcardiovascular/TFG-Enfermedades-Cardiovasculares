@@ -21,11 +21,11 @@
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
         android:layout_marginTop="27dp"
-        android:layout_below="@+id/añosData"
+        android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/añosData"
-        android:layout_alignEnd="@+id/añosData" />
+        android:layout_alignRight="@+id/diastolicaData"
+        android:layout_alignEnd="@+id/diastolicaData" />
 
     <Button android:id="@+id/button_eliminar"
         android:layout_width="match_parent"
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:hint="Edad"
-        android:id="@+id/añosData"
+        android:id="@+id/diastolicaData"
         android:textSize="18sp"
         android:inputType="numberSigned"
         android:maxLength="2"

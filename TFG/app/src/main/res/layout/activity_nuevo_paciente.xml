@@ -12,8 +12,10 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
-        android:layout_below="@+id/weight"
-        android:layout_marginTop="275dp" />
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/height"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +40,7 @@
         android:layout_alignBottom="@+id/identificacion"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
@@ -50,14 +52,14 @@
         android:layout_marginTop="84dp"
         android:layout_below="@+id/id"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" />-->
 
-    <EditText
+    <!--<EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:hint="Edad"
-        android:id="@+id/añosData"
+        android:id="@+id/diastolicaData"
         android:textSize="18sp"
         android:inputType="numberSigned"
         android:maxLength="2"
@@ -65,7 +67,7 @@
         android:layout_alignBaseline="@+id/weight"
         android:layout_alignBottom="@+id/weight"
         android:layout_toLeftOf="@+id/id"
-        android:layout_toStartOf="@+id/id" />
+        android:layout_toStartOf="@+id/id" />-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,7 +78,7 @@
         android:textSize="18sp"
         android:id="@+id/height"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_alignTop="@+id/radioGroup"
+        android:layout_alignBottom="@+id/radioGroup"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -85,10 +87,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/radioGroup"
-        android:layout_marginTop="21dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginEnd="47dp"
         android:layout_below="@+id/id"
-        android:layout_alignLeft="@+id/añosData"
-        android:layout_alignStart="@+id/añosData">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
         <RadioButton
             android:text="Masculino"
             android:textSize="18sp"
@@ -100,12 +104,12 @@
             android:layout_marginEnd="31dp" />
 
         <RadioButton
-            android:text="Femenino"
-            android:textSize="18sp"
-            android:textColor="@color/colorPrimary"
+            android:id="@+id/RB_genero_mujer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/RB_genero_mujer" />
+            android:text="Femenino"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
     </RadioGroup>
 
 

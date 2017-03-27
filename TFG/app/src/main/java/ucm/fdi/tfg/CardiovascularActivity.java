@@ -59,7 +59,7 @@ public class CardiovascularActivity extends AppCompatActivity {
         sexo = (TextView) findViewById(R.id.height);
 
         identificacion = (EditText) findViewById(R.id.id);
-        edad = (EditText) findViewById(R.id.añosData);
+        edad = (EditText) findViewById(R.id.diastolicaData);
 
         Masculino = (RadioButton) findViewById(R.id.RB_genero_hombre);
         Femenino = (RadioButton) findViewById(R.id.RB_genero_mujer);
@@ -108,6 +108,7 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                 // Get data of the patient
                 Intent intent = new Intent(getApplicationContext(), icmActivity.class);
+                intent.putExtra( "paciente", argumentPaciente );
                 startActivity(intent);
             }
         });
@@ -119,6 +120,7 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                 // Get data of the patient
                 Intent intent = new Intent(getApplicationContext(), htaActivity.class);
+                intent.putExtra( "paciente", argumentPaciente );
                 startActivity(intent);
             }
         });
@@ -130,6 +132,7 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                 // Get data of the patient
                 Intent intent = new Intent(getApplicationContext(), tabacoActivity.class);
+                intent.putExtra( "paciente", argumentPaciente );
                 startActivity(intent);
             }
         });

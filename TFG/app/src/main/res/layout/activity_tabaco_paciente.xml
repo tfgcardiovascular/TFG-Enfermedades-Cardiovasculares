@@ -5,7 +5,7 @@
 
     <!-- android:layout_below="@+id/toolbar" -->
 
-    <Button android:id="@+id/button_calcular_tabaco"
+    <Button android:id="@+id/button_calcular_hta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_calcular_tabaquismo"
@@ -58,7 +58,6 @@
         android:id="@+id/cantidadData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="aprox"
         android:inputType="numberSigned"
         android:maxLength="3"
         android:textColor="@color/colorPrimary"
@@ -66,7 +65,25 @@
         android:layout_alignBaseline="@+id/cantidad"
         android:layout_alignBottom="@+id/cantidad"
         android:layout_alignLeft="@+id/id"
-        android:layout_alignStart="@+id/id" />
+        android:layout_alignStart="@+id/id"
+        android:layout_toLeftOf="@+id/paquetes"
+        android:layout_toStartOf="@+id/paquetes" />
+
+    <TextView
+        android:id="@+id/paquetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="paquete(s) "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/cantidad"
+        android:layout_alignBottom="@+id/cantidad"
+        android:layout_toRightOf="@+id/cantidad"
+        android:layout_toEndOf="@+id/cantidad"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp" />
 
     <TextView
         android:id="@+id/años"
@@ -83,10 +100,9 @@
         android:textSize="18sp" />
 
     <EditText
-        android:id="@+id/añosData"
+        android:id="@+id/diastolicaData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="aprox"
         android:inputType="numberSigned"
         android:maxLength="2"
         android:textColor="@color/colorPrimary"
@@ -94,10 +110,66 @@
         android:layout_alignBaseline="@+id/años"
         android:layout_alignBottom="@+id/años"
         android:layout_alignLeft="@+id/cantidadData"
-        android:layout_alignStart="@+id/cantidadData" />
+        android:layout_alignStart="@+id/cantidadData"
+        android:layout_alignRight="@+id/años"
+        android:layout_alignEnd="@+id/años" />
 
+    <TextView
+        android:id="@+id/anios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="año(s)"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_above="@+id/button_calcular_hta"
+        android:layout_alignLeft="@+id/paquetes"
+        android:layout_alignStart="@+id/paquetes" />
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="RESULTADO:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/button_calcular_hta"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
+    <EditText
+        android:id="@+id/resultData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/result"
+        android:layout_alignBottom="@+id/result"
+        android:layout_alignLeft="@+id/diastolicaData"
+        android:layout_alignStart="@+id/diastolicaData"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignRight="@+id/diastolicaData"
+        android:layout_alignEnd="@+id/diastolicaData" />
+
+    <TextView
+        android:id="@+id/clasifData"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultData"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textAllCaps="true"/>
 
 
 </RelativeLayout>

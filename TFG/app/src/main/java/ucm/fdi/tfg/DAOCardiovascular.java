@@ -1,24 +1,7 @@
 package ucm.fdi.tfg;
 
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class DAOCardiovascular {
 
@@ -31,37 +14,68 @@ public class DAOCardiovascular {
 
     private Medico loggedUser;
 
-    public static final int CONNECTION_TIMEOUT=10000;
-    public static final int READ_TIMEOUT=15000;
+    public static final int CONNECTION_TIMEOUT = 10000;
+    public static final int READ_TIMEOUT = 15000;
 
     private DAOCardiovascular() {
 
 
     }
 
-    public void setLoggedUser( Medico medic )
-    {
+
+    public static DAOCardiovascular getInstance() {
+        return dao;
+    }
+
+
+    public void setLoggedUser(Medico medic) {
 
         loggedUser = medic;
 
     }
 
-    public Medico getLoggedUser(  )
-    {
+    public Medico getLoggedUser() {
 
         return loggedUser;
 
     }
 
-    public URL getUrl( String phpFile )
-    {
+
+    public boolean isNumber(String string) {
+
+        if (string == null || string.isEmpty()) {
+            return false;
+
+        }
+
+        int i = 0;
+        if (string.charAt(0) == '-') {
+            if (string.length() > 1) {
+                i++;
+            } else {
+                return false;
+            }
+        }
+
+
+        for (; i < string.length(); i++) {
+            if (!Character.isDigit(string.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.126.127:8888/php/" + phpFile;
+        String dir = "http://147.96.123.148:8888/php/" + phpFile;
 
         try {
 
-            url = new URL( dir );
+            url = new URL(dir);
 
         } catch (MalformedURLException e) {
 
@@ -72,50 +86,66 @@ public class DAOCardiovascular {
         return url;
     }
 
-
-
-
-    public String prueba()
+    public int getReadTimeout()
     {
+        return READ_TIMEOUT;
+    }
+
+    public int getConnectTimeout() {
+        return CONNECTION_TIMEOUT;
+    }
+
+
+    public String prueba() {
         return "PHOENIX";
+    }
+
+}
+
+    /*
+
+    public void beginSaveImc(String pacienteId, String altura, String peso, String imc) {
+        new saveImc().execute(pacienteId, altura, peso, imc);
     }
 
 
 
-    // Get all the medics to validate on the database
-    public class AsyncMedicValidate extends AsyncTask<   String, String,  ArrayList<Medico> > {
 
-        HttpURLConnection conn;
-        URL url = null;
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+        // Get all the medics to validate on the database
+        public class AsyncMedicValidate extends AsyncTask<String, String, ArrayList<Medico>> {
 
-        @Override
-        protected ArrayList<Medico> doInBackground(String... params) {
-            try {
-                // Enter URL address where your php file resides
-                url = new URL("http://147.96.164.247:8888/php/getMedicValidate.php");//192.168.1.199:8888
+            HttpURLConnection conn;
+            URL url = null;
 
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                // return "exception";
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
             }
-            try {
-                // Setup HttpURLConnection class to send and receive data from php and mysql
-                conn = (HttpURLConnection)url.openConnection();
-                conn.setReadTimeout(READ_TIMEOUT);
-                conn.setConnectTimeout(CONNECTION_TIMEOUT);
-                conn.setRequestMethod("POST");
 
-                // setDoInput and setDoOutput method depict handling of both send and receive
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
+            @Override
+            protected ArrayList<Medico> doInBackground(String... params) {
+                try {
+                    // Enter URL address where your php file resides
+                    url = new URL("http://147.96.164.247:8888/php/getMedicValidate.php");//192.168.1.199:8888
 
-                // Append parameters to URL
+                } catch (MalformedURLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                    // return "exception";
+                }
+                try {
+                    // Setup HttpURLConnection class to send and receive data from php and mysql
+                    conn = (HttpURLConnection) url.openConnection();
+                    conn.setReadTimeout(READ_TIMEOUT);
+                    conn.setConnectTimeout(CONNECTION_TIMEOUT);
+                    conn.setRequestMethod("POST");
+
+                    // setDoInput and setDoOutput method depict handling of both send and receive
+                    conn.setDoInput(true);
+                    conn.setDoOutput(true);
+
+                    // Append parameters to URL
                 /*Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("username", params[0])
                         .appendQueryParameter("password", params[1]);
@@ -130,143 +160,136 @@ public class DAOCardiovascular {
                 writer.close();
                 os.close();*/
 
-                conn.connect();
+                   /* conn.connect();
 
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-                return null;
-                //return "exception";
-            }
-
-            try {
-
-                int response_code = conn.getResponseCode();
-
-                // Check if successful connection made
-                if (response_code == HttpURLConnection.HTTP_OK) {
-
-                    // Read data sent from server
-                    InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
-                    StringBuilder result = new StringBuilder();
-                    String line;
-
-                    // New Medico Object
-                    Medico medic = new Medico();
-
-                    ArrayList< String > linePhp = new ArrayList <  > ();
-
-                    ArrayList < Medico > medicPhp = new ArrayList<>();
-
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
-
-                        linePhp.add( line );
-
-                        if ( linePhp.size() == 6 )
-                        {
-
-                            // Create medic Object
-                            medic = new Medico();
-
-                            // Update Medic Object
-                            medic.setNombre(linePhp.get(0));
-                            medic.setApellidos(linePhp.get(1));
-                            medic.setTelefono(linePhp.get(2));
-                            medic.setPassword(linePhp.get(3));
-                            medic.setColegiado(linePhp.get(4));
-                            medic.setMail(linePhp.get(5));
-
-                            // Update Medic ArrayList
-                            medicPhp.add( medic );
-
-                            // Reset linePhp
-                            linePhp.clear();
-
-
-
-                        }
-
-
-                        //result.append(line);
-                    }
-
-                    System.out.println( "simorgh fire" );
-                    System.out.println( medicPhp );
-
-                    // Pass data to onPostExecute method
-                    return medicPhp;
-                    //return(result.toString());
-
-                }else{
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                     return null;
-                    //return("unsuccessful");
+                    //return "exception";
                 }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-                // return "exception";
-            } finally {
-                conn.disconnect();
+                try {
+
+                    int response_code = conn.getResponseCode();
+
+                    // Check if successful connection made
+                    if (response_code == HttpURLConnection.HTTP_OK) {
+
+                        // Read data sent from server
+                        InputStream input = conn.getInputStream();
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+
+                        System.out.println("phoenix lion");
+                        System.out.println(reader);
+                        System.out.println("phoenix falcon");
+                        StringBuilder result = new StringBuilder();
+                        String line;
+
+                        // New Medico Object
+                        Medico medic = new Medico();
+
+                        ArrayList<String> linePhp = new ArrayList<>();
+
+                        ArrayList<Medico> medicPhp = new ArrayList<>();
+
+                        while ((line = reader.readLine()) != null) {
+                            System.out.println("phoenix fox");
+                            System.out.println(line);
+                            System.out.println("phoenix wolf");
+
+                            linePhp.add(line);
+
+                            if (linePhp.size() == 6) {
+
+                                // Create medic Object
+                                medic = new Medico();
+
+                                // Update Medic Object
+                                medic.setNombre(linePhp.get(0));
+                                medic.setApellidos(linePhp.get(1));
+                                medic.setTelefono(linePhp.get(2));
+                                medic.setPassword(linePhp.get(3));
+                                medic.setColegiado(linePhp.get(4));
+                                medic.setMail(linePhp.get(5));
+
+                                // Update Medic ArrayList
+                                medicPhp.add(medic);
+
+                                // Reset linePhp
+                                linePhp.clear();
+
+
+                            }
+
+
+                            //result.append(line);
+                        }
+
+                        System.out.println("simorgh fire");
+                        System.out.println(medicPhp);
+
+                        // Pass data to onPostExecute method
+                        return medicPhp;
+                        //return(result.toString());
+
+                    } else {
+                        return null;
+                        //return("unsuccessful");
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                    // return "exception";
+                } finally {
+                    conn.disconnect();
+                }
             }
-        }
 
 
+            // @Override
+            protected void onPostExecute(ArrayList<Medico> result) {
 
-        // @Override
-        protected void onPostExecute(ArrayList<Medico> result) {
+                // Check obtained result
 
-            // Check obtained result
-
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
-
-
-            //pdLoading.dismiss();
-
-            if ( result != null ) {
-
-                // Let LeadsRepository know the result
-                LeadsRepository.getInstance().saveMedicList( result );
-
-                System.out.println( "phoenix de hielo y storm" );
-                System.out.println( LeadsRepository.getInstance().getCategorys() );
-
-               // Class<? extends Activity> activityClass;
-               // activityClass = ValidateActivity.class;
-
-              //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-               // startActivity(intent);
+                //this method will be running on UI thread
+                System.out.println("Phoenix blue wave");
+                System.out.println(result);
+                System.out.println("Phoenix alter ego");
 
 
+                //pdLoading.dismiss();
+
+                if (result != null) {
+
+                    // Let LeadsRepository know the result
+                    LeadsRepository.getInstance().saveMedicList(result);
+
+                    System.out.println("phoenix de hielo y storm");
+                    System.out.println(LeadsRepository.getInstance().getCategorys());
+
+                    // Class<? extends Activity> activityClass;
+                    // activityClass = ValidateActivity.class;
+
+                    //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
+                    // startActivity(intent);
 
 
-
-                //if(result.equalsIgnoreCase("true")){
+                    //if(result.equalsIgnoreCase("true")){
                 /* Here launching another activity when login successful. If you persist login state
                 use sharedPreferences of Android. and logout button to clear sharedPreferences.
                  */
 
-                // Clear the fields
+                    // Clear the fields
                 /*user_text.getText().clear();
                 password_text.getText().clear();
 
                 // Restaurar cursor
                 user_text.requestFocus();*/
 
-                // Change frame
+                    // Change frame
                /* Class<? extends Activity> activityClass;
                 activityClass = InicioActivity.class;
 
@@ -283,35 +306,39 @@ public class DAOCardiovascular {
 
                 }*/
 
-                // Start new frame
+                    // Start new frame
                /* Intent intent = new Intent(MainActivity.this, activityClass);
                 startActivity(intent);*/
 
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
+                    //EditText editText = (EditText) findViewById(R.id.edit_message_User);
+                    //String message = editText.getText().toString();
+                    //intent.putExtra(EXTRA_MESSAGE, message);
 
                /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
                 startActivity(intent);
                 MainActivity.this.finish();*/
 
-            }else{
-                //if (result.equalsIgnoreCase("false")){
-                //onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
+                /*} else {
+                    //if (result.equalsIgnoreCase("false")){
+                    //onLoginFailed();
+                    // If username and password does not match display a error message
+                    // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
 
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
+                }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
                 //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }*/
+                /*
+            }
+
         }
     }
 
+}*/
+    //}
 
 
-    public static DAOCardiovascular getInstance() {
-        return dao;
-    }
+
+
 
     /*
 
@@ -363,4 +390,3 @@ public class DAOCardiovascular {
         }
         return null;
     }*/
-}

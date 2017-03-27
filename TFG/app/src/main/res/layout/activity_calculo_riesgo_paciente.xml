@@ -111,8 +111,8 @@
         android:maxLength="9"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/añosData"
-        android:layout_alignStart="@+id/añosData" />
+        android:layout_alignLeft="@+id/diastolicaData"
+        android:layout_alignStart="@+id/diastolicaData" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:hint="Edad"
-        android:id="@+id/añosData"
+        android:id="@+id/diastolicaData"
         android:textSize="18sp"
         android:inputType="numberSigned"
         android:maxLength="2"
@@ -194,7 +194,7 @@
         android:textSize="18sp"
         android:id="@+id/tabaquismo"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/añosData"
+        android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"/>

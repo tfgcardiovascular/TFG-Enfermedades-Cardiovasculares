@@ -52,7 +52,7 @@
         android:textSize="18sp"
         android:id="@+id/tipo"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_below="@+id/añosData"
+        android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp"/>
