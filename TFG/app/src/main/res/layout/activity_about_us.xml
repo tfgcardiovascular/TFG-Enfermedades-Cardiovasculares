@@ -42,7 +42,8 @@
             android:textSize="15sp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="75dp">
+            android:layout_marginTop="75dp"
+            android:id="@+id/textView">
         </TextView>
 
         <TextView
@@ -54,8 +55,32 @@
             android:textSize="22sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView2">
         </TextView>
+
+        <ImageView
+            android:id="@+id/ucm"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ucm"
+            android:layout_below="@+id/textView"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="37dp" />
+
+        <ImageView
+            android:id="@+id/fdi"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/fdi"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
 
 
     </RelativeLayout>

@@ -20,12 +20,13 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
+        android:drawableBottom="@mipmap/save_patient"
         android:layout_marginTop="27dp"
         android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/diastolicaData"
-        android:layout_alignEnd="@+id/diastolicaData" />
+        android:layout_alignRight="@+id/height"
+        android:layout_alignEnd="@+id/height" />
 
     <Button android:id="@+id/button_eliminar"
         android:layout_width="match_parent"
@@ -34,11 +35,13 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
+        android:drawableBottom="@mipmap/delete_patient"
         android:layout_alignBaseline="@+id/button_guardar"
         android:layout_alignBottom="@+id/button_guardar"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginLeft="180dp"/>
+        android:layout_toRightOf="@+id/weight"
+        android:layout_toEndOf="@+id/weight" />
 
     <Button android:id="@+id/button_calcular"
         android:layout_width="match_parent"
@@ -104,7 +107,7 @@
         android:layout_marginLeft="120dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:inputType="numberSigned"
         android:text="Edad: "
@@ -129,10 +132,11 @@
         android:textColor="@color/colorPrimary"
         android:layout_alignBaseline="@+id/weight"
         android:layout_alignBottom="@+id/weight"
-        android:layout_marginLeft="120dp"/>
+        android:layout_alignLeft="@+id/id"
+        android:layout_alignStart="@+id/id" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:text="Sexo: "

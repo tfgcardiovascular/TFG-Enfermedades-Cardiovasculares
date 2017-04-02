@@ -11,7 +11,6 @@ public class DAOCardiovascular {
     private String usbd = "root";
     private String contbd = "";
 
-
     private Medico loggedUser;
 
     public static final int CONNECTION_TIMEOUT = 10000;
@@ -22,30 +21,25 @@ public class DAOCardiovascular {
 
     }
 
-
     public static DAOCardiovascular getInstance() {
+
         return dao;
     }
-
 
     public void setLoggedUser(Medico medic) {
 
         loggedUser = medic;
-
     }
 
     public Medico getLoggedUser() {
 
         return loggedUser;
-
     }
-
 
     public boolean isNumber(String string) {
 
         if (string == null || string.isEmpty()) {
             return false;
-
         }
 
         int i = 0;
@@ -57,7 +51,6 @@ public class DAOCardiovascular {
             }
         }
 
-
         for (; i < string.length(); i++) {
             if (!Character.isDigit(string.charAt(i))) {
                 return false;
@@ -67,11 +60,10 @@ public class DAOCardiovascular {
         return true;
     }
 
-
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.123.148:8888/php/" + phpFile;
+        String dir = "http://147.96.125.178:8888/php/" + phpFile;
 
         try {
 
@@ -86,12 +78,13 @@ public class DAOCardiovascular {
         return url;
     }
 
-    public int getReadTimeout()
-    {
+    public int getReadTimeout(){
+
         return READ_TIMEOUT;
     }
 
     public int getConnectTimeout() {
+
         return CONNECTION_TIMEOUT;
     }
 

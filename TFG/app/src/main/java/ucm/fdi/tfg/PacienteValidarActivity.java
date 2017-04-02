@@ -141,13 +141,13 @@ public class PacienteValidarActivity extends AppCompatActivity {
         boolean valid = true;
 
 
-        if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
+        /*if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
 
-            edad.setError( "Valor entre 0 y 99" );
+            identificacion.setError( "Valor entre 0 y 99" );
             valid = false;
-        }
+        }*/
 
-        else if ( id.isEmpty() || id.length() != 9 || isNumber( id.substring( 0, 3 ) ) == true || isNumber( id.substring( 3, 9 ) ) == false )
+        if ( id.isEmpty() || id.length() != 9 || isNumber( id.substring( 0, 3 ) ) == true || isNumber( id.substring( 3, 9 ) ) == false )
         {
             identificacion.setError( "id debe ser 3 letras iniciales y ddmmaa" );
             valid = false;
@@ -181,6 +181,9 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 int mes = c1.get( Calendar.MONTH ) + 1;
                 int annio = c1.get( Calendar.YEAR );
 
+                // Transform annio
+                annio = annio % 100;
+
                 System.out.println( "date phoenix" );
                 System.out.println( dia );
                 System.out.println( mes );
@@ -191,8 +194,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 System.out.println( month );
                 System.out.println( year );
 
-                // Transform annio
-                annio = annio % 100;
+               // 4 abril 2017
+                // 30 marzo 2017
 
                 // Get year
                 if ( annio < year )
@@ -211,7 +214,16 @@ public class PacienteValidarActivity extends AppCompatActivity {
                     ageValue = ageValue -1;
                 }
 
+                if ( ageValue < 0 )
+                {
+                    ageValue = ageValue + 100;
+                }
+
                 edad.setText( Integer.toString( ageValue ) );
+
+
+
+
 
 
             }

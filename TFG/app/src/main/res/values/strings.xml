@@ -54,9 +54,13 @@
     <string name="button_pacientes_guardados">Pacientes</string>
     <string name="button_medicos_guardados">Médicos</string>
 
+    <string name="menu_option_share">Compartir</string>
+    <string name="hint_password">Introduce un Nº Colegiado:</string>
 
-
-
+    <string name="search">Busqueda</string>
+    <string name="hint_search1">Identificador:</string>
+    <string name="hint_search2">Sexo:</string>
+    <string name="hint_search3">Edad:</string>
 
 </resources>
 

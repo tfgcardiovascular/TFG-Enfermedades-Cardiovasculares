@@ -63,6 +63,8 @@ public class tabacoActivity extends AppCompatActivity {
         resultData = (TextView) findViewById(R.id.resultData);
         clasifData = (TextView) findViewById(R.id.clasifData);
 
+        resultData.setEnabled(false);
+
         // Buttons
 
         tabacoButton = (Button) findViewById( R.id.button_calcular_hta);
@@ -101,12 +103,12 @@ public class tabacoActivity extends AppCompatActivity {
                     añosValue = Double.parseDouble( años.getText().toString() );
                     cantidadValue = Double.parseDouble( cantidad.getText().toString() );
 
-                    if ( añosValue <= 0 )
+                    if ( añosValue < 0 )
                     {
                         años.setError( "Años no puede ser menor que 0" );
                     }
 
-                    if ( cantidadValue <= 0 )
+                    if ( cantidadValue < 0 )
                     {
                         cantidad.setError( "Cantidad no puede ser menor que 0" );
                     }

@@ -22,7 +22,6 @@ public class Main_MenuActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +30,7 @@ public class Main_MenuActivity extends AppCompatActivity {
         Nuevo = (Button) findViewById(R.id.button_new_patient);
         Pacientes_Guardados = (Button) findViewById(R.id.button_patients);
         Algoritmos = (Button) findViewById(R.id.button_algorithms);
-        Farmacos = (Button) findViewById(R.id.button_drugs);
-
+        //Farmacos = (Button) findViewById(R.id.button_drugs);
 
         Nuevo.setOnClickListener(new View.OnClickListener() {
 

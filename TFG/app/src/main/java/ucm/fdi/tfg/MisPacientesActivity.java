@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuInflater;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -16,6 +17,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import android.view.ContextMenu;
+import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 
 
 //import java.util.ArrayList;
@@ -76,6 +81,8 @@ public class MisPacientesActivity extends AppCompatActivity{
 
         FragmentPaciente leadsFragment = (FragmentPaciente)
                 getSupportFragmentManager().findFragmentById(R.id.leads_container);
+
+
 
 
         if (leadsFragment == null) {

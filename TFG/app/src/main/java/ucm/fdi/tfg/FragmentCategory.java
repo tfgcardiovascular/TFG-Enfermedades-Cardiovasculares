@@ -152,7 +152,7 @@ public class FragmentCategory extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Medico currentLead = mLeadsAdapter.getItem(position);
                 Toast.makeText(getActivity(),
-                        "Vista detalle para: " + currentLead.getNombre(),
+                        "Vista detalle para: " + currentLead.getNombre() + " " + currentLead.getApellidos(),
                         Toast.LENGTH_SHORT).show();
 
 
