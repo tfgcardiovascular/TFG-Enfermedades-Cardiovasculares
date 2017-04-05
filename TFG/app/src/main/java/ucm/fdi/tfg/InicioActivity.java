@@ -15,9 +15,10 @@ public class InicioActivity extends AppCompatActivity {
     private static final String TAG = "InicioActivity";
 
     public void onBackPressed() {
-        new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT)
+        new AlertDialog.Builder(this)
                 .setTitle("Cerrar sesión")
                 .setMessage("Deseas cerrar la sesión?")
+                .setIcon(R.mipmap.logout)
                 .setCancelable(false)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

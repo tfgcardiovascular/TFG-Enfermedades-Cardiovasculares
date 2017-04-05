@@ -19,6 +19,7 @@
             android:layout_marginTop= "24dp"
             android:layout_marginBottom="8dp"
             android:hint="Nº Colegiado"
+            android:textColor="@color/colorText"
             android:inputType="numberSigned" />
 
         <EditText android:id="@+id/edit_message_Password"
@@ -65,7 +66,7 @@
             android:gravity="center"
             android:background="@color/colorPrimary"
             android:textColor="@color/colorText"
-            android:textSize="11sp" />
+            />
 
     </LinearLayout>
 </ScrollView>

@@ -63,7 +63,7 @@ public class DAOCardiovascular {
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.125.178:8888/php/" + phpFile;
+        String dir = "http://147.96.116.225:8888/php/" + phpFile;
 
         try {
 

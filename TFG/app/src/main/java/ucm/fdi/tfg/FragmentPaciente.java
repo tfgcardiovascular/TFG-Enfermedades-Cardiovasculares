@@ -80,6 +80,9 @@ public class FragmentPaciente extends Fragment {
 
         super.onResume();
 
+
+        System.out.println( "onResume" );
+
         System.out.println( "umbrah phoenix" );
         System.out.println( "fulgor phoenix" );
 
@@ -125,7 +128,8 @@ public class FragmentPaciente extends Fragment {
                 //Toast.makeText( getActivity().getBaseContext(), "Busqueda", Toast.LENGTH_LONG).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Buscar paciente");
+                builder.setTitle("Buscar Paciente");
+                builder.setIcon(R.mipmap.search_icon);
 
                 // I'm using fragment here so I'm using getView() to provide ViewGroup
                 // but you can provide here any other instance of ViewGroup from your Fragment / Activity
@@ -213,8 +217,19 @@ public class FragmentPaciente extends Fragment {
 
         System.out.println( "wolf of the dark moon" );
         // Update with the database
+        // Get medic
+        /*String colegiado = DAOCardiovascular.getInstance().getLoggedUser().getColegiado();
+        String rol = DAOCardiovascular.getInstance().getLoggedUser().getRol();
+
+        if ( rol.equals( "0" ) )
+        {
+            colegiado = "admin";
+        }
+
+        //new AsyncPacienteValidate().execute( colegiado );
         new AsyncPacienteValidate().execute( null, null );
-        update();
+
+        update();*/
 
 
         /*System.out.println( "Black clock" );
@@ -254,7 +269,8 @@ public class FragmentPaciente extends Fragment {
                 final Paciente currentLead = mLeadsAdapter.getItem(position);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Compartir paciente");
+                builder.setTitle("Compartir Paciente");
+                builder.setIcon(R.mipmap.share_icon);
 
                 // I'm using fragment here so I'm using getView() to provide ViewGroup
                 // but you can provide here any other instance of ViewGroup from your Fragment / Activity
@@ -1100,13 +1116,13 @@ public class FragmentPaciente extends Fragment {
                     {
                         message = message + " y";
                     }
-                    message = message + " genero: " + genre;
+                    message = message + " género: " + genre;
                 }
 
                 if ( !message.equals( "" ) )
                 {
 
-                    message = "Paciente encontrado con " + message;
+                    message = "Paciente encontrado con" + message;
 
                 }else
                 {

@@ -8,13 +8,13 @@
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_search1"
+        android:text="Nº Colegiado: "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:layout_marginLeft="25dp"/>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="100dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="20dp">
@@ -38,7 +38,7 @@
         android:layout_marginTop="85dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_search2"
+        android:text="Nombre: "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:layout_marginLeft="25dp"/>
@@ -48,43 +48,30 @@
         android:layout_marginTop="155dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_search3"
+        android:text="Mail: "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:layout_marginLeft="25dp"/>
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/id"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="115dp"
-        android:orientation="horizontal">
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="20dp">
 
-        <RadioButton
-            android:id="@+id/RB_genero_hombre"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/input3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="31dp"
-            android:layout_marginRight="31dp"
-            android:text="Masculino"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/RB_genero_mujer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Femenino"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp" />
-    </RadioGroup>
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="30dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="165dp"
         android:layout_marginLeft="20dp">
@@ -94,8 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
-            android:inputType="numberSigned"
-            android:maxLength="2"
+            android:inputType="textEmailAddress"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
 

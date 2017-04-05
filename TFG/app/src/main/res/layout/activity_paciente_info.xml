@@ -144,7 +144,7 @@
         android:textSize="18sp"
         android:id="@+id/height"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_alignTop="@+id/radioGroup"
+        android:layout_alignBottom="@+id/radioGroup"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -155,8 +155,7 @@
         android:id="@+id/radioGroup"
         android:layout_marginTop="21dp"
         android:layout_below="@+id/id"
-
-        android:layout_marginLeft="70dp">
+        android:layout_marginLeft="55dp">
         <RadioButton
             android:text="Masculino"
             android:textSize="18sp"

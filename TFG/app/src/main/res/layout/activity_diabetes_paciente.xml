@@ -28,7 +28,8 @@
         android:textSize="18sp"
         android:id="@+id/identificacion"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,7 +56,8 @@
         android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"/>
 
     <Spinner
         android:id="@+id/spinner_tipo"
@@ -79,7 +81,8 @@
         android:layout_below="@+id/tipo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"/>
 
     <Spinner
         android:id="@+id/spinner2_tratamiento"
@@ -99,15 +102,16 @@
         android:layout_toRightOf="@+id/monitor" />
 
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="textPersonName"
-    android:text="HbAc: "
-    android:ems="10"
-    android:textSize="18sp"
-    android:id="@+id/hbac"
-    android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="HbAc: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/hbac"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/tratamiento"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -127,15 +131,16 @@
         android:layout_alignEnd="@+id/hbac" />
 
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:inputType="textPersonName"
-    android:text="Monitor Continuo Glucosa: "
-    android:ems="10"
-    android:textSize="18sp"
-    android:id="@+id/monitor"
-    android:textColor="@color/colorPrimaryDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Monitor Continuo Glucosa: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/monitor"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/hbac"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -150,6 +155,7 @@
         android:id="@+id/años"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/monitor"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -180,6 +186,7 @@
         android:id="@+id/fondo_ojos"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/años"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

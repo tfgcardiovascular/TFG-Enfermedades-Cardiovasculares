@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPreExecute();
 
             //this method will be running on UI thread
-            pdLoading.setMessage("\tLoading...");
+            pdLoading.setMessage("\tCargando...");
             pdLoading.setCancelable(false);
             pdLoading.show();
         }

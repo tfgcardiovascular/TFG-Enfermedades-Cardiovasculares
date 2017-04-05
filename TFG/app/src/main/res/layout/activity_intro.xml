@@ -20,7 +20,8 @@
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp">
     </TextView>
 
     <TextView
@@ -31,23 +32,26 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp">
     </TextView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorText"
             android:text="Estas tablas se han adaptado a las características de la población española mediante un proceso de calibración bien contrastado [1-4] y se han validado en población española [5-6].\n
 Permiten estimar el riesgo de un acontecimiento coronario(angina, infarto de miocardio con o sin síntomas, mortal o no) a 10 años.\n
 Para estimar el riesgo debe seleccionarse la tabla correspondiente a la presencia o ausencia de diabetes, al sexo y la edad del/la paciente y buscar la intersección de su presión sistólica y diastólica con su colesterol total buscando la columna de valor central ± 20 mg/dL (± 0,5 mmol/L) que incluya el valor deseado. El valor inscrito en la casilla hallada por este procedimiento indica el riesgo a 10 años, y el fondo pertenece al código de colores cuya leyenda se encuentra al pie de las tablas.\n
-\nNota 1: Los pacientes con valores extremos de tensión arterial y de colesterol no precisan de cálculo de riesgo para instaurar tratamiento farmacológico. En los pacientes con hipercolesterolemia familiar, hipertrigliceridemia o con historia familiar de muerte cardiovascular prematura el riesgo es superior al indicado en las tablas. \n
-\nNota 2: Se suelen usar puntos de corte en el riesgo distintos del 20% (como 10%) para juzgar la necesidad de tratamiento farmacológico de la hipercolesterolemia [5].\n
-\nNota 3: Los datos del estudio VERIFICA indican que REGICOR es la más válida de las funciones de riesgo disponibles en España para población de de 35 a 74 años. Predice adecuadamente la tasa real de acontecimientos a 5 años coronarios en población de toda España [6]."
+\nNota 1: Los pacientes con valores extremos de tensión arterial y de colesterol no precisan de cálculo de riesgo para instaurar tratamiento farmacológico. En los pacientes con hipercolesterolemia familiar, hipertrigliceridemia o con historia familiar de muerte cardiovascular prematura el riesgo es superior al indicado en las tablas. \n\n
+\nNota 2: Se suelen usar puntos de corte en el riesgo distintos del 20% (como 10%) para juzgar la necesidad de tratamiento farmacológico de la hipercolesterolemia [5].\n\n
+\nNota 3: Los datos del estudio VERIFICA indican que REGICOR es la más válida de las funciones de riesgo disponibles en España para población de de 35 a 74 años. Predice adecuadamente la tasa real de acontecimientos a 5 años coronarios en población de toda España [6].\n"
 android:textSize="15sp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="95dp">
+            android:layout_marginTop="105dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp">
         </TextView>
 
         <TextView
@@ -60,7 +64,9 @@ android:textSize="15sp"
             android:textAlignment="viewStart"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
         </TextView>
 
 

@@ -19,9 +19,10 @@ public class adminActivity extends AppCompatActivity {
 
 
     public void onBackPressed() {
-        new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT)
+        new AlertDialog.Builder(this)
                 .setTitle("Cerrar sesión")
                 .setMessage("Deseas cerrar la sesión?")
+                .setIcon(R.mipmap.logout)
                 .setCancelable(false)
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

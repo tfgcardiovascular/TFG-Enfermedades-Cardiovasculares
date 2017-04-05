@@ -11,6 +11,8 @@
     <!-- Aparencia confimacion log out -->
     <style name="AlertDialogCustom" parent="@android:style/Theme.Holo">
         <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:divider">@color/colorPrimary</item>
         <!-- Aparencia botones -->
         <item name="colorAccent">@color/colorAccent</item>
     </style>

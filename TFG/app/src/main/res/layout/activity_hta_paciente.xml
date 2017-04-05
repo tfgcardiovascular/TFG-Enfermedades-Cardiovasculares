@@ -26,7 +26,8 @@
         android:textSize="18sp"
         android:id="@+id/identificacion"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -38,7 +39,8 @@
         android:maxLength="9"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
     <TextView
         android:id="@+id/sistolica"
@@ -49,7 +51,8 @@
         android:text="Sistolica: "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:layout_marginTop="70dp"/>
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"/>
 
     <TextView
         android:id="@+id/mmHg1"
@@ -60,12 +63,10 @@
         android:text="mmHg "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:layout_alignBaseline="@+id/sistolicaData"
-        android:layout_alignBottom="@+id/sistolicaData"
-        android:layout_toRightOf="@+id/sistolicaData"
-        android:layout_toEndOf="@+id/sistolicaData"
-        android:layout_marginLeft="17dp"
-        android:layout_marginStart="17dp" />
+        android:layout_alignBaseline="@+id/sistolica"
+        android:layout_alignBottom="@+id/sistolica"
+        android:layout_toRightOf="@+id/sistolica"
+        android:layout_toEndOf="@+id/sistolica" />
 
     <TextView
         android:id="@+id/mmHg2"
@@ -76,10 +77,10 @@
         android:text="mmHg "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-        android:layout_alignBaseline="@+id/diastolicaData"
-        android:layout_alignBottom="@+id/diastolicaData"
-        android:layout_alignLeft="@+id/mmHg1"
-        android:layout_alignStart="@+id/mmHg1" />
+        android:layout_alignBaseline="@+id/diastolica"
+        android:layout_alignBottom="@+id/diastolica"
+        android:layout_toRightOf="@+id/diastolica"
+        android:layout_toEndOf="@+id/diastolica" />
 
     <EditText
         android:id="@+id/sistolicaData"
@@ -103,7 +104,8 @@
         android:inputType="numberSigned"
         android:text="Diastolica:"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"/>
 
     <EditText
         android:id="@+id/diastolicaData"

@@ -224,7 +224,7 @@ public class SignupActivity extends AppCompatActivity {
             super.onPreExecute();
 
             //this method will be running on UI thread
-            pdLoading.setMessage("\tProcessing Sign Up...");
+            pdLoading.setMessage("\tProcesando registro...");
             pdLoading.setCancelable(false);
             pdLoading.show();
 

@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawSelectorOnTop="true"
-        android:divider="@null"
+        android:divider="@drawable/list_divider"
+        android:dividerHeight="2px"
         android:listSelector="@drawable/item_list_indicator"
         tools:listitem="@layout/activity_item_paciente"/>
 

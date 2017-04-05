@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingTop="8dp"
     tools:context="ucm.fdi.tfg.FragmentCategory">
 
@@ -10,10 +11,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawSelectorOnTop="true"
-        android:divider="@null"
+        android:divider="@drawable/list_divider"
+        android:dividerHeight="2px"
         android:listSelector="@drawable/item_list_indicator"
         tools:listitem="@layout/activity_item_category"/>
 
-
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="12dp"
+        app:borderWidth="0dp"
+        app:elevation="6dp"
+        android:src="@mipmap/search"
+        app:fabSize="normal"/>
 
 </FrameLayout>
