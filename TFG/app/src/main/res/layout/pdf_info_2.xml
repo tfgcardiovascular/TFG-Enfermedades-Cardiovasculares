@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pdfLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Informe Médico del Paciente "
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/diabetes"
+        android:layout_alignParentEnd="true" />
+
+       <TextView
+        android:id="@+id/diabetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Diabetes "
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Tipo: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/tipo"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/diastolicaData"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/spinner_tipo"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="130dp"
+        android:maxLength="20"
+        android:layout_alignBaseline="@+id/tipo"
+        android:layout_alignBottom="@+id/tipo"
+        android:layout_alignStart="@+id/resultado_hbac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Tratamiento: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/tratamiento"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/tipo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/spinner2_tratamiento"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="130dp"
+
+        android:maxLength="20"
+        android:layout_alignBaseline="@+id/tratamiento"
+        android:layout_alignBottom="@+id/tratamiento"
+        android:layout_alignStart="@+id/spinner_tipo" />
+
+    <EditText
+        android:id="@+id/spinner3_glucosa"
+        android:layout_width="130dp"
+        android:maxLength="20"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignBaseline="@+id/monitor"
+        android:layout_alignBottom="@+id/monitor"
+        android:layout_alignStart="@+id/resultado_hbac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="HbAc: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/hbac"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/tratamiento"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/resultado_hbac"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/hbac"
+        android:layout_alignBottom="@+id/hbac"
+        android:layout_alignRight="@+id/hbac"
+        android:layout_alignEnd="@+id/hbac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="CGM: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/monitor"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/hbac"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Años Enfermedad: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/años"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/monitor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/años_enfermedad"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/años"
+        android:layout_alignBottom="@+id/años"
+        android:layout_alignStart="@+id/spinner3_glucosa"
+        android:layout_toStartOf="@+id/ultimo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Último Fondo de Ojos: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/fondo_ojos"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/años"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Creatinina: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/creat"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/fondo_ojos"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/creatinina"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary"
+        android:maxLength="3"
+        android:layout_alignBaseline="@+id/creat"
+        android:layout_alignBottom="@+id/creat"
+        android:layout_alignLeft="@+id/microalbuminuria"
+        android:layout_alignStart="@+id/microalbuminuria"
+        android:layout_toLeftOf="@+id/ultimo"
+        android:layout_toStartOf="@+id/ultimo" />
+
+    <TextView
+        android:id="@+id/mmHg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/creat"
+        android:layout_alignBottom="@+id/creat"
+        android:layout_toRightOf="@+id/creat"
+        android:layout_toEndOf="@+id/creat"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Microalbuminuria: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/micro"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/creatinina"
+        android:layout_alignStart="@+id/ur" />
+
+    <EditText
+        android:id="@+id/microalbuminuria"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:textColor="@color/colorPrimary"
+        android:maxLength="3"
+        android:layout_alignBaseline="@+id/micro"
+        android:layout_alignBottom="@+id/micro"
+        android:layout_alignStart="@+id/años_enfermedad"
+        android:layout_alignEnd="@+id/micro" />
+
+    <TextView
+        android:id="@+id/mmHg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/h "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/microalbuminuria"
+        android:layout_alignBottom="@+id/microalbuminuria"
+        android:layout_alignLeft="@+id/mmHg1"
+        android:layout_alignStart="@+id/mmHg1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Urea: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/ur"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/micro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/urea"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/colorPrimary"
+        android:maxLength="2"
+        android:inputType="numberSigned"
+        android:layout_alignBaseline="@+id/ur"
+        android:layout_alignBottom="@+id/ur"
+        android:layout_alignStart="@+id/microalbuminuria"
+        android:layout_alignEnd="@+id/micro" />
+
+    <TextView
+        android:id="@+id/mmHg3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/urea"
+        android:layout_alignBottom="@+id/urea"
+        android:layout_alignLeft="@+id/mmHg2"
+        android:layout_alignStart="@+id/mmHg2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Afroamericano: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/am"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/ur"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/raza"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/am"
+        android:layout_alignBottom="@+id/am"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignStart="@+id/urea" />
+
+    <EditText
+        android:id="@+id/ultimo"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="dd-mm-aaaa"
+        android:maxLength="10"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignBaseline="@+id/fondo_ojos"
+        android:layout_alignBottom="@+id/fondo_ojos"
+        android:layout_toEndOf="@+id/fondo_ojos" />
+
+
+
+
+</RelativeLayout>

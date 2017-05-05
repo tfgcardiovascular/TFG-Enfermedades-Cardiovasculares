@@ -337,8 +337,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Validate Password
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            password_text.setError("Introduce entre 4 y 10 carácteres alfanumericos");
+        if (password.isEmpty() || password.length() < 4 || password.length() > 16) {
+            password_text.setError("Introduce entre 4 y 16 carácteres alfanumericos");
             valid = false;
         } else {
             password_text.setError(null);

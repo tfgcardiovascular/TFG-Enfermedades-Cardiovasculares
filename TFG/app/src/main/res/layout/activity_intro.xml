@@ -15,12 +15,12 @@
         <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:text="Explicaciones REGICOR\n"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp">
     </TextView>
 
@@ -32,7 +32,7 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp">
     </TextView>
 
@@ -49,26 +49,10 @@ Para estimar el riesgo debe seleccionarse la tabla correspondiente a la presenci
 android:textSize="15sp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="105dp"
+            android:layout_marginTop="80dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp">
         </TextView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:text="INTRODUCCIÓN"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:textAlignment="viewStart"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp">
-        </TextView>
-
-
-    </RelativeLayout>
+        </RelativeLayout>
 </ScrollView>

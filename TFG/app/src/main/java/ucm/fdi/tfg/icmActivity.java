@@ -56,12 +56,14 @@ public class icmActivity extends AppCompatActivity {
     public void onResume(Bundle savedInstanceState)
     {
 
-        Bundle bundle = getIntent().getExtras();
+        /*Bundle bundle = getIntent().getExtras();
 
         argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
 
         // Get Data
-        new getImc().execute( argumentPaciente.getId() );
+        new getImc().execute( argumentPaciente.getId() );*/
+
+        System.out.println( "onResume lion" );
 
 
     }
@@ -73,13 +75,15 @@ public class icmActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icm_paciente);
 
+        System.out.println( "onCreate lion" );
+
         // TextView
         identificacion = (EditText) findViewById(R.id.id);
 
         // Text
         identif = (TextView) findViewById(R.id.identificacion);
 
-        heightData = (EditText) findViewById(R.id.heightData);
+        heightData = (EditText) findViewById(R.id.hdlData);
         weightData = (EditText) findViewById(R.id.diastolicaData);
         resultData = (EditText) findViewById(R.id.resultData);
         clasifData = (TextView) findViewById(R.id.clasifData);
@@ -88,9 +92,17 @@ public class icmActivity extends AppCompatActivity {
         imcButton = (Button) findViewById( R.id.button_calcular_hta);
 
         // Get in data
-        Bundle bundle = getIntent().getExtras();
+        /*Bundle bundle = getIntent().getExtras();
 
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
+        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );*/
+
+        // Set
+        argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
+
+        System.out.println( argumentPaciente );
+
+        System.out.println( "patient lion " );
+
 
         // Set info data
         identificacion.setText( argumentPaciente.getId() );
@@ -99,8 +111,26 @@ public class icmActivity extends AppCompatActivity {
         resultData.setEnabled( false );
         clasifData.setEnabled( false );
 
+
+
         // Get Data
-        new getImc().execute( argumentPaciente.getId() );
+        heightData.setText( argumentPaciente.getHeight() );
+        weightData.setText( argumentPaciente.getWeight() );
+        resultData.setText( argumentPaciente.getImc() );
+
+        try {
+
+            imcResult =  Double.parseDouble( resultData.getText().toString() );
+            updateClasif( imcResult );
+
+        }
+        catch(NumberFormatException e)
+        {
+
+
+        }
+
+        //new getImc().execute( argumentPaciente.getId() );
 
         imcButton.setOnClickListener(new View.OnClickListener() {
 
@@ -118,6 +148,8 @@ public class icmActivity extends AppCompatActivity {
                 // Get data
                 try
                 {
+
+
 
                     height = Double.parseDouble( heightData.getText().toString() );
                     weight = Double.parseDouble( weightData.getText().toString() );
@@ -220,257 +252,6 @@ public class icmActivity extends AppCompatActivity {
 
 
 
-
-
-    // Get all the medics to validate on the database
-    private class getImc extends AsyncTask<   String, Void, ArrayList<String>> {
-
-        HttpURLConnection conn;
-        URL url = null;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected ArrayList<String> doInBackground(String... params) {
-
-
-            url = DAOCardiovascular.getInstance().getUrl( "getImc.php" );
-
-
-            try {
-                // Setup HttpURLConnection class to send and receive data from php and mysql
-                conn = (HttpURLConnection)url.openConnection();
-                conn.setReadTimeout(DAOCardiovascular.getInstance().getReadTimeout());
-                conn.setConnectTimeout(DAOCardiovascular.getInstance().getConnectTimeout());
-                conn.setRequestMethod("POST");
-
-                // setDoInput and setDoOutput method depict handling of both send and receive
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-                // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("pacienteId", params[0])
-                        ;
-                String query = builder.build().getEncodedQuery();
-
-                // Append parameters to URL
-                /*Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
-                        .appendQueryParameter("password", params[1]);
-                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();*/
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-
-                conn.connect();
-
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-                return null;
-                //return "exception";
-            }
-
-            try {
-
-                int response_code = conn.getResponseCode();
-
-                // Check if successful connection made
-                if (response_code == HttpURLConnection.HTTP_OK) {
-
-                    // Read data sent from server
-                    InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
-                    StringBuilder result = new StringBuilder();
-                    String line;
-
-                    // New Paciente Object
-                    Paciente medic = new Paciente();
-
-                    ArrayList< String > linePhp = new ArrayList <  > ();
-
-                   // ArrayList < Paciente > medicPhp = new ArrayList<>();
-
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
-
-                        linePhp.add( line );
-
-                        /*if ( linePhp.size() == 3 )
-                        {
-
-                            // Create medic Object
-                            medic = new Paciente();
-
-                            // Update Medic Object
-                            medic.setId(linePhp.get(0));
-                            medic.setSexo(linePhp.get(1));
-                            medic.setEdad(linePhp.get(2));
-
-                            // Update Medic ArrayList
-                            medicPhp.add( medic );
-
-                            // Reset linePhp
-                            linePhp.clear();
-
-
-
-                        }*/
-
-
-                        //result.append(line);
-                    }
-
-                    System.out.println( "simorgh fire" );
-                   // System.out.println( medicPhp );
-
-                    // Pass data to onPostExecute method
-                    return linePhp;
-                    //return(result.toString());
-
-                }else{
-                    return null;
-                    //return("unsuccessful");
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-                // return "exception";
-            } finally {
-                conn.disconnect();
-            }
-        }
-
-
-
-        // @Override
-        protected void onPostExecute(ArrayList<String> result) {
-
-            // Check obtained result
-
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
-
-
-            //pdLoading.dismiss();
-
-            if ( result.size() > 0 ) {
-
-                heightData.setText( result.get( 0 ) );
-                weightData.setText( result.get( 1 ) );
-                resultData.setText( result.get( 2 ) );
-
-                try {
-
-                    imcResult =  Double.parseDouble( resultData.getText().toString() );
-                    updateClasif( imcResult );
-
-                }
-                catch(NumberFormatException e)
-                {
-
-
-                }
-
-
-
-
-
-
-
-
-                // Class<? extends Activity> activityClass;
-                // activityClass = ValidateActivity.class;
-
-                //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-                // startActivity(intent);
-
-
-
-
-
-                //if(result.equalsIgnoreCase("true")){
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                // Clear the fields
-                /*user_text.getText().clear();
-                password_text.getText().clear();
-
-                // Restaurar cursor
-                user_text.requestFocus();*/
-
-                // Change frame
-               /* Class<? extends Activity> activityClass;
-                activityClass = InicioActivity.class;
-
-                // Paciente -> Menu Inicio
-                String i = result.getRol();
-                System.out.println("Llega aqui");
-                System.out.println(i);
-                if (i.equals( "1") ) {
-                    activityClass = InicioActivity.class;
-
-                    // Admin -> Menú admin
-                } else if (i.equals( "0")){
-                    activityClass = ValidateActivity.class;
-
-                }*/
-
-                // Start new frame
-               /* Intent intent = new Intent(MainActivity.this, activityClass);
-                startActivity(intent);*/
-
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
-
-               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();*/
-
-            }else{
-                //if (result.equalsIgnoreCase("false")){
-                //onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
-
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
-            }*/
-        }
-    }
 
 
 
@@ -589,6 +370,14 @@ public class icmActivity extends AppCompatActivity {
 
 
                 Toast.makeText(getBaseContext(), "IMC Data Actualizado", Toast.LENGTH_LONG).show();
+
+                // Update
+                argumentPaciente.setHeight( heightData.getText().toString() );
+                argumentPaciente.setWeight( weightData.getText().toString() );
+                argumentPaciente.setImc( resultData.getText().toString() );
+
+                // Save
+                DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
 
 
             } else if (result.equalsIgnoreCase("Error al guardar IMC Data")) {

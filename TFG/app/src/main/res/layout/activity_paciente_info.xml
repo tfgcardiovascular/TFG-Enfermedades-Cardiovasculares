@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/listPreferredItemHeight"
@@ -21,7 +22,7 @@
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
         android:drawableBottom="@mipmap/save_patient"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="23dp"
         android:layout_below="@+id/diastolicaData"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -47,38 +48,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_riesgo"
-        android:background="@color/colorPrimary"
+        android:background="@color/button"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
         android:layout_below="@+id/button_guardar"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="290dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <Button android:id="@+id/button_diabetes"
+    <Button android:id="@+id/button_tratamiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_diabetes"
+        android:text="@string/button_tratamiento"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="355dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <Button android:id="@+id/button_colesterol"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_colesterol"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorText"
-        android:fontFamily="sans-serif-medium"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="340dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,6 +163,18 @@
             android:layout_height="wrap_content"
             android:id="@+id/RB_genero_mujer" />
     </RadioGroup>
+
+    <Button android:id="@+id/pdf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pdf"
+        android:background="@color/selected"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="450dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button_eliminar"
+        android:layout_alignStart="@+id/button_eliminar" />
 
 
 </RelativeLayout>

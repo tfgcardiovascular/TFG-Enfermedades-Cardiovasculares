@@ -64,6 +64,18 @@
             android:layout_marginTop= "4dp"
             android:layout_marginBottom="4dp"
             android:hint="@string/edit_message_Password"
+            android:maxLength="16"
+            android:inputType="textPassword"
+            android:textColor="@color/colorText"
+            android:textSize="18sp" />
+
+        <EditText android:id="@+id/edit_message_repeatPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop= "4dp"
+            android:layout_marginBottom="4dp"
+            android:maxLength="16"
+            android:hint="@string/edit_message_Repeat_Password"
             android:inputType="textPassword"
             android:textColor="@color/colorText"
             android:textSize="18sp" />
@@ -71,7 +83,7 @@
         <Button android:id="@+id/button_create"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop= "24dp"
+            android:layout_marginTop= "8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/button_create"
             android:background="@color/colorAccent"

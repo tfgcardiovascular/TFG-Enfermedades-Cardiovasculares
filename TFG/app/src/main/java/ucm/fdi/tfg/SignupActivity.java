@@ -40,6 +40,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText telephone_text;
     private EditText password_text;
     private EditText mail_text;
+    private EditText repeatPasswordText;
 
     private String name;
     private String surname;
@@ -47,6 +48,7 @@ public class SignupActivity extends AppCompatActivity {
     private String telephone;
     private String password;
     private String mail;
+    private String repeatPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +95,8 @@ public class SignupActivity extends AppCompatActivity {
         mail = mail_text.getText().toString();
         password_text = (EditText) findViewById(R.id.edit_message_Password);
         password = password_text.getText().toString();
+        repeatPasswordText = (EditText) findViewById(R.id.edit_message_repeatPass);
+        repeatPassword = repeatPasswordText.getText().toString();
 
         // Validate
         if (!validate()) {
@@ -199,9 +203,16 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         // Validate password
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            password_text.setError("Introduce entre 4 y 10 carácteres alfanumericos");
+        if (password.isEmpty() || password.length() < 4 || password.length() > 16) {
+            password_text.setError("Introduce entre 4 y 16 carácteres alfanumericos");
             valid = false;
+
+        }else if ( !password.equals( repeatPassword ) )
+        {
+
+            password_text.setError("Las contraseñas no coinciden");
+            valid = false;
+
         } else {
             password_text.setError(null);
         }

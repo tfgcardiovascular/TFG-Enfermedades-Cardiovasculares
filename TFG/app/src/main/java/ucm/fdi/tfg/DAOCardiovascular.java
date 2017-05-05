@@ -12,6 +12,7 @@ public class DAOCardiovascular {
     private String contbd = "";
 
     private Medico loggedUser;
+    private Paciente currentPatient;
 
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
@@ -34,6 +35,21 @@ public class DAOCardiovascular {
     public Medico getLoggedUser() {
 
         return loggedUser;
+    }
+
+    public boolean isAdmin()
+    {
+        return loggedUser.getRol().equals( "0" );
+    }
+
+    public void setCurrentPatient( Paciente patient )
+    {
+        currentPatient = patient;
+    }
+
+    public Paciente getCurrentPatient()
+    {
+        return currentPatient;
     }
 
     public boolean isNumber(String string) {
@@ -63,7 +79,7 @@ public class DAOCardiovascular {
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.116.225:8888/php/" + phpFile;
+        String dir = "http://147.96.119.102:8888/php/" + phpFile;
 
         try {
 

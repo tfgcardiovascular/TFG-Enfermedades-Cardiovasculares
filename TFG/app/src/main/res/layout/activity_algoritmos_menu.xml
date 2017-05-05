@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<!--android:background="@mipmap/icon4"-->
+    <Button
+        android:id="@+id/colesterol"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="115dp"
+        android:background="@color/colorAccent"
+        android:drawableBottom="@mipmap/cholesterol"
+        android:gravity="center"
+        android:text="@string/colesterol"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/diabetes"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/tabaquismo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="115dp"
+        android:background="@color/colorAccent"
+        android:drawableBottom="@mipmap/diabetes"
+        android:gravity="center"
+        android:text="@string/diabetes"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/tratamiento"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/tabaquismo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="115dp"
+        android:background="@color/colorAccent"
+        android:drawableBottom="@mipmap/tratamiento"
+        android:gravity="center"
+        android:text="@string/tratamiento"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/tabaquismo"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:background="@color/colorAccent"
+        android:text="@string/tabaquismo"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        android:drawableBottom="@mipmap/tabaqusimo"
+        android:layout_marginTop="245dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="10dp"
+        />
+
+    <Button
+        android:id="@+id/imc"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_alignLeft="@+id/tabaquismo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="245dp"
+        android:background="@color/colorAccent"
+        android:drawableBottom="@mipmap/imc"
+        android:gravity="center"
+        android:text="@string/imc"
+        android:textColor="@color/colorText"
+        android:textSize="14sp" />
+
+    <Button android:id="@+id/hta"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:text="@string/hta"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        android:drawableBottom="@mipmap/hta"
+        android:layout_marginTop="245dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignLeft="@+id/tabaquismo"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="130dp"/>
+
+</RelativeLayout>

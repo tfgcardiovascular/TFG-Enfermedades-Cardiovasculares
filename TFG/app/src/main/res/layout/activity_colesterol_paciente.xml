@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- android:layout_below="@+id/toolbar" -->
+
+    <Button android:id="@+id/button_calcular_col"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_calcular_LDL"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:layout_below="@+id/weight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="103dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:ems="10"
+        android:textSize="18sp"
+        android:id="@+id/identificacion"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Identificacion"
+        android:id="@+id/id"
+        android:textSize="18sp"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="HDL:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/hdlData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/height"
+        android:layout_alignBottom="@+id/height"
+        android:layout_alignLeft="@+id/id"
+        android:layout_alignStart="@+id/id" />
+
+    <TextView
+        android:id="@+id/mmol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/height"
+        android:layout_alignBottom="@+id/height"
+        android:layout_toRightOf="@+id/height"
+        android:layout_toEndOf="@+id/height" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Total:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/totalData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/weight"
+        android:layout_alignBottom="@+id/weight"
+        android:layout_alignLeft="@+id/hdlData"
+        android:layout_alignStart="@+id/hdlData" />
+
+    <TextView
+        android:id="@+id/mmol2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/weight"
+        android:layout_alignBottom="@+id/weight"
+        android:layout_toRightOf="@+id/weight"
+        android:layout_toEndOf="@+id/weight" />
+
+    <TextView
+        android:id="@+id/trigliceridos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Trigliceridos:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_below="@+id/totalData"
+        android:layout_alignLeft="@+id/weight"
+        android:layout_alignStart="@+id/weight"
+        android:layout_marginTop="25dp" />
+
+    <EditText
+        android:id="@+id/trigliceridosData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/trigliceridos"
+        android:layout_alignBottom="@+id/trigliceridos"
+        android:layout_alignLeft="@+id/totalData"
+        android:layout_alignStart="@+id/totalData" />
+
+    <TextView
+        android:id="@+id/mmol3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/trigliceridos"
+        android:layout_alignBottom="@+id/trigliceridos"
+        android:layout_toRightOf="@+id/trigliceridos"
+        android:layout_toEndOf="@+id/trigliceridos" />
+
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="LDL:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/button_calcular_col"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/resultData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/result"
+        android:layout_alignBottom="@+id/result"
+        android:layout_alignLeft="@+id/hdlData"
+        android:layout_alignStart="@+id/hdlData"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/mmol4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/result"
+        android:layout_alignBottom="@+id/result"
+        android:layout_toRightOf="@+id/result"
+        android:layout_toEndOf="@+id/result" />
+
+</RelativeLayout>

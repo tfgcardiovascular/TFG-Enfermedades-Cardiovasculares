@@ -70,17 +70,41 @@ public class tabacoActivity extends AppCompatActivity {
         tabacoButton = (Button) findViewById( R.id.button_calcular_hta);
 
         // Get in data
-        Bundle bundle = getIntent().getExtras();
+        /*Bundle bundle = getIntent().getExtras();
 
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
+        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );*/
+
+        argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
         // Set info data
         identificacion.setText( argumentPaciente.getId() );
 
         identificacion.setEnabled( false );
 
+        años.setText( argumentPaciente.getAdiccion() );
+        cantidad.setText( argumentPaciente.getCantidad() );
+        resultData.setText( argumentPaciente.getIpa( ) );
+
+        try {
+
+            // imcResult =  Double.parseDouble( resultData.getText().toString() );
+            añosValue = Integer.parseInt( años.getText().toString() );
+            cantidadValue = Integer.parseInt( cantidad.getText().toString() );
+            tabacoValue = Double.parseDouble( resultData.getText().toString() );
+            updateClasif( tabacoValue );
+
+        }
+        catch(NumberFormatException e)
+        {
+
+
+        }
+
+
+
+
         // Get Data
-        new getTabaco().execute( argumentPaciente.getId() );
+        //new getTabaco().execute( argumentPaciente.getId() );
 
         // Buttons Listener
         tabacoButton.setOnClickListener(new View.OnClickListener() {
@@ -161,21 +185,21 @@ public class tabacoActivity extends AppCompatActivity {
 
         if ( ipa < 10)
         {
-            clasif = "SIN RIESGO";
+            clasif = "NULO";
         }
-        else if ( ipa >= 10 && ipa <= 20 )
+        else if ( ipa >= 10 && ipa < 21 )
         {
 
-            clasif = "RIESGO MODERADO";
+            clasif = "MODERADO";
         }
-        else if ( ipa >= 21 && ipa <= 40 )
+        else if ( ipa >= 21 && ipa < 41 )
         {
-            clasif = "RIESGO INTENSO";
+            clasif = "INTENSO";
         }
         else if ( ipa >= 41 )
         {
 
-            clasif = "ALTO RIESGO";
+            clasif = "ALTO";
 
         }
 
@@ -183,262 +207,6 @@ public class tabacoActivity extends AppCompatActivity {
     }
 
 
-    // Get all the medics to validate on the database
-    private class getTabaco extends AsyncTask<   String, Void, ArrayList<String>> {
-
-        HttpURLConnection conn;
-        URL url = null;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected ArrayList<String> doInBackground(String... params) {
-
-
-            url = DAOCardiovascular.getInstance().getUrl( "getTabaco.php" );
-
-
-            try {
-                // Setup HttpURLConnection class to send and receive data from php and mysql
-                conn = (HttpURLConnection)url.openConnection();
-                conn.setReadTimeout(DAOCardiovascular.getInstance().getReadTimeout());
-                conn.setConnectTimeout(DAOCardiovascular.getInstance().getConnectTimeout());
-                conn.setRequestMethod("POST");
-
-                // setDoInput and setDoOutput method depict handling of both send and receive
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-
-                // Append parameters to URL
-                Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("pacienteId", params[0])
-                        ;
-                String query = builder.build().getEncodedQuery();
-
-                // Append parameters to URL
-                /*Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
-                        .appendQueryParameter("password", params[1]);
-                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();*/
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-
-                conn.connect();
-
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-                return null;
-                //return "exception";
-            }
-
-            try {
-
-                int response_code = conn.getResponseCode();
-
-                // Check if successful connection made
-                if (response_code == HttpURLConnection.HTTP_OK) {
-
-                    // Read data sent from server
-                    InputStream input = conn.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-
-
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
-                    StringBuilder result = new StringBuilder();
-                    String line;
-
-                    // New Paciente Object
-                    Paciente medic = new Paciente();
-
-                    ArrayList< String > linePhp = new ArrayList <  > ();
-
-                    // ArrayList < Paciente > medicPhp = new ArrayList<>();
-
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
-
-                        linePhp.add( line );
-
-                        /*if ( linePhp.size() == 3 )
-                        {
-
-                            // Create medic Object
-                            medic = new Paciente();
-
-                            // Update Medic Object
-                            medic.setId(linePhp.get(0));
-                            medic.setSexo(linePhp.get(1));
-                            medic.setEdad(linePhp.get(2));
-
-                            // Update Medic ArrayList
-                            medicPhp.add( medic );
-
-                            // Reset linePhp
-                            linePhp.clear();
-
-
-
-                        }*/
-
-
-                        //result.append(line);
-                    }
-
-                    System.out.println( "simorgh fire" );
-                    // System.out.println( medicPhp );
-
-                    // Pass data to onPostExecute method
-                    return linePhp;
-                    //return(result.toString());
-
-                }else{
-                    return null;
-                    //return("unsuccessful");
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-                // return "exception";
-            } finally {
-                conn.disconnect();
-            }
-        }
-
-
-
-        // @Override
-        protected void onPostExecute(ArrayList<String> result) {
-
-            // Check obtained result
-
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
-
-
-            //pdLoading.dismiss();
-
-            if ( result.size() > 0 ) {
-
-                años.setText( result.get( 0 ) );
-                cantidad.setText( result.get( 1 ) );
-                resultData.setText( result.get( 2 ) );
-
-
-
-                //resultData.setText( result.get( 2 ) );
-
-                try {
-
-                    // imcResult =  Double.parseDouble( resultData.getText().toString() );
-                    añosValue = Integer.parseInt( años.getText().toString() );
-                    cantidadValue = Integer.parseInt( cantidad.getText().toString() );
-                    tabacoValue = Double.parseDouble( resultData.getText().toString() );
-                    updateClasif( tabacoValue );
-
-                }
-                catch(NumberFormatException e)
-                {
-
-
-                }
-
-
-
-
-
-
-
-
-                // Class<? extends Activity> activityClass;
-                // activityClass = ValidateActivity.class;
-
-                //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-                // startActivity(intent);
-
-
-
-
-
-                //if(result.equalsIgnoreCase("true")){
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                // Clear the fields
-                /*user_text.getText().clear();
-                password_text.getText().clear();
-
-                // Restaurar cursor
-                user_text.requestFocus();*/
-
-                // Change frame
-               /* Class<? extends Activity> activityClass;
-                activityClass = InicioActivity.class;
-
-                // Paciente -> Menu Inicio
-                String i = result.getRol();
-                System.out.println("Llega aqui");
-                System.out.println(i);
-                if (i.equals( "1") ) {
-                    activityClass = InicioActivity.class;
-
-                    // Admin -> Menú admin
-                } else if (i.equals( "0")){
-                    activityClass = ValidateActivity.class;
-
-                }*/
-
-                // Start new frame
-               /* Intent intent = new Intent(MainActivity.this, activityClass);
-                startActivity(intent);*/
-
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
-
-               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();*/
-
-            }else{
-                //if (result.equalsIgnoreCase("false")){
-                //onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
-
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
-            }*/
-        }
-    }
 
 
     // Save The Imc Data
@@ -552,16 +320,28 @@ public class tabacoActivity extends AppCompatActivity {
 
                 // Clear the fields
 
-            } else if (result.equalsIgnoreCase("Tobacco Data actualizado")) {
+            } else if (result.equalsIgnoreCase("Tabaco Data actualizado")) {
 
 
-                Toast.makeText(getBaseContext(), "Tobacco Data Actualizado", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Tabaco Data actualizado", Toast.LENGTH_LONG).show();
+
+                argumentPaciente.setAdiccion( años.getText().toString() );
+                argumentPaciente.setCantidad( cantidad.getText().toString() );
+                argumentPaciente.setIpa( resultData.getText().toString( ) );
+
+                System.out.println( "tabaco argumentPaciente" );
+                System.out.println( argumentPaciente );
+
+                DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
+
+                System.out.println( "tabaco argumentPaciente DAO" );
+                System.out.println( DAOCardiovascular.getInstance().getCurrentPatient() );
 
 
-            } else if (result.equalsIgnoreCase("Error al guardar Tobacco Data")) {
+            } else if (result.equalsIgnoreCase("Error al guardar Tabaco Data")) {
 
 
-                Toast.makeText(getBaseContext(), "Error al guardar Tobacco Data", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Error al guardar Tabaco Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
 
@@ -586,29 +366,5 @@ public class tabacoActivity extends AppCompatActivity {
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

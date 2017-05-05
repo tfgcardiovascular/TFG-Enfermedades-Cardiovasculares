@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
+
+    <Button android:id="@+id/button_hombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculo Riesgo Coronario Hombres"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="130dp"
+     />
+
+    <Button android:id="@+id/button_hombres_diabeticos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculo Riesgo Coronario Hombres Diabeticos"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="190dp"
+   />
+
+    <Button android:id="@+id/button_mujeres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculo Riesgo Coronario Mujeres"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="250dp"
+    />
+
+    <Button android:id="@+id/button_mujeres_diabeticas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculo Riesgo Coronario Mujeres Diabeticas"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorText"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="310dp"
+      />
+
+
+</RelativeLayout>

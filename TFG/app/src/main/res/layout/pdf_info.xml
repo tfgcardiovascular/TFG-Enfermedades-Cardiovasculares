@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pdfLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Informe Médico del Paciente "
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/identificacion"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/identificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Identificación: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="210dp"
+        android:hint="Identificacion"
+        android:inputType="textCapCharacters"
+        android:maxLength="9"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/identificacion"
+        android:layout_alignBottom="@+id/identificacion"
+        android:layout_alignEnd="@+id/hta"
+        android:layout_marginEnd="-10dp" />
+
+    <TextView
+        android:id="@+id/edad"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Edad: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="65dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/edadData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Edad"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/edad"
+        android:layout_alignBottom="@+id/edad"
+        android:layout_marginLeft="140dp"
+         />
+
+    <TextView
+        android:id="@+id/Sexo"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sexo: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_below="@+id/edadData"
+        android:layout_alignStart="@+id/edad" />
+
+    <EditText
+        android:id="@+id/generoData"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:hint="Femenino"
+        android:inputType="textCapCharacters"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/Sexo"
+        android:layout_alignBottom="@+id/Sexo"
+        android:layout_marginLeft="140dp"/>
+
+    <TextView
+        android:id="@+id/hta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="135dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Hipertensión arterial "
+        android:textAllCaps="false"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/sistolica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="155dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Sistolica: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/mmHg1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mmHg "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/sistolica"
+        android:layout_alignBottom="@+id/sistolica"
+        android:layout_toEndOf="@+id/hta" />
+
+    <TextView
+        android:id="@+id/mmHg2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mmHg "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/diastolica"
+        android:layout_alignBottom="@+id/diastolica"
+        android:layout_toEndOf="@+id/imc" />
+
+    <EditText
+        android:id="@+id/sistolicaData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sistolica"
+        android:layout_alignBottom="@+id/sistolica"
+        android:layout_alignLeft="@+id/id"
+        android:layout_marginLeft="0dp"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/diastolica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Diastolica:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/diastolicaData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/diastolica"
+        android:layout_alignBottom="@+id/diastolica"
+        android:layout_alignEnd="@+id/sistolicaData"
+        android:layout_alignLeft="@+id/sistolicaData"
+        android:layout_alignRight="@+id/sistolicaData"
+        android:layout_alignStart="@+id/sistolicaData"
+        android:inputType="numberSigned"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/resultHta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="210dp"
+        android:ems="10"
+        android:text="Resultado:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/resultHtaData"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        android:layout_alignBaseline="@+id/resultHta"
+        android:layout_alignBottom="@+id/resultHta"
+        android:layout_alignStart="@+id/diastolicaData"
+         />
+
+    <TextView
+        android:id="@+id/imc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Índice de masa corporal "
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/altura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="260dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Altura:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/alturaData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/altura"
+        android:layout_alignBottom="@+id/altura"
+        android:layout_marginLeft="140dp" />
+
+    <TextView
+        android:id="@+id/m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="m "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/altura"
+        android:layout_alignBottom="@+id/altura"
+        android:layout_toEndOf="@+id/imc" />
+
+    <TextView
+        android:id="@+id/peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="285dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Peso:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/pesoData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/peso"
+        android:layout_alignBottom="@+id/peso"
+        android:layout_alignStart="@+id/alturaData" />
+
+    <TextView
+        android:id="@+id/kg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="kg "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/peso"
+        android:layout_alignBottom="@+id/peso"
+        android:layout_alignStart="@+id/m" />
+
+    <TextView
+        android:id="@+id/resultImc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="315dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Resultado:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/resultImcData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/resultImc"
+        android:layout_alignBottom="@+id/resultImc"
+        android:layout_alignStart="@+id/pesoData"
+        android:layout_toStartOf="@+id/kg"
+        android:layout_alignEnd="@+id/cantidadData" />
+
+    <TextView
+        android:id="@+id/tabaquismo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Tabaquismo "
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="345dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="365dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Cantidad diaria:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/cantidadData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cantidad"
+        android:layout_alignBottom="@+id/cantidad"
+        android:layout_alignLeft="@+id/id"
+        android:layout_marginLeft="20dp"
+        android:layout_toStartOf="@+id/paquetes"
+        android:inputType="numberSigned"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignEnd="@+id/hdlData" />
+
+    <TextView
+        android:id="@+id/paquetes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="cigarrillos "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/cantidad"
+        android:layout_alignBottom="@+id/cantidad"
+        android:layout_toEndOf="@+id/tabaquismo" />
+
+    <TextView
+        android:id="@+id/años"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="390dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Años adicción:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/añosData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/años"
+        android:layout_alignBottom="@+id/años"
+        android:layout_alignLeft="@+id/cantidadData"
+        android:layout_alignStart="@+id/cantidadData"
+        android:inputType="numberSigned"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_toStartOf="@+id/paquetes"
+        android:layout_alignEnd="@+id/cantidadData" />
+
+    <TextView
+        android:id="@+id/anios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="año(s)"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/años"
+        android:layout_alignBottom="@+id/años"
+        android:layout_alignStart="@+id/paquetes" />
+
+    <TextView
+        android:id="@+id/resultTabaquismo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="420dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Resultado:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/resultTabaquismoData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/resultTabaquismo"
+        android:layout_alignBottom="@+id/resultTabaquismo"
+        android:layout_alignStart="@+id/añosData"
+        android:layout_toStartOf="@+id/anios"
+        android:layout_alignEnd="@+id/añosData" />
+
+    <TextView
+        android:id="@+id/colesterol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Colesterol "
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="10dp"/>
+
+
+  <TextView
+        android:id="@+id/hdl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="HDL:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginTop="470dp"
+        android:layout_marginLeft="10dp"/>
+
+
+    <EditText
+        android:id="@+id/hdlData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="2"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/hdl"
+        android:layout_alignBottom="@+id/hdl"
+        android:layout_alignStart="@+id/diastolicaData" />
+
+    <TextView
+        android:id="@+id/mmol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/hdl"
+        android:layout_alignBottom="@+id/hdl"
+        android:layout_toEndOf="@+id/colesterol" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="495dp"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Total:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/totalData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/total"
+        android:layout_alignBottom="@+id/total"
+        android:layout_alignStart="@+id/diastolicaData" />
+
+    <TextView
+        android:id="@+id/mmol2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/total"
+        android:layout_alignBottom="@+id/total"
+        android:layout_alignStart="@+id/mmol" />
+
+    <TextView
+        android:id="@+id/trigliceridos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="Trigliceridos:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="520dp" />
+
+    <EditText
+        android:id="@+id/trigliceridosData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/trigliceridos"
+        android:layout_alignBottom="@+id/trigliceridos"
+        android:layout_alignLeft="@+id/totalData"
+        android:layout_alignStart="@+id/totalData" />
+
+    <TextView
+        android:id="@+id/mmol3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/trigliceridos"
+        android:layout_alignBottom="@+id/trigliceridos"
+        android:layout_alignStart="@+id/mmol2" />
+
+    <TextView
+        android:id="@+id/ldl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:text="LDL:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="550dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/ldlData"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:maxLength="3"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/ldl"
+        android:layout_alignBottom="@+id/ldl"
+        android:layout_alignLeft="@+id/totalData"
+        android:layout_alignStart="@+id/totalData" />
+
+    <TextView
+        android:id="@+id/mmol4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="mg/dL "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignBaseline="@+id/ldl"
+        android:layout_alignBottom="@+id/ldl"
+        android:layout_alignStart="@+id/mmol3" />
+
+
+</RelativeLayout>

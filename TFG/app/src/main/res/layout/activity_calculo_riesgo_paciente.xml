@@ -12,57 +12,36 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
-        android:layout_marginBottom="57dp"
+        android:layout_marginBottom="62dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button android:id="@+id/button_col_total"
+    <Button android:id="@+id/button_col"
         android:layout_width="90dp"
         android:layout_height="30dp"
-        android:text="@string/button_col_total"
+        android:text="Calcular"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
         android:layout_above="@+id/hta"
         android:layout_alignLeft="@+id/toggleDiabetes"
-        android:layout_alignStart="@+id/toggleDiabetes" />
-
-    <Button android:id="@+id/button_col_HDL"
-        android:layout_width="90dp"
-        android:layout_height="30dp"
-        android:text="@string/button_col_HDL"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorText"
-        android:fontFamily="sans-serif-medium"
-        android:layout_toRightOf="@+id/button_calcular_HTA"
-        android:layout_toEndOf="@+id/button_calcular_HTA"
-        android:layout_marginTop="230dp"/>
+        android:layout_alignStart="@+id/toggleDiabetes"
+        android:layout_alignRight="@+id/id"
+        android:layout_alignEnd="@+id/id" />
 
     <Button android:id="@+id/button_calcular_HTA"
         android:layout_width="120dp"
         android:layout_height="30dp"
-        android:text="@string/button_calcular_HTA"
+        android:text="Calcular"
         android:background="@color/colorPrimary"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
         android:layout_above="@+id/obesidad"
-        android:layout_alignLeft="@+id/button_col_total"
-        android:layout_alignStart="@+id/button_col_total" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="0"
-        android:id="@+id/resultado_hbac"
-        android:textSize="18sp"
-        android:inputType="numberDecimal"
-        android:maxLength="3"
-        android:textColor="@color/colorPrimary"
-        android:layout_alignBaseline="@+id/hta"
-        android:layout_alignBottom="@+id/hta"
-        android:layout_alignLeft="@+id/años_enfermedad"
-        android:layout_alignStart="@+id/años_enfermedad" />
+        android:layout_alignLeft="@+id/button_col"
+        android:layout_alignStart="@+id/button_col"
+        android:layout_alignRight="@+id/button_col"
+        android:layout_alignEnd="@+id/button_col" />
 
     <Button android:id="@+id/button_calcular_IMC"
         android:layout_width="120dp"
@@ -73,21 +52,53 @@
         android:fontFamily="sans-serif-medium"
         android:layout_alignBottom="@+id/obesidad"
         android:layout_alignLeft="@+id/button_calcular_HTA"
-        android:layout_alignStart="@+id/button_calcular_HTA" />
+        android:layout_alignStart="@+id/button_calcular_HTA"
+        android:layout_alignRight="@+id/button_calcular_HTA"
+        android:layout_alignEnd="@+id/button_calcular_HTA" />
 
-    <EditText
+    <TextView
+        android:id="@+id/tabaquismo_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/toggleFumador"
+        android:layout_alignBottom="@+id/toggleFumador"
+        android:layout_alignStart="@+id/imc_result"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/colesterol_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button_col"
+        android:layout_alignBottom="@+id/button_col"
+        android:layout_alignStart="@+id/imc_result"
+        android:hint="0"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        android:maxLength="5"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="0"
-        android:id="@+id/años_enfermedad"
+        android:id="@+id/imc_result"
         android:textSize="18sp"
         android:inputType="numberDecimal"
-        android:maxLength="4"
+        android:maxLength="5"
         android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="330dp"
+        android:textAlignment="center"
         android:layout_alignBaseline="@+id/button_calcular_IMC"
         android:layout_alignBottom="@+id/button_calcular_IMC"
-        android:layout_alignRight="@+id/button_col_HDL"
-        android:layout_alignEnd="@+id/button_col_HDL" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="45dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -153,10 +164,9 @@
         android:textSize="18sp"
         android:id="@+id/height"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_alignBottom="@+id/radioGroup"
         android:layout_marginLeft="10dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignBottom="@+id/radioGroup"
+         />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -164,10 +174,7 @@
         android:orientation="horizontal"
         android:id="@+id/radioGroup"
         android:layout_below="@+id/id"
-        android:layout_toLeftOf="@+id/resultado_hbac"
-        android:layout_toStartOf="@+id/resultado_hbac"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="5dp">
+        android:layout_marginLeft="75dp">
         <RadioButton
             android:text="Masculino"
             android:textSize="18sp"
@@ -264,16 +271,19 @@
 
     <Button
         android:id="@+id/toggleFumador"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorText"
-        android:layout_width="90dp"
+        android:layout_width="115dp"
         android:layout_height="30dp"
+        android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-medium"
-        android:text="Fuma"
+        android:text="Calcular"
+        android:textColor="@color/colorText"
         android:textOff="No"
         android:textOn="Si"
+        android:layout_marginRight="122dp"
+        android:layout_marginEnd="122dp"
         android:layout_above="@+id/diabetes"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/toggleDiabetes"
@@ -282,10 +292,12 @@
         android:background="@color/colorPrimary"
         android:textColor="@color/colorText"
         android:fontFamily="sans-serif-medium"
-        android:text="Diabetes"
+        android:text="Calcular"
         android:layout_above="@+id/colesterol"
         android:layout_alignLeft="@+id/toggleFumador"
-        android:layout_alignStart="@+id/toggleFumador" />
+        android:layout_alignStart="@+id/toggleFumador"
+        android:layout_alignRight="@+id/id"
+        android:layout_alignEnd="@+id/id" />
 
 
 </RelativeLayout>

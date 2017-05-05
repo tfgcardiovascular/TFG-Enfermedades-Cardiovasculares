@@ -1,6 +1,7 @@
 package ucm.fdi.tfg;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +14,7 @@ public class Main_MenuActivity extends AppCompatActivity {
     private Button Nuevo;
     private Button Pacientes_Guardados;
     private Button Algoritmos;
+    private Button Perfil;
     private Button Farmacos;
 
     public void onBackPressed() {
@@ -30,13 +32,17 @@ public class Main_MenuActivity extends AppCompatActivity {
         Nuevo = (Button) findViewById(R.id.button_new_patient);
         Pacientes_Guardados = (Button) findViewById(R.id.button_patients);
         Algoritmos = (Button) findViewById(R.id.button_algorithms);
-        //Farmacos = (Button) findViewById(R.id.button_drugs);
+        Perfil = (Button) findViewById(R.id.button_profile);
+        Farmacos = (Button) findViewById(R.id.button_drugs);
+
+        //Medico currentLead =
+
 
         Nuevo.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
+                // Registrar nuevo paciente
                 Intent intent = new Intent(getApplicationContext(), NuevoPacienteActivity.class);
                 startActivity(intent);
             }
@@ -46,8 +52,43 @@ public class Main_MenuActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
+                // Pacientes guardados
                 Intent intent = new Intent(getApplicationContext(), MisPacientesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Perfil.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Perfil del medico
+                Intent intent = new Intent(getApplicationContext(), MedicoPerfilActivity.class);
+                //intent.putExtra( "medic", currentLead);
+                startActivity(intent);
+            }
+        });
+
+        Farmacos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Navegar url de farmacos
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("http://www.vademecum.es/medicamentos-a_1"));
+                startActivity(intent);
+            }
+        });
+
+        Algoritmos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Perfil del medico
+                Intent intent = new Intent(getApplicationContext(), Algoritmos_Main_MenuActivity.class);
+                //intent.putExtra( "medic", currentLead);
                 startActivity(intent);
             }
         });

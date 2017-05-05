@@ -54,7 +54,7 @@
         android:layout_marginLeft="10dp"/>
 
     <EditText
-        android:id="@+id/heightData"
+        android:id="@+id/hdlData"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
@@ -97,13 +97,13 @@
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:maxLength="5"
+        android:maxLength="3"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:layout_alignBaseline="@+id/weight"
         android:layout_alignBottom="@+id/weight"
-        android:layout_alignLeft="@+id/heightData"
-        android:layout_alignStart="@+id/heightData" />
+        android:layout_alignLeft="@+id/hdlData"
+        android:layout_alignStart="@+id/hdlData" />
 
     <TextView
         android:id="@+id/kg"
