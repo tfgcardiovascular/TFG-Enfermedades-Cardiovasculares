@@ -1,43 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/pdfLayout4"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Tratamiento para el paciente "
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_alignParentTop="true" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-
-        android:inputType="textMultiLine"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/info" />
-
-    <Button android:id="@+id/button_guardar"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pdfLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/button_save"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorText"
-        android:fontFamily="sans-serif-medium"
-        android:drawableBottom="@mipmap/save_patient"
-        android:layout_below="@+id/editText"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Tratamiento para el paciente "
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/info" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentEnd="true"
+            android:layout_alignStart="@+id/info" />
+
+        <Button android:id="@+id/button_guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_save"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorText"
+            android:fontFamily="sans-serif-medium"
+            android:drawableBottom="@mipmap/save_patient"
+            android:layout_below="@+id/editText2"/>
+
+    </RelativeLayout>
+</ScrollView>

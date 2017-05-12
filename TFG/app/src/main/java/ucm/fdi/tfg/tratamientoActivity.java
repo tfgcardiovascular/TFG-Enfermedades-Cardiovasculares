@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -24,6 +25,7 @@ public class tratamientoActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
     private static final String TAG = "tratamientoActivity";
 
+    private TextView tratamiento_inicial;
     private EditText tratamiento;
 
     // Argument
@@ -55,112 +57,10 @@ public class tratamientoActivity extends AppCompatActivity {
 
     }
 
-    protected String infoCardiovascular()
+   /* protected String infoCardiovascular()
     {
-        String cardiovascularString = "";
 
-        if ( !argumentPaciente.getFinalTratamiento().equals( "" ) )
-        {
-            cardiovascularString = argumentPaciente.getFinalTratamiento();
-
-        }else
-        {
-            try {
-
-                double cardiovascular = Double.parseDouble(argumentPaciente.getCardiovascular());
-                String sexo = "Masculino";
-                String diabetes = "No";
-                String tabaquismo = "No";
-
-                if (cardiovascular > 39) {
-                    cardiovascularString = "muy alto";
-
-                } else if (cardiovascular >= 20 && cardiovascular <= 39) {
-
-                    cardiovascularString = "alto";
-                } else if (cardiovascular >= 10 && cardiovascular <= 19) {
-                    cardiovascularString = "moderado";
-
-                } else if (cardiovascular >= 5 && cardiovascular <= 9) {
-
-                    cardiovascularString = "ligero";
-
-                } else if (cardiovascular < 5) {
-                    cardiovascularString = "bajo";
-
-                }
-
-                //Genero
-                if (argumentPaciente.getSexo().equals("M")) {
-                    sexo = "Masculino";
-
-                } else {
-                    sexo = "Femenino";
-                }
-                //Diabetes
-                if (Double.parseDouble(argumentPaciente.getYearEnfermo()) > 0) {
-                    diabetes = "Si";
-                } else {
-                    diabetes = "No";
-                }
-                //Tabaquismo
-                if (Double.parseDouble(argumentPaciente.getIpa()) > 0) {
-                    tabaquismo = "Si";
-                } else {
-                    tabaquismo = "No";
-                }
-
-                cardiovascularString = "El paciente " + argumentPaciente.getId() + " con edad " + argumentPaciente.getEdad() +
-                        " tiene riesgo coronario " + cardiovascularString + " (" + argumentPaciente.getCardiovascular()
-                        + "% ).\n" +
-                        "Debido a los factores: tabaquismo (" + tabaquismo + "), " +
-                        "hipertensión arterial (Sistólica " + argumentPaciente.getSistolica() + " y Diastólica " + argumentPaciente.getDiastolica() + "), " +
-                        "colesterol (Total " + argumentPaciente.getColesterolTotal() + "), " +
-                        "género (" + sexo + ") y " +
-                        "diabetes (" + diabetes + ").\n" +
-                        "*Puede consultar las tablas de REGICOR en Tratamiento dentro de Algortimos.\n";
-
-
-            }catch (Exception e){
-
-                String sexo = "Masculino";
-                String diabetes = "No";
-                String tabaquismo = "No";
-
-                //Genero
-                if (argumentPaciente.getSexo().equals("M")) {
-                    sexo = "Masculino";
-
-                } else {
-                    sexo = "Femenino";
-                }
-                //Diabetes
-                if (Double.parseDouble(argumentPaciente.getYearEnfermo()) > 0) {
-                    diabetes = "Si";
-                } else {
-                    diabetes = "No";
-                }
-                //Tabaquismo
-                if (Double.parseDouble(argumentPaciente.getIpa()) > 0) {
-                    tabaquismo = "Si";
-                } else {
-                    tabaquismo = "No";
-                }
-
-                cardiovascularString = "El paciente " + argumentPaciente.getId() + " de edad " + argumentPaciente.getEdad() + "\n" +
-                        "Factores: tabaquismo (" + tabaquismo + "), " +
-                        "hipertensión arterial (Sistólica " + argumentPaciente.getSistolica() + " y Diastólica " + argumentPaciente.getDiastolica() + "), " +
-                        "colesterol (Total " + argumentPaciente.getColesterolTotal() + "), " +
-                        "género (" + sexo + ") y " +
-                        "diabetes (" + diabetes + ").\n";
-            }
-
-        }
-
-
-
-        return cardiovascularString;
-    }
+    }*/
 
 
     @Override
@@ -169,7 +69,8 @@ public class tratamientoActivity extends AppCompatActivity {
         setContentView(R.layout.tratamiento);
 
         // EditText
-        tratamiento = ( EditText ) findViewById( R.id.editText );
+        tratamiento_inicial = ( TextView ) findViewById( R.id.editText );
+        tratamiento = (EditText) findViewById( R.id.editText2 );
         saveButton = (Button ) findViewById(R.id.button_guardar);
 
         // Set
@@ -178,8 +79,12 @@ public class tratamientoActivity extends AppCompatActivity {
         System.out.println( "argumentPaciente" );
         System.out.println( argumentPaciente );
 
-        String infoTratamiento = infoCardiovascular();
-        tratamiento.setText( infoTratamiento );
+        String infoTratamiento = DAOCardiovascular.getInstance().infoTratamientoCardiovascular();
+        tratamiento_inicial.setText( infoTratamiento );
+
+        // Tratamiento médico
+        tratamiento.setText( argumentPaciente.getFinalTratamiento() );
+
 
         saveButton.setOnClickListener(new View.OnClickListener() {
 

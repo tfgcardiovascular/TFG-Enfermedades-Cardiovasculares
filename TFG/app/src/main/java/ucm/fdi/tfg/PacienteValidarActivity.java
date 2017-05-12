@@ -373,7 +373,11 @@ public class PacienteValidarActivity extends AppCompatActivity {
         content.measure(widthContent, heightContent);
         content.layout(0,0,widthContent,heightContent);
 
-        finalTratamientoField = (  TextView ) findViewById( R.id.textView2 );
+        TextView tratamientoInicial = ( TextView ) findViewById( R.id.textView2 );
+        String infoTratamiento = DAOCardiovascular.getInstance().infoTratamientoCardiovascular();
+        tratamientoInicial.setText( infoTratamiento );
+
+        finalTratamientoField = (  TextView ) findViewById( R.id.textView3 );
         System.out.println( "tratamiento final argumentPaciente" );
         System.out.println( argumentPaciente );
         finalTratamientoField.setText( argumentPaciente.getFinalTratamiento() );

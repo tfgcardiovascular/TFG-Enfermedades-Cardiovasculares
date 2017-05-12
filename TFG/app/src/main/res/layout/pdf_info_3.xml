@@ -21,14 +21,24 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="360dp"
+        android:layout_height="175dp"
+        android:layout_alignStart="@+id/info"
+        android:layout_marginTop="30dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="360dp"
         android:inputType="textMultiLine"
         android:layout_height="500dp"
         android:gravity="top"
         android:layout_alignStart="@+id/info"
-        android:layout_marginTop="30dp"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
-         />
-
-
+        />
 </RelativeLayout>

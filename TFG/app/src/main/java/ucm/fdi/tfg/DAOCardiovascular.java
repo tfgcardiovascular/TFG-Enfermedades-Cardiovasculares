@@ -79,7 +79,7 @@ public class DAOCardiovascular {
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.119.102:8888/php/" + phpFile;
+        String dir = "http://147.96.116.43:8888/php/" + phpFile;
 
         try {
 
@@ -107,6 +107,133 @@ public class DAOCardiovascular {
 
     public String prueba() {
         return "PHOENIX";
+    }
+
+    public String infoTratamientoCardiovascular()
+    {
+        Paciente argumentPaciente = getCurrentPatient();
+
+        String cardiovascularString = "";
+
+        /*if ( !argumentPaciente.getFinalTratamiento().equals( "" ) )
+        {
+            cardiovascularString = argumentPaciente.getFinalTratamiento();
+
+        }else
+        {*/
+
+        String sexo = "Masculino";
+        String diabetes = "No";
+        String tabaquismo = "No";
+
+        //Genero
+        if (argumentPaciente.getSexo().equals("M")) {
+            sexo = "Masculino";
+
+        } else {
+            sexo = "Femenino";
+        }
+
+        // Sistolica
+        // Diastolica
+        String sistolica = "0";
+
+        if ( argumentPaciente.getSistolica().length() > 0 )
+        {
+            sistolica = argumentPaciente.getSistolica();
+        }
+
+        String diastolica = "0";
+
+        if ( argumentPaciente.getDiastolica().length() > 0 )
+        {
+            diastolica = argumentPaciente.getDiastolica();
+        }
+
+
+        String colesterol = "0";
+
+        if ( argumentPaciente.getColesterolTotal().length() > 0 )
+        {
+            colesterol = argumentPaciente.getColesterolTotal();
+        }
+
+        // Get important factors
+        // Diabetes
+        try
+        {
+            if ( Double.parseDouble(argumentPaciente.getYearEnfermo() ) > 0 )
+            {
+                diabetes = "Si";
+            }
+        }catch( NumberFormatException e )
+        {
+        }
+
+        // Tabaquismo
+        try
+        {
+            if (Double.parseDouble(argumentPaciente.getIpa()) > 0)
+            {
+                tabaquismo = "Si";
+            }
+        }catch( NumberFormatException e )
+        {
+        }
+
+        // Cardiovascular
+        try
+        {
+
+            double cardiovascular = Double.parseDouble(argumentPaciente.getCardiovascular());
+
+            if (cardiovascular > 39) {
+                cardiovascularString = "muy alto";
+
+            } else if (cardiovascular >= 20 && cardiovascular <= 39) {
+
+                cardiovascularString = "alto";
+            } else if (cardiovascular >= 10 && cardiovascular <= 19) {
+                cardiovascularString = "moderado";
+
+            } else if (cardiovascular >= 5 && cardiovascular <= 9) {
+
+                cardiovascularString = "ligero";
+
+            } else if (cardiovascular < 5) {
+                cardiovascularString = "bajo";
+
+            }
+
+            cardiovascularString = "El paciente " + argumentPaciente.getId() + " con edad " + argumentPaciente.getEdad() +
+                    " tiene riesgo coronario " + cardiovascularString + " (" + argumentPaciente.getCardiovascular()
+                    + "% ).\n" +
+                    "Debido a los factores: tabaquismo (" + tabaquismo + "), " +
+                    "hipertensión arterial (Sistólica " + sistolica + " y Diastólica " + diastolica + "), " +
+                    "colesterol (Total " + colesterol + "), " +
+                    "género (" + sexo + ") y " +
+                    "diabetes (" + diabetes + ").\n" +
+                    "*Puede consultar las tablas de REGICOR en Tratamiento dentro de Algortimos.\n";
+
+
+
+        }catch( NumberFormatException e )
+        {
+
+            cardiovascularString = "El paciente " + argumentPaciente.getId() + " de edad " + argumentPaciente.getEdad() + "\n" +
+                    "Factores: tabaquismo (" + tabaquismo + "), " +
+                    "hipertensión arterial (Sistólica " + sistolica + " y Diastólica " + diastolica + "), " +
+                    "colesterol (Total " + colesterol + "), " +
+                    "género (" + sexo + ") y " +
+                    "diabetes (" + diabetes + ").\n";
+        }
+
+        //}
+
+
+
+        return cardiovascularString;
+
     }
 
 }

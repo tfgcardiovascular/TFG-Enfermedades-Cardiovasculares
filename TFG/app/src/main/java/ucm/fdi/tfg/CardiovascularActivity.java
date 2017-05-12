@@ -5505,6 +5505,7 @@ public class CardiovascularActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("Riesgo cardiovascular calculado. Se han actualizado los datos en tratamiento")) {
 
+                //argumentPaciente.setCardiovascular( )
                 DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
 
                 Toast.makeText(getBaseContext(), "Riesgo cardiovascular calculado. Se han actualizado los datos en tratamiento", Toast.LENGTH_LONG).show();
