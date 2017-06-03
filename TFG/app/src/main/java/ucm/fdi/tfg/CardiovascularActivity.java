@@ -35,7 +35,6 @@ public class CardiovascularActivity extends AppCompatActivity {
     private Button diabetesButton;
     private Button cardiovascularButton;
 
-
     // Text
     private TextView identif;
     private TextView eda;
@@ -55,12 +54,8 @@ public class CardiovascularActivity extends AppCompatActivity {
     private TextView tabaquismoResult;
     private TextView colesterolResult;
 
-    private void calculateCardiovascular()
-    {
-
+    private void calculateCardiovascular(){
         int cardiovascularResult = 0;
-
-
 
         try
         {
@@ -1373,13 +1368,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                             }
 
                         }
-
-
-
-
-
-
-
                     }
 
                 // No diabetes Mujer
@@ -1421,8 +1409,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 2;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -1542,9 +1528,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                             }
 
-
-
-
                         }else if ( edad >= 45 && edad <= 54 )
                         {
 
@@ -1576,8 +1559,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 3;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -1728,8 +1709,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 5;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -1881,8 +1860,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                                 }
 
-
-
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
 
@@ -2003,11 +1980,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                         }
 
-
-
-
-
-
                         // No diabetes Mujer Fumador
                     }else
                     {
@@ -2044,8 +2016,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 2;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -2165,9 +2135,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                             }
 
-
-
-
                         }else if ( edad >= 45 && edad <= 54 )
                         {
 
@@ -2199,8 +2166,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 4;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -2351,8 +2316,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 6;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -2504,8 +2467,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                                 }
 
-
-
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
 
@@ -2621,29 +2582,14 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 12;
 
                                 }
-
                             }
 
                         }
-
-
-
-
-
-
-
                     }
-
-
-
-
                 }
 
             // Diabetes
             }else{
-
-
-
                 // Diabetes Hombre
                 if ( argumentPaciente.getSexo().equals( "M" ) )
                 {
@@ -2684,8 +2630,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 2;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -2805,9 +2749,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                             }
 
-
-
-
                         }else if ( edad >= 45 && edad <= 54 )
                         {
 
@@ -2839,8 +2780,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 3;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -2991,8 +2930,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 4;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -3143,8 +3080,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 7;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -3261,15 +3196,9 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 21;
 
                                 }
-
                             }
 
                         }
-
-
-
-
-
 
                         // Diabetes Hombre Fumador
                     }else
@@ -3428,9 +3357,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                             }
 
-
-
-
                         }else if ( edad >= 45 && edad <= 54 )
                         {
 
@@ -3462,8 +3388,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 4;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -3766,8 +3690,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 11;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -3888,13 +3810,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                             }
 
                         }
-
-
-
-
-
-
-
                     }
 
                     // Diabetes Mujer
@@ -3937,8 +3852,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                                 }
 
-
-
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
 
@@ -4057,9 +3970,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                             }
 
-
-
-
                         }else if ( edad >= 45 && edad <= 54 )
                         {
 
@@ -4091,8 +4001,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 5;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -4243,8 +4151,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 8;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -4517,11 +4423,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                             }
 
                         }
-
-
-
-
-
 
                         // Diabetes Mujer Fumador
                     }else
@@ -4560,8 +4461,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                                 }
 
-
-
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
 
@@ -4677,11 +4576,7 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 6;
 
                                 }
-
                             }
-
-
-
 
                         }else if ( edad >= 45 && edad <= 54 )
                         {
@@ -4714,8 +4609,6 @@ public class CardiovascularActivity extends AppCompatActivity {
                                     cardiovascularResult = 7;
 
                                 }
-
-
 
                             }else if ( colesterol >= 160 && colesterol < 180 )
                             {
@@ -5138,32 +5031,15 @@ public class CardiovascularActivity extends AppCompatActivity {
                                 }
 
                             }
-
-
                         }
-
-
-
                     }
-
-
-
-
                 }
-
-
-
             }
-
-            
-
-            
 
         }catch( NumberFormatException e )
         {
-
-            System.out.println( "Number exception" );
-            System.out.println( e.getMessage() );
+            //System.out.println( "Number exception" );
+            //System.out.println( e.getMessage() );
 
 
 
@@ -5171,34 +5047,19 @@ public class CardiovascularActivity extends AppCompatActivity {
 
         argumentPaciente.setCardiovascular( String.valueOf( cardiovascularResult ) );
 
-        System.out.println( "argumentPaciente" );
-        System.out.println( argumentPaciente );
-
-
-
-
-
-
-
-
-
+       // System.out.println( "argumentPaciente" );
     }
 
-
-    protected void setData()
-    {
+    protected void setData(){
 
         argumentPaciente =  DAOCardiovascular.getInstance().getCurrentPatient();
 
-        System.out.println( "tabaco argumentPaciente DAO" );
-        System.out.println( DAOCardiovascular.getInstance().getCurrentPatient() );
+        //System.out.println( "tabaco argumentPaciente DAO" );
+        //System.out.println( DAOCardiovascular.getInstance().getCurrentPatient() );
 
         // Set info data
         identificacion.setText( argumentPaciente.getId() );
         edad.setText( argumentPaciente.getEdad() );
-
-
-
 
         String sexValue =  argumentPaciente.getSexo();
 
@@ -5216,7 +5077,6 @@ public class CardiovascularActivity extends AppCompatActivity {
         Masculino.setEnabled( false );
         Femenino.setEnabled( false );
 
-
         // Results
         imcResult = (TextView) findViewById( R.id.imc_result );
         tabaquismoResult = (TextView) findViewById( R.id.tabaquismo_result );
@@ -5226,19 +5086,13 @@ public class CardiovascularActivity extends AppCompatActivity {
         tabaquismoResult.setText( argumentPaciente.getIpa() );
         colesterolResult.setText( argumentPaciente.getLdl() );
 
-
-        System.out.println( "Set Data argumentPaciente" );
-        System.out.println( argumentPaciente );
-
+        //System.out.println( "Set Data argumentPaciente" );
+        //System.out.println( argumentPaciente );
     }
 
-    protected void onResume()
-    {
-
+    protected void onResume(){
         super.onResume();
-
         setData();
-
     }
 
     @Override
@@ -5249,10 +5103,7 @@ public class CardiovascularActivity extends AppCompatActivity {
         // Buttons
         tabaquismoButton = ( Button ) findViewById ( R.id.toggleFumador );
         diabetesButton = (Button) findViewById(R.id.toggleDiabetes);
-
         colesterol = (Button) findViewById( R.id.button_col );
-
-
         htaButton = ( Button ) findViewById( R.id.button_calcular_HTA );
         imcButton = ( Button ) findViewById( R.id.button_calcular_IMC );
 
@@ -5270,11 +5121,8 @@ public class CardiovascularActivity extends AppCompatActivity {
         Masculino = (RadioButton) findViewById(R.id.RB_genero_hombre);
         Femenino = (RadioButton) findViewById(R.id.RB_genero_mujer);
 
-
-
         // Set Data
         setData();
-
 
         // Buttons Listener
         diabetesButton.setOnClickListener(new View.OnClickListener() {
@@ -5337,34 +5185,22 @@ public class CardiovascularActivity extends AppCompatActivity {
             }
         });
 
-
          cardiovascularButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
                 // Calculate cardiovascular
                 calculateCardiovascular();
 
-                System.out.println( "argumentPaciente2" );
-                System.out.println( argumentPaciente );
+                //System.out.println( "argumentPaciente2" );
+                //System.out.println( argumentPaciente );
 
                 // Calculate cardiovascular
                 new saveCardiovascular().execute( argumentPaciente.getId(), argumentPaciente.getCardiovascular() );
 
             }
         });
-
-
-
-
-
-
-
     }
-
-
-
 
     private class saveCardiovascular extends AsyncTask<String,Void,String> {
 
@@ -5387,8 +5223,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
             try {
 
-                System.out.println("phoenix white");
-
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(DAOCardiovascular.getInstance().getReadTimeout());
@@ -5399,21 +5233,15 @@ public class CardiovascularActivity extends AppCompatActivity {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                System.out.println("phoenix grey");
-
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("pacienteId", params[0])
                         .appendQueryParameter("cardiovascular", params[1]);
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for (int i = 0; i < params.length; i++) {
                     System.out.println(params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -5424,10 +5252,7 @@ public class CardiovascularActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -5443,8 +5268,6 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -5454,54 +5277,33 @@ public class CardiovascularActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
 
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
-
                 } else {
-
                     //return("unsuccessful");
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
             } else if (result.equalsIgnoreCase("false") || result.equalsIgnoreCase("exception")) {
-
 
             } else if (result.equalsIgnoreCase("Riesgo cardiovascular calculado. Se han actualizado los datos en tratamiento")) {
 
@@ -5514,18 +5316,10 @@ public class CardiovascularActivity extends AppCompatActivity {
 
                 Toast.makeText(getBaseContext(), "Riesgo cardiovascular calculado. El valor obtenido es idéntico al anterior", Toast.LENGTH_LONG).show();
 
-
             } else if (result.equalsIgnoreCase("Paciente no encontrado")) {
 
                 Toast.makeText(getBaseContext(), "Paciente no encontrado", Toast.LENGTH_LONG).show();
-
-
             }
         }
-
     }
-
-
-
-
 }

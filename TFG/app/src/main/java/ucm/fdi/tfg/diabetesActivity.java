@@ -1,21 +1,23 @@
 package ucm.fdi.tfg;
 
+import android.app.DatePickerDialog;
+import android.app.DatePickerDialog.OnDateSetListener;
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,26 +28,13 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.DatePickerDialog.OnDateSetListener;
-import android.os.Bundle;
-import android.text.InputType;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.DatePicker;
-import android.widget.EditText;
-
 public class diabetesActivity extends AppCompatActivity implements OnClickListener {
-
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
     private static final String TAG = "diabetesActivity";
 
@@ -81,11 +70,6 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diabetes_paciente);
 
-        // Text
-        /*heightLabel = (TextView) findViewById(R.id.height);
-        weightLabel = (TextView) findViewById(R.id.weight);
-        resultLabel = (TextView) findViewById(R.id.result);*/
-
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
 
         identificacion = (EditText) findViewById(R.id.id);
@@ -104,11 +88,8 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
         raza = (Switch) findViewById( R.id.raza );
         urea = ( EditText ) findViewById( R.id.urea );
 
-
         // Buttons
         diabetesButton = (Button) findViewById( R.id.button_diabetes );
-
-
 
         //Spinners
         //Tipo
@@ -153,14 +134,6 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
 
         identificacion.setEnabled( false );
 
-        // Get in data
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
-
-        // Set info data
-        identificacion.setText( argumentPaciente.getId() );*/
-
         //Date picker
         setDateTimeField();
 
@@ -173,8 +146,8 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
 
         identificacion.setText( argumentPaciente.getId() );
 
-        System.out.println( "argumentPaciente" );
-        System.out.println( argumentPaciente.getTratamiento() );
+        //System.out.println( "argumentPaciente" );
+        //System.out.println( argumentPaciente.getTratamiento() );
 
         tipo.setSelection( spinnerArray.indexOf( argumentPaciente.getTipo() ) );
         tratamiento.setSelection( spinnerArray2.indexOf( argumentPaciente.getTratamiento() ) );
@@ -196,7 +169,6 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
         else if ( argumentPaciente.getRaza().equals( "No" ) ){
             raza.setChecked( false );
         }
-
 
         // Buttons
         diabetesButton = (Button) findViewById( R.id.button_diabetes);
@@ -256,42 +228,8 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
 
                 }
 
-                // Get data
-
-                /*try}
-                {
-
-                    hdlValue = Double.parseDouble( HDL.getText().toString() );
-                    totalValue = Double.parseDouble( Total.getText().toString() );
-                    trigliceridosValue = Double.parseDouble( trigliceridos.getText().toString() );
-
-                    if ( hdlValue >= totalValue )
-                    {
-                        HDL.setError( "HDL no puede ser mayor que Colesterol Total" );
-                    }
-
-                    // Calculate
-                    ldlValue = ( double ) ( ( totalValue - hdlValue - ( trigliceridosValue ) / 5 ) );
-
-                    // Set Data
-                    LDL.setText( String.valueOf( ldlValue ) );
-
-                    new colesterolActivity.saveColesterol().execute( argumentPaciente.getId(), HDL.getText().toString(), Total.getText().toString(), trigliceridos.getText().toString(), LDL.getText().toString() );
-
-
-                }catch(NumberFormatException e)
-                {
-
-
-                }*/
-
             }
-
         });
-
-
-
-
     }
 
     //Listener for
@@ -310,14 +248,6 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
 
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }
-
-
-    /*public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }*/
-
 
     public void onClick(View view) {
         if(view == ultimo) {
@@ -343,7 +273,7 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
             url = DAOCardiovascular.getInstance().getUrl("saveDiabetes.php");
 
             // Ver datos
-            System.out.println( "Parametros" );
+            //System.out.println( "Parametros" );
             for ( int i = 0; i < 11; i++ )
             {
                 System.out.println( params[i] );
@@ -379,8 +309,6 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
                         ;
                 String query = builder.build().getEncodedQuery();
 
-
-
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(
@@ -415,13 +343,9 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
                     //return(result.toString());
@@ -442,15 +366,9 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
             return finalResult;
         }
 
-
         // @Override
         protected void onPostExecute(String result) {
-
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
-            System.out.println( "Phoenix dungeon end" );
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
@@ -472,32 +390,16 @@ public class diabetesActivity extends AppCompatActivity implements OnClickListen
                 argumentPaciente.setRaza( race );
                 argumentPaciente.setUrea( urea.getText().toString() );
 
-                // Timestamp
-/*
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                String string  = dateFormat.format(new Date());
-                System.out.println(string);*/
-
-
-
-
-
-
                 DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
 
 
             } else if (result.equalsIgnoreCase("Error al guardar Diabetes Data")) {
 
-
                 Toast.makeText(getBaseContext(), "Error al guardar Diabetes Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
 
-
-
             }
         }
     }
-
-
 }

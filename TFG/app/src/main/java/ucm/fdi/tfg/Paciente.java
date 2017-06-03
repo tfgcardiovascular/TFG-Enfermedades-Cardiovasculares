@@ -73,15 +73,6 @@ public class Paciente implements Serializable {
 
     }
 
-    // Getters and setters
-   /* public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }*/
-
     public String getId() {
         return id;
     }
@@ -105,7 +96,6 @@ public class Paciente implements Serializable {
     public void setEdad(String edad) {
         this.edad = edad;
     }
-
 
     //IMC
     public String getHeight() {
@@ -132,7 +122,6 @@ public class Paciente implements Serializable {
         this.imc = imc;
     }
 
-
     //HTA
     public String getSistolica() {
         return sistolica;
@@ -151,7 +140,6 @@ public class Paciente implements Serializable {
     }
 
     //TABAQUISMO
-
     public String getCantidad() {
         return cantidad;
     }
@@ -334,7 +322,4 @@ public class Paciente implements Serializable {
                 ", finalTratamiento='" + finalTratamiento + '\'' +
                 '}';
     }
-
-
-
 }

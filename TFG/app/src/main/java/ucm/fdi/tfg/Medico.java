@@ -38,15 +38,6 @@ public class Medico implements Serializable {
         this.rol = rol;
     }
 
-    // Getters and setters
-   /* public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }*/
-
     public String getId() {
         return id;
     }

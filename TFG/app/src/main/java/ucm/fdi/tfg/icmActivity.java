@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -22,7 +21,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 import static java.lang.Math.pow;
 
@@ -52,30 +50,16 @@ public class icmActivity extends AppCompatActivity {
     private Paciente argumentPaciente;
 
 
-
     public void onResume(Bundle savedInstanceState)
     {
 
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
-
-        // Get Data
-        new getImc().execute( argumentPaciente.getId() );*/
-
-        System.out.println( "onResume lion" );
-
-
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icm_paciente);
-
-        System.out.println( "onCreate lion" );
 
         // TextView
         identificacion = (EditText) findViewById(R.id.id);
@@ -91,17 +75,10 @@ public class icmActivity extends AppCompatActivity {
         // Buttons
         imcButton = (Button) findViewById( R.id.button_calcular_hta);
 
-        // Get in data
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );*/
-
         // Set
         argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
-        System.out.println( argumentPaciente );
-
-        System.out.println( "patient lion " );
+        //System.out.println( argumentPaciente );
 
 
         // Set info data
@@ -110,8 +87,6 @@ public class icmActivity extends AppCompatActivity {
         identificacion.setEnabled( false );
         resultData.setEnabled( false );
         clasifData.setEnabled( false );
-
-
 
         // Get Data
         heightData.setText( argumentPaciente.getHeight() );
@@ -127,10 +102,7 @@ public class icmActivity extends AppCompatActivity {
         catch(NumberFormatException e)
         {
 
-
         }
-
-        //new getImc().execute( argumentPaciente.getId() );
 
         imcButton.setOnClickListener(new View.OnClickListener() {
 
@@ -144,24 +116,25 @@ public class icmActivity extends AppCompatActivity {
 
                 // Check correct number
 
-
                 // Get data
                 try
                 {
-
-
 
                     height = Double.parseDouble( heightData.getText().toString() );
                     weight = Double.parseDouble( weightData.getText().toString() );
 
                     if ( height <= 0 )
                     {
+
                         heightData.setError( "Altura debe ser mayor que 0" );
+
                     }
 
                     if ( weight <= 0 )
                     {
+
                         weightData.setError( "Peso debe ser mayor que 0" );
+
                     }
 
                     if (  height > 0 && weight > 0 ){
@@ -183,25 +156,9 @@ public class icmActivity extends AppCompatActivity {
                 }catch(NumberFormatException e)
                 {
 
-
                 }
-
-
-
-
-
-
-
-
             }
         });
-
-
-        // Buttons Listener
-
-
-
-
     }
 
     private void updateClasif( double imc )
@@ -210,16 +167,21 @@ public class icmActivity extends AppCompatActivity {
 
         if ( imc < 16 )
         {
+
             clasif = "INFRAPESO: DELGADEZ SEVERA";
+
         }
         else if ( imc >= 16 && imc <= 16.99 )
         {
 
             clasif = "INFRAPESO: DELGADEZ MODERADA";
+
         }
         else if ( imc >= 17 && imc <= 18.49 )
         {
+
             clasif = "INFRAPESO: DELGADEZ ACEPTABLE";
+
         }
         else if ( imc >= 18.5 && imc <= 24.99 )
         {
@@ -229,31 +191,31 @@ public class icmActivity extends AppCompatActivity {
         }
         else if ( imc >= 25 && imc <= 29.99 )
         {
+
             clasif = "SOBREPESO";
 
         }
         else if ( imc >= 30 && imc <= 34.99 )
         {
+
             clasif = "OBESO: TIPO I";
 
         }
         else if ( imc >= 35 && imc <= 40 )
         {
+
             clasif = "OBESO: TIPO II";
+
         }
         else if ( imc > 40 )
         {
+
             clasif = "OBESO: TIPO III";
 
         }
 
         clasifData.setText( clasif );
     }
-
-
-
-
-
 
     // Save The Imc Data
     public class saveImc extends AsyncTask<String, String, String> {
@@ -326,13 +288,9 @@ public class icmActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
                     //return(result.toString());
@@ -356,11 +314,7 @@ public class icmActivity extends AppCompatActivity {
 
         // @Override
         protected void onPostExecute(String result) {
-
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
@@ -382,36 +336,11 @@ public class icmActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("Error al guardar IMC Data")) {
 
-
                 Toast.makeText(getBaseContext(), "Error al guardar IMC Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
 
-
-                //recreate();
-
-                // Prepare next window
-                //Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //startActivity(intent);
-
-
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-                // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
     }
-
-
-
-
-
-
 }

@@ -28,21 +28,11 @@ public class PacienteRepository {
         for ( int i = 0; i < medicList.size(); i++)
         {
             saveCategory( medicList.get( i ) );
-
         }
-        /*System.out.println( "ashes phoenix" );
-        System.out.println( medicList );
-        medicValidate = ( ArrayList < Paciente > ) medicList.clone();
-        System.out.println( medicValidate );
-        System.out.println( "boreal phoenix" );*/
     }
 
     // Update repositories
     private PacienteRepository() {
-        //saveCategory(new Category("1", "Ricardo Cajigas", "555555555", "ricardo@gmail.com"));
-        //saveCategory(new Category( "2", "Angel Sanchez", "666666666", "angel@gmail.com"));
-
-       // saveCategory( new Paciente( "35346", "345436346", "s", "35", "fgfdg", "fgd",  "sdgasdgasad@gmail", "1" ) );
 
     }
 
@@ -58,12 +48,4 @@ public class PacienteRepository {
         return medicValidate;
         //return new ArrayList<>(Categorys.values());
     }
-
-
-
-
-
-
-
-
 }

@@ -40,28 +40,10 @@ public class tratamientoActivity extends AppCompatActivity {
 
     }
 
-
     public void onResume()
     {
-
         super.onResume();
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
-
-        // Get Data
-        new getImc().execute( argumentPaciente.getId() );*/
-
-        //System.out.println( "onResume lion" );
-
-
     }
-
-   /* protected String infoCardiovascular()
-    {
-
-    }*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +58,14 @@ public class tratamientoActivity extends AppCompatActivity {
         // Set
         argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
-        System.out.println( "argumentPaciente" );
-        System.out.println( argumentPaciente );
+        //System.out.println( "argumentPaciente" );
+        //System.out.println( argumentPaciente );
 
         String infoTratamiento = DAOCardiovascular.getInstance().infoTratamientoCardiovascular();
         tratamiento_inicial.setText( infoTratamiento );
 
         // Tratamiento médico
         tratamiento.setText( argumentPaciente.getFinalTratamiento() );
-
 
         saveButton.setOnClickListener(new View.OnClickListener() {
 
@@ -118,10 +99,7 @@ public class tratamientoActivity extends AppCompatActivity {
 
             url = DAOCardiovascular.getInstance().getUrl("saveTratamiento.php");
 
-
             try {
-
-                System.out.println("phoenix white");
 
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
@@ -133,21 +111,15 @@ public class tratamientoActivity extends AppCompatActivity {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                System.out.println("phoenix grey");
-
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("pacienteId", params[0])
                         .appendQueryParameter("tratamiento", params[1]);
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for (int i = 0; i < params.length; i++) {
                     System.out.println(params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -158,10 +130,7 @@ public class tratamientoActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -177,8 +146,6 @@ public class tratamientoActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -188,56 +155,36 @@ public class tratamientoActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
 
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
 
                 } else {
 
-                    //return("unsuccessful");
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("Paciente no encontrado")) {
 
                 Toast.makeText(getBaseContext(), "Paciente no encontrado", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("false") || result.equalsIgnoreCase("exception")) {
-
 
             } else if (result.equalsIgnoreCase("Tratamiento guardado con exito")) {
 
@@ -249,14 +196,11 @@ public class tratamientoActivity extends AppCompatActivity {
 
                 Toast.makeText(getBaseContext(), "No hay cambios en el tratamiento", Toast.LENGTH_LONG).show();
 
-
             } else if (result.equalsIgnoreCase("Error al guardar el tratamiento")) {
 
                 Toast.makeText(getBaseContext(), "Error al guardar el tratamiento", Toast.LENGTH_LONG).show();
 
-
             }
         }
-
     }
 }

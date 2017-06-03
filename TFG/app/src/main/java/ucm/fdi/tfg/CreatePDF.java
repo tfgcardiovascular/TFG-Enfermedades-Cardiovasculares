@@ -56,8 +56,6 @@ public class CreatePDF extends Activity {
     private EditText urea;
     private EditText raza;
 
-
-
     // Storage Permissions
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
@@ -83,9 +81,8 @@ public class CreatePDF extends Activity {
         }
         else if ( sistolicaInt >= 140 && sistolicaInt <= 159 )
         {
+
             clasif = "HIPERTENSIÓN (LEVE) FASE 1";
-
-
 
         }
         else if ( sistolicaInt >= 160 && sistolicaInt <= 179 )
@@ -93,21 +90,18 @@ public class CreatePDF extends Activity {
 
             clasif = "HIPERTENSIÓN (MODERADA) FASE 2";
 
-
         }
         else if ( sistolicaInt >= 180 && sistolicaInt <= 209  )
         {
-            clasif = "HIPERTENSIÓN (GRAVE) FASE 3";
 
+            clasif = "HIPERTENSIÓN (GRAVE) FASE 3";
 
         }
         else if ( sistolicaInt >= 210  )
         {
             clasif = "HIPERTENSIÓN (MUY GRAVE) FASE 4";
 
-
         }
-
 
         resultHta.setText( clasif );
     }
@@ -125,25 +119,13 @@ public class CreatePDF extends Activity {
 
         mainLayout.setVisibility(View.GONE);
 
-       /* RelativeLayout mLayout = (RelativeLayout) findViewById();
-        mLayout.setVisibility(View.GONE);*/
-
         verifyStoragePermissions( this );
-
-        /*System.out.println( "prueba pdf" );
-        System.out.println( content );
-
-        // set width and height
-        contentWidth = content.getWidth();
-        contentHeight = content.getHeight();*/
-
 
         // We call to save document
         PdfGenerationAction();
     }
 
     public void generatePdf(){
-
         setContentView(R.layout.pdf_info);
 
         verifyStoragePermissions( this );
@@ -170,7 +152,6 @@ public class CreatePDF extends Activity {
             );
         }
     }
-
 
     private void PdfGenerationAction(){
         PdfDocument document = new PdfDocument();
@@ -277,11 +258,11 @@ public class CreatePDF extends Activity {
         trigliceridos.setText( argumentPaciente.getTrigliceridos() );
         ldl.setText( argumentPaciente.getLdl() );
 
-        System.out.println( "signal" );
-        System.out.println( content );
-        System.out.println( content.getWidth() );
-        System.out.println( content.getHeight() );
-        System.out.println( "end signal" );
+        //System.out.println( "signal" );
+        //System.out.println( content );
+        //System.out.println( content.getWidth() );
+        //System.out.println( content.getHeight() );
+        //System.out.println( "end signal" );
 
         // crate a page description
         pageNumber = 2;

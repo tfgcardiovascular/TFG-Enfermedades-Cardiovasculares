@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class adminActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
@@ -16,7 +15,6 @@ public class adminActivity extends AppCompatActivity {
     // Buttons
     private Button Medicos_Button;
     private Button Pacientes_Button;
-
 
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -40,7 +38,6 @@ public class adminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_admin);
 
-
         Button Medicos_Button = (Button) findViewById(R.id.button_medicos);
         Medicos_Button.setOnClickListener(new View.OnClickListener() {
 
@@ -63,7 +60,4 @@ public class adminActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

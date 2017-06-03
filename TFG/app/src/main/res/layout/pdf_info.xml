@@ -212,8 +212,7 @@
         android:textSize="13sp"
         android:layout_alignBaseline="@+id/resultHta"
         android:layout_alignBottom="@+id/resultHta"
-        android:layout_alignStart="@+id/diastolicaData"
-         />
+        android:layout_alignStart="@+id/diastolicaData"/>
 
     <TextView
         android:id="@+id/imc"
@@ -616,6 +615,5 @@
         android:layout_alignBaseline="@+id/ldl"
         android:layout_alignBottom="@+id/ldl"
         android:layout_alignStart="@+id/mmol3" />
-
 
 </RelativeLayout>

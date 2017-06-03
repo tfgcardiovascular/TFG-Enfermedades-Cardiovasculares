@@ -49,7 +49,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         if ( string == null || string.isEmpty() )
         {
             return false;
-
         }
 
         int i = 0;
@@ -94,24 +93,14 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
         Masculino.setChecked( true );
 
-
-        //edad.setEnabled( false );
-
-        /*identificacion.addTextChangedListener();*/
-
         Validar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 registerPatient(v);
-
-
-                //logIn(v);
             }
         });
-
-
     }
 
     private boolean dayMonthValid( int day, int month )
@@ -159,7 +148,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
             valid = false;
         }
 
-       // else if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
         else if ( edad < 0 ){
 
             identificacion.setError( "La fecha introducida es posterior a la actual" );
@@ -170,8 +158,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         {
             identificacion.setError( "id debe ser 3 letras iniciales y ddmmaa" );
             valid = false;
-
-
 
         // Check birthday
         }else
@@ -200,15 +186,13 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                 int mes = c1.get( Calendar.MONTH ) + 1;
                 int annio = c1.get( Calendar.YEAR );
 
-                System.out.println( "date phoenix" );
-                System.out.println( dia );
-                System.out.println( mes );
-                System.out.println( annio );
+                //System.out.println( dia );
+                //System.out.println( mes );
+                //System.out.println( annio );
 
-                System.out.println( "birth phoenix" );
-                System.out.println( day );
-                System.out.println( month );
-                System.out.println( year );
+                //System.out.println( day );
+                //System.out.println( month );
+                //System.out.println( year );
 
                 // Transform annio
                 annio = annio % 100;
@@ -229,8 +213,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                 {
                     ageValue = ageValue -1;
                 }
-
-
             }
 
         }
@@ -244,14 +226,10 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         String identifier = identificacion.getText().toString();
         ageValue = 0;
 
-        //String age = edad.getText().toString();
-
-
         String sex = "N";
 
         if ( Masculino.isChecked() )
         {
-
             sex = "M";
 
         }else
@@ -266,49 +244,15 @@ public class NuevoPacienteActivity extends AppCompatActivity {
             return;
         }
 
-
-
-
-
         String colegiado = DAOCardiovascular.getInstance().getLoggedUser().getColegiado();
 
         // AsyncTask
         new NuevoPacienteActivity.RegisterPatient().execute( identifier, Integer.toString( ageValue ), sex, colegiado );
 
-
-        //LogIn_Button.setEnabled(false);
-
-        // final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this,
-        //     R.style.AppTheme);
-
-        // Get info
-        /*String user = user_text.getText().toString();
-        String password = password_text.getText().toString();
-
-        // Function to do the login
-        new MainActivity.AsyncLogin().execute( user,password);
-*/
-        /*
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
-
-        new SelectInicio().execute(user, password);
-
-        */
     }
-
 
     private class RegisterPatient extends AsyncTask<String,Void,String> {
 
-        // ProgressDialog pdLoading = new ProgressDialog(SignupActivity.this);
         HttpURLConnection conn;
         URL url = null;
 
@@ -316,12 +260,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-            //this method will be running on UI thread
-           /* pdLoading.setMessage("\tProcessing Sign Up...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();*/
-
         }
 
         @Override
@@ -329,10 +267,8 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
             url = DAOCardiovascular.getInstance().getUrl( "registerPatient.php" );
 
-
             try {
 
-                System.out.println("phoenix white");
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -343,8 +279,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                System.out.println("phoenix grey");
-
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("identifier", params[0])
@@ -354,14 +288,10 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                         ;
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for ( int i = 0; i < params.length; i++ )
                 {
                     System.out.println( params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -372,10 +302,7 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -391,8 +318,6 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -402,18 +327,11 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
-
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
 
                 } else {
 
@@ -423,38 +341,18 @@ public class NuevoPacienteActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println( "phoenix dungeon" );
-            System.out.println( result );
+            //System.out.println( result );
 
             if (result.equalsIgnoreCase("error")) {
-
-                // Clear the fields
-               /* name_text.getText().clear();
-                surname_text.getText().clear();
-                number_text.getText().clear();
-                telephone_text.getText().clear();
-                mail_text.getText().clear();
-                password_text.getText().clear();*/
 
                 // On Sign Up Failed
                 Toast.makeText(getBaseContext(), "Error en el proceso", Toast.LENGTH_LONG).show();
@@ -462,16 +360,11 @@ public class NuevoPacienteActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("false") || result.equalsIgnoreCase( "exception" )) {
 
-
             }else if (  result.equalsIgnoreCase("Paciente ya asignado a un medico")    ){
-
 
                 Toast.makeText(getBaseContext(), "Paciente ya asignado a un médico", Toast.LENGTH_LONG).show();
 
-
-
             }else if (  result.equalsIgnoreCase("Error al registrar paciente")    ){
-
 
                 Toast.makeText(getBaseContext(), "Error al registrar paciente", Toast.LENGTH_LONG).show();
 
@@ -483,63 +376,7 @@ public class NuevoPacienteActivity extends AppCompatActivity {
                // edad.getText().clear();
                 Masculino.setChecked( true );
                 Femenino.setChecked( false );
-
-                //recreate();
-
-                // Prepare next window
-                //Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //startActivity(intent);
-
-
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-                // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
-
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
-
-        // if (usu1==null) {
-                /*if(primero){
-                    //inicializarVentana();
-                }else {*/
-      /*          Toast toast =
-                        Toast.makeText(getApplicationContext(),
-                                "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                toast.show();
-                //}
-            } else {
-                Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setColegiado(usu1.getColegiado());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());
-
-                //usu.setImagen(usu1.getImagen());
-
-                //IniciarAplicacion(usu);
-            }
-*/
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

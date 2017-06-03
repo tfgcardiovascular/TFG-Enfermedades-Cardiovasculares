@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <Button
         android:id="@+id/button_medicos"
         android:layout_width="110dp"
@@ -35,6 +34,5 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="200dp"/>
-
 
 </RelativeLayout>

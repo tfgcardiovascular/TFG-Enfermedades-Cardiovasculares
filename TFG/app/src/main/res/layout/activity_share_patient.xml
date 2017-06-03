@@ -11,15 +11,13 @@
 
         <EditText
             android:id="@+id/input"
-
             android:layout_width="match_parent"
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:maxLength="9"
-            android:inputType="numberSigned"
-            />
+            android:inputType="numberSigned"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -32,6 +30,5 @@
         android:text="@string/hint_password"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp" />
-
 
 </FrameLayout>

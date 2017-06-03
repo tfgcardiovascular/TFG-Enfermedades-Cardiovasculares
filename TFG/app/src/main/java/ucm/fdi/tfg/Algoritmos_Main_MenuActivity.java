@@ -1,7 +1,6 @@
 package ucm.fdi.tfg;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,10 +18,8 @@ public class Algoritmos_Main_MenuActivity extends AppCompatActivity {
     private Button Tratamineto;
 
     public void onBackPressed() {
-
         Intent intent = new Intent(getApplicationContext(), Main_MenuActivity.class);
         startActivity(intent);
-
     }
 
     @Override
@@ -101,6 +98,5 @@ public class Algoritmos_Main_MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

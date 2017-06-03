@@ -1,6 +1,5 @@
 package ucm.fdi.tfg;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,10 +29,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentCategory extends Fragment {
 
@@ -46,8 +43,6 @@ public class FragmentCategory extends Fragment {
     private String identifier ="";
     private String name = "";
     private String mail = "";
-
-
 
     public FragmentCategory() {
         // Required empty public constructor
@@ -68,37 +63,23 @@ public class FragmentCategory extends Fragment {
     }
 
     @Override
-    public void onResume()
-    {
-
-
+    public void onResume() {
         super.onResume();
-
-        System.out.println( "umbrah phoenix" );
-        System.out.println( "fulgor phoenix" );
-
         new AsyncMedicValidate().execute( null, null );
-        System.out.println( "hope phoenix" );
-
         update();
-        System.out.println( "despair phoenix" );
-
-
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_fragment_category, container, false);
 
-        System.out.println( "prueba onCreateView" );
-        System.out.println( inflater );
-        System.out.println( container );
-        System.out.println( savedInstanceState );
-        System.out.println( R.id.leads_list );
-        System.out.println( root );
+        //.out.println( "prueba onCreateView" );
+        //System.out.println( inflater );
+        //System.out.println( container );
+        //System.out.println( savedInstanceState );
+        //System.out.println( R.id.leads_list );
+        //System.out.println( root );
 
         // Instancia del ListView.
         mLeadsList = (ListView) root.findViewById(R.id.leads_list);
@@ -154,11 +135,6 @@ public class FragmentCategory extends Fragment {
                         // Get result
                         new FragmentCategory.AsyncMedicSearch().execute( colegiado, identifier, mail, name );
 
-                        // Share Patient
-
-                        //new AsyncPacienteShare().execute( currentLead.getId(), input.getText().toString() );
-
-                        //m_Text = input.getText().toString();
                     }
                 });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -169,67 +145,26 @@ public class FragmentCategory extends Fragment {
                 });
 
                 builder.show();
-
-
             }
         });
-
-        //Inicializar lista
-        /*List<Category> category = new ArrayList<>();
-
-        category.add ( new Category ( "1", "Ricardo Cajigas", "555555555", "ricardo@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );
-        category.add ( new Category ( "2", "Angel Sanchez", "666666666", "angel@gmail.com") );*/
 
         mLeadsAdapter = new AdapterCategory(getActivity(),
                 LeadsRepository.getInstance().getCategorys());
 
-        System.out.println( "Black clock" );
-        System.out.println( getActivity() );
-        System.out.println( LeadsRepository.getInstance().getCategorys() );
 
-        System.out.println( "system panther jungle");
-        System.out.println( mLeadsAdapter );
-        System.out.println( mLeadsList );
+        //System.out.println( getActivity() );
+        //System.out.println( LeadsRepository.getInstance().getCategorys() );
+
+
+        //System.out.println( mLeadsAdapter );
+        //System.out.println( mLeadsList );
 
         //Relacionando la lista con el adaptador
         mLeadsList.setAdapter(mLeadsAdapter);
 
-        System.out.println( "wolf of the dark moon" );
         // Update with the database
         new AsyncMedicValidate().execute( null, null );
         update();
-
-
-        /*System.out.println( "Black clock" );
-        System.out.println( getActivity() );
-        System.out.println( category );
-
-
-        // Inicializar el adaptador con la fuente de datos.
-        mLeadsAdapter = new AdapterCategory( getActivity(), category);
-
-        System.out.println( "system panther jungle");
-        System.out.println( mLeadsAdapter );
-        System.out.println( mLeadsList );
-
-        //Relacionando la lista con el adaptador
-        mLeadsList.setAdapter(mLeadsAdapter);*/
-
-        System.out.println( "wolf of the light moon" );
-
 
         // Eventos
         mLeadsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -286,27 +221,9 @@ public class FragmentCategory extends Fragment {
         int id = item.getItemId();
 
         if (id == R.id.action_delete_all) {
-            System.out.println( "devil phoenix" );
             // Eliminar todos los leads
             mLeadsAdapter.clear();
-           /* ArrayList<Medico> result = new ArrayList<>();
-            Medico medic = new Medico( "35346", "345436346", "s", "35", "pegaso", "fgdsdfdsf",  "sdgasdgasad@gmail", "1" );
-            result.add( medic );
 
-
-            // Let LeadsRepository know the result
-            System.out.println( "phoenix artic ");
-            System.out.println( LeadsRepository.getInstance().getCategorys() );
-           LeadsRepository.getInstance().saveMedicList( result );
-            System.out.println( LeadsRepository.getInstance().getCategorys() );
-            System.out.println( "phoenix antartic" );
-
-           // medic = new Medico( "35346", "345436346", "s", "35", "fire phoenix", "fgdsdfdsf",  "sdgasdgasad@gmail", "1" );
-           // LeadsRepository.getInstance().saveCategory( medic );
-
-            System.out.println( "god phoenix" );
-
-            update();*/
             return true;
         }
 
@@ -318,41 +235,6 @@ public class FragmentCategory extends Fragment {
        // mLeadsAdapter.clear();
         mLeadsAdapter.notifyDataSetChanged();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // Get all the medics to validate on the database
     private class AsyncMedicValidate extends AsyncTask<   String, String,  ArrayList<Medico> > {
@@ -380,22 +262,6 @@ public class FragmentCategory extends Fragment {
                 // setDoInput and setDoOutput method depict handling of both send and receive
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
-                // Append parameters to URL
-                /*Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
-                        .appendQueryParameter("password", params[1]);
-                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();*/
-
                 conn.connect();
 
             } catch (IOException e1) {
@@ -416,11 +282,8 @@ public class FragmentCategory extends Fragment {
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
+                   //System.out.println( reader );
 
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
                     StringBuilder result = new StringBuilder();
                     String line;
 
@@ -432,15 +295,12 @@ public class FragmentCategory extends Fragment {
                     ArrayList < Medico > medicPhp = new ArrayList<>();
 
                     while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
+                        //System.out.println( line  );
 
                         linePhp.add( line );
 
                         if ( linePhp.size() == 7 )
                         {
-
                             // Create medic Object
                             medic = new Medico();
 
@@ -458,17 +318,11 @@ public class FragmentCategory extends Fragment {
 
                             // Reset linePhp
                             linePhp.clear();
-
-
-
                         }
-
-
                         //result.append(line);
                     }
 
-                    System.out.println( "simorgh fire" );
-                    System.out.println( medicPhp );
+                    //System.out.println( medicPhp );
 
                     // Pass data to onPostExecute method
                     return medicPhp;
@@ -488,148 +342,23 @@ public class FragmentCategory extends Fragment {
             }
         }
 
-
-
         // @Override
         protected void onPostExecute(ArrayList<Medico> result) {
-
             // Check obtained result
-
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
-
-
-            //pdLoading.dismiss();
+            //System.out.println( result );
 
             if ( result != null ) {
-
                 // Let LeadsRepository know the result
                 LeadsRepository.getInstance().saveMedicList( result );
 
-                System.out.println( "phoenix de hielo y storm" );
-                System.out.println( LeadsRepository.getInstance().getCategorys() );
+                //System.out.println( LeadsRepository.getInstance().getCategorys() );
                 update();
 
-
-                // Class<? extends Activity> activityClass;
-                // activityClass = ValidateActivity.class;
-
-                //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-                // startActivity(intent);
-
-
-
-
-
-                //if(result.equalsIgnoreCase("true")){
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                // Clear the fields
-                /*user_text.getText().clear();
-                password_text.getText().clear();
-
-                // Restaurar cursor
-                user_text.requestFocus();*/
-
-                // Change frame
-               /* Class<? extends Activity> activityClass;
-                activityClass = InicioActivity.class;
-
-                // Medico -> Menu Inicio
-                String i = result.getRol();
-                System.out.println("Llega aqui");
-                System.out.println(i);
-                if (i.equals( "1") ) {
-                    activityClass = InicioActivity.class;
-
-                    // Admin -> Menú admin
-                } else if (i.equals( "0")){
-                    activityClass = ValidateActivity.class;
-
-                }*/
-
-                // Start new frame
-               /* Intent intent = new Intent(MainActivity.this, activityClass);
-                startActivity(intent);*/
-
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
-
-               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();*/
-
             }else{
-                //if (result.equalsIgnoreCase("false")){
-                //onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
 
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
-            }*/
+            }
         }
     }
-
-
-
-
-    /*
-
-    public Medico login(String usun, String cont){
-        Medico usu = null;
-        try {
-
-            Connection conn;
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://"+IP+baseDatos,  usbd, contbd);
-
-            //conn.setConnectTimeout(50);
-
-            String peticion = "select * from medico WHERE nombre= ? AND password = ?";
-            PreparedStatement consulta = conn.prepareStatement(peticion);
-            System.out.println("Conexion establecida");
-            consulta.setString(1,usun);
-            consulta.setString(2,cont);
-            ResultSet result = consulta.executeQuery();
-
-            if (result != null) {
-                if (!result.next()) {
-                    return null;
-
-                } else {
-                    usu= new Medico();
-                    usu.setId(result.getString("id"));
-                    usu.setColegiado(result.getString("colegiado"));
-                    usu.setNombre(result.getString("nombre"));
-                    usu.setApellidos(result.getString("apellidos"));
-                    usu.setTelefono(result.getString("telefono"));
-                    usu.setPassword(result.getString("password"));
-
-                    Blob bl=result.getBlob("imagen");
-                    if(bl!=null){
-                        usu.setImagen(bl.getBytes(1, (int)bl.length()));
-                    }
-
-                    return usu;
-                }
-
-            }else{
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }*/
-
 
     // Get all the medics to validate on the database
     private class AsyncMedicSearch extends AsyncTask<   String, Void,  ArrayList<Medico> > {
@@ -645,9 +374,7 @@ public class FragmentCategory extends Fragment {
         @Override
         protected ArrayList<Medico> doInBackground(String... params) {
 
-
             url = DAOCardiovascular.getInstance().getUrl( "searchMedic.php" );
-
 
             try {
                 // Setup HttpURLConnection class to send and receive data from php and mysql
@@ -668,21 +395,6 @@ public class FragmentCategory extends Fragment {
                         .appendQueryParameter("name", params[3])
                         ;
                 String query = builder.build().getEncodedQuery();
-
-                // Append parameters to URL
-                /*Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("username", params[0])
-                        .appendQueryParameter("password", params[1]);
-                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();*/
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -713,11 +425,8 @@ public class FragmentCategory extends Fragment {
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
+                    //System.out.println( reader );
 
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
                     StringBuilder result = new StringBuilder();
                     String line;
 
@@ -729,9 +438,6 @@ public class FragmentCategory extends Fragment {
                     ArrayList < Medico > medicPhp = new ArrayList<>();
 
                     while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
 
                         linePhp.add( line );
 
@@ -755,17 +461,10 @@ public class FragmentCategory extends Fragment {
 
                             // Reset linePhp
                             linePhp.clear();
-
-
-
                         }
-
-
-                        //result.append(line);
                     }
 
-                    System.out.println( "simorgh fire" );
-                    System.out.println( medicPhp );
+                    //System.out.println( medicPhp );
 
                     // Pass data to onPostExecute method
                     return medicPhp;
@@ -787,27 +486,18 @@ public class FragmentCategory extends Fragment {
         }
 
 
-
         // @Override
         protected void onPostExecute(ArrayList<Medico> result) {
-
             // Check obtained result
 
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
-
-
-            //pdLoading.dismiss();
+            //System.out.println( result );
 
             if ( result.size() > 0 ) {
 
                 // Let LeadsRepository know the result
                 LeadsRepository.getInstance().saveMedicList( result );
 
-                System.out.println( "phoenix de hielo y storm" );
-                System.out.println( LeadsRepository.getInstance().getCategorys() );
+                //System.out.println( LeadsRepository.getInstance().getCategorys() );
                 update();
 
                 // Messages
@@ -849,84 +539,13 @@ public class FragmentCategory extends Fragment {
                     message = "Pacientes encontrados";
                 }
 
-
-
                 Toast.makeText( getActivity().getBaseContext(), message, Toast.LENGTH_LONG).show();
-
-
-
-
-
-                // Class<? extends Activity> activityClass;
-                // activityClass = ValidateActivity.class;
-
-                //  Intent intent = new Intent(DAOCardiovascular.this, activityClass);
-                // startActivity(intent);
-
-
-
-
-
-                //if(result.equalsIgnoreCase("true")){
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
-
-                // Clear the fields
-                /*user_text.getText().clear();
-                password_text.getText().clear();
-
-                // Restaurar cursor
-                user_text.requestFocus();*/
-
-                // Change frame
-               /* Class<? extends Activity> activityClass;
-                activityClass = InicioActivity.class;
-
-                // Paciente -> Menu Inicio
-                String i = result.getRol();
-                System.out.println("Llega aqui");
-                System.out.println(i);
-                if (i.equals( "1") ) {
-                    activityClass = InicioActivity.class;
-
-                    // Admin -> Menú admin
-                } else if (i.equals( "0")){
-                    activityClass = ValidateActivity.class;
-
-                }*/
-
-                // Start new frame
-               /* Intent intent = new Intent(MainActivity.this, activityClass);
-                startActivity(intent);*/
-
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
-
-               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();*/
 
             }else{
 
                 Toast.makeText( getActivity().getBaseContext(), "No hay medicos encontrados", Toast.LENGTH_LONG).show();
 
-
-
-
-                //if (result.equalsIgnoreCase("false")){
-                //onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
-
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
-            }*/
+            }
         }
     }
-
-
-
-
 }

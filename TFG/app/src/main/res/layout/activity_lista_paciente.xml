@@ -9,23 +9,7 @@
     android:fitsSystemWindows="true"
     tools:context="ucm.fdi.tfg.MisPacientesActivity">
 
-    <!--<android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
--->
-
     <include layout="@layout/activity_paciente_container"/>
-
 
 </LinearLayout>
 
@@ -34,54 +18,3 @@
 
 
 
-    <!--<?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:fitsSystemWindows="true">
-
-
-
-
-
-
-        <ListView android:id="@+id/ListViewValidate"
-            android:layout_width="match_parent"
-            android:layout_height="373dp"
-            android:layout_alignParentTop="true"
-            android:listSelector="@drawable/item_list_indicator"
-            android:layout_centerHorizontal="true"
-            android:layout_above="@+id/button_rechazar"
-            tools:listitem="@layout/activity_item_category"/>
-
-        <Button android:id="@+id/button_validar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_validate"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorText"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/button_empezar"
-            android:layout_alignStart="@+id/button_empezar" />
-
-        <Button android:id="@+id/button_rechazar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_refused"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorText"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="11dp"
-            android:layout_above="@+id/button_validar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <include layout="@layout/activity_category_container" />
-
-    </LinearLayout>
-    -->

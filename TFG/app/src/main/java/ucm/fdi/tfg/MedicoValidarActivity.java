@@ -1,17 +1,13 @@
 package ucm.fdi.tfg;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -22,14 +18,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
-
-/**
- * Created by PC on 02/03/2017.
- */
 
 public class MedicoValidarActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
@@ -48,7 +37,6 @@ public class MedicoValidarActivity extends AppCompatActivity {
 
     private Medico argumentMedic;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,8 +53,7 @@ public class MedicoValidarActivity extends AppCompatActivity {
 
         // Get in data
         Bundle bundle = getIntent().getExtras();
-        System.out.println( "freeze phoenix" );
-        System.out.println( (Medico ) getIntent().getSerializableExtra( "medic" ) );
+        //System.out.println( (Medico ) getIntent().getSerializableExtra( "medic" ) );
 
         argumentMedic =  ( Medico ) getIntent().getSerializableExtra( "medic" );
 
@@ -82,19 +69,10 @@ public class MedicoValidarActivity extends AppCompatActivity {
         Mail.setEnabled(false);
         Telefono.setEnabled(false);
 
-       // Colegiado.setText( bundle.getString( "colegiado" ) );
-
         Validar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                //logIn(v);
-
-
-               /* System.out.println( "gaia phoenix" );
-                System.out.println( argumentMedic );
-
-                System.out.println( "sedna phoenix" );*/
                 new ValidateMedic().execute( argumentMedic.getNombre(), argumentMedic.getApellidos(),
                         argumentMedic.getColegiado(), argumentMedic.getTelefono(),
                         argumentMedic.getPassword(), argumentMedic.getMail(),
@@ -111,20 +89,9 @@ public class MedicoValidarActivity extends AppCompatActivity {
                         argumentMedic.getColegiado(), argumentMedic.getTelefono(),
                         argumentMedic.getPassword(), argumentMedic.getMail(),
                         argumentMedic.getId(), "true");
-
             }
         });
-
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,7 +134,7 @@ public class MedicoValidarActivity extends AppCompatActivity {
 
             try {
 
-                System.out.println("phoenix white");
+
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -177,8 +144,6 @@ public class MedicoValidarActivity extends AppCompatActivity {
                 // setDoInput and setDoOutput method depict handling of both send and receive
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
-                System.out.println("phoenix grey");
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
@@ -193,14 +158,10 @@ public class MedicoValidarActivity extends AppCompatActivity {
                         ;
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for ( int i = 0; i < params.length; i++ )
                 {
                     System.out.println( params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -211,10 +172,8 @@ public class MedicoValidarActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
 
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -230,8 +189,6 @@ public class MedicoValidarActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -241,59 +198,32 @@ public class MedicoValidarActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
-
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
 
                 } else {
 
-                    //return("unsuccessful");
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
+
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println( "phoenix dungeon" );
-            System.out.println( result );
+            //System.out.println( result );
 
             if (result.equalsIgnoreCase("error")) {
-
-                // Clear the fields
-               /* name_text.getText().clear();
-                surname_text.getText().clear();
-                number_text.getText().clear();
-                telephone_text.getText().clear();
-                mail_text.getText().clear();
-                password_text.getText().clear();*/
 
                 // On Sign Up Failed
                 Toast.makeText(getBaseContext(), "Error validando médico", Toast.LENGTH_LONG).show();
@@ -301,74 +231,29 @@ public class MedicoValidarActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("false") || result.equalsIgnoreCase( "exception" )) {
 
-
-
             }else if (  result.equalsIgnoreCase("No se pudo borrar de la lista a validar")    ){
-
 
                 Toast.makeText(getBaseContext(), "No se pudo borrar de la lista a validar", Toast.LENGTH_LONG).show();
 
-
             }else if (  result.equalsIgnoreCase("El colegiado ya existe")    ){
-
 
                 Toast.makeText(getBaseContext(), "El colegiado ya existe", Toast.LENGTH_LONG).show();
 
-
             }else if (  result.equalsIgnoreCase("Error al asignar rol")    ) {
-
 
                 Toast.makeText(getBaseContext(), "Error al asignar rol", Toast.LENGTH_LONG).show();
 
             }else if (  result.equalsIgnoreCase("No se pudo insertar en médicos")    ){
 
-
                     Toast.makeText(getBaseContext(), "No se pudo insertar en médicos", Toast.LENGTH_LONG).show();
-
 
             } else if (result.equalsIgnoreCase("success")) {
 
                 Toast.makeText(getBaseContext(), "Validado/Rechazado correctamente", Toast.LENGTH_LONG).show();
 
-                // Prepare next window
                 Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-               // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
                 startActivity(intent);
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
-
-        // if (usu1==null) {
-                /*if(primero){
-                    //inicializarVentana();
-                }else {*/
-      /*          Toast toast =
-                        Toast.makeText(getApplicationContext(),
-                                "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                toast.show();
-                //}
-            } else {
-                Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setColegiado(usu1.getColegiado());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());
-
-                //usu.setImagen(usu1.getImagen());
-
-                //IniciarAplicacion(usu);
-            }
-*/
     }
 }

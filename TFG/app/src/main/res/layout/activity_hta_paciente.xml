@@ -3,8 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- android:layout_below="@+id/toolbar" -->
-
     <Button android:id="@+id/button_calcular_hta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +13,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="33dp" />
-
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,8 +36,7 @@
         android:maxLength="9"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/sistolica"
@@ -136,6 +132,5 @@
         android:textAllCaps="true"
         android:layout_below="@+id/button_calcular_hta"
         android:layout_centerHorizontal="true" />
-
 
 </RelativeLayout>

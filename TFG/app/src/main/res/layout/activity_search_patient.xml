@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
             android:maxLength="9"
-            android:inputType="textCapCharacters"
-            />
+            android:inputType="textCapCharacters"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -100,6 +99,5 @@
             android:textSize="18sp" />
 
     </android.support.design.widget.TextInputLayout>
-
 
 </FrameLayout>

@@ -77,7 +77,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
         android:layout_width="130dp"
-
         android:maxLength="20"
         android:layout_alignBaseline="@+id/tratamiento"
         android:layout_alignBottom="@+id/tratamiento"
@@ -155,7 +154,6 @@
         android:id="@+id/años_enfermedad"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-
         android:inputType="numberDecimal"
         android:maxLength="2"
         android:textColor="@color/colorPrimary"
@@ -343,8 +341,5 @@
         android:layout_alignBaseline="@+id/fondo_ojos"
         android:layout_alignBottom="@+id/fondo_ojos"
         android:layout_toEndOf="@+id/fondo_ojos" />
-
-
-
 
 </RelativeLayout>

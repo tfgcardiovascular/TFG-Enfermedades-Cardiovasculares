@@ -3,9 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- android:layout_below="@+id/toolbar" -->
-
-    <Button android:id="@+id/button_add"
+     <Button android:id="@+id/button_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/button_calcular_riesgo_cardiovascular"
@@ -165,8 +163,7 @@
         android:id="@+id/height"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginLeft="10dp"
-        android:layout_alignBottom="@+id/radioGroup"
-         />
+        android:layout_alignBottom="@+id/radioGroup"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -298,6 +295,5 @@
         android:layout_alignStart="@+id/toggleFumador"
         android:layout_alignRight="@+id/id"
         android:layout_alignEnd="@+id/id" />
-
 
 </RelativeLayout>

@@ -59,8 +59,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
     int ageValue;
 
-
-
     private Button Rechazar;
     private TextView Colegiado;
     private TextView Nombre;
@@ -72,9 +70,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
     public static final int READ_TIMEOUT=15000;
 
     private Paciente argumentPaciente;
-
-
-
 
     // PDF variables
     private EditText identifierPdf;
@@ -113,7 +108,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
     // Fourth Page
     private TextView finalTratamientoField;
 
-
     // Storage Permissions
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
@@ -135,6 +129,7 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
         if ( sistolicaInt < 130 )
         {
+
             clasif = "PRESIÓN ARTERIAL NORMAL";
 
         }
@@ -146,9 +141,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
         }
         else if ( sistolicaInt >= 140 && sistolicaInt <= 159 )
         {
+
             clasif = "HIPERTENSIÓN (LEVE) FASE 1";
-
-
 
         }
         else if ( sistolicaInt >= 160 && sistolicaInt <= 179 )
@@ -156,21 +150,19 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
             clasif = "HIPERTENSIÓN (MODERADA) FASE 2";
 
-
         }
         else if ( sistolicaInt >= 180 && sistolicaInt <= 209  )
         {
-            clasif = "HIPERTENSIÓN (GRAVE) FASE 3";
 
+            clasif = "HIPERTENSIÓN (GRAVE) FASE 3";
 
         }
         else if ( sistolicaInt >= 210  )
         {
+
             clasif = "HIPERTENSIÓN (MUY GRAVE) FASE 4";
 
-
         }
-
 
         resultHta.setText( clasif );
     }
@@ -217,9 +209,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
         content.draw(page.getCanvas());
 
         page.getCanvas().restore();
-
-        //content.draw(page.getCanvas() );
-        //page.getCanvas().drawText( "lkgdsdfgsfd", 300, 300, new Paint() );
 
         // do final processing of the page
         document.finishPage(page);
@@ -291,11 +280,11 @@ public class PacienteValidarActivity extends AppCompatActivity {
         trigliceridos.setText( argumentPaciente.getTrigliceridos() );
         ldl.setText( argumentPaciente.getLdl() );
 
-        System.out.println( "signal" );
-        System.out.println( content );
-        System.out.println( content.getWidth() );
-        System.out.println( content.getHeight() );
-        System.out.println( "end signal" );
+        //System.out.println( "signal" );
+        //System.out.println( content );
+        //System.out.println( content.getWidth() );
+        //System.out.println( content.getHeight() );
+        //System.out.println( "end signal" );
 
         // crate a page description
         pageNumber = 2;
@@ -311,9 +300,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
         content.draw(page.getCanvas());
 
         page.getCanvas().restore();
-
-        //content.draw(page.getCanvas() );
-        //page.getCanvas().drawText( "lkgdsdfgsfd", 300, 300, new Paint() );
 
         // do final processing of the page
         document.finishPage(page);
@@ -378,18 +364,14 @@ public class PacienteValidarActivity extends AppCompatActivity {
         tratamientoInicial.setText( infoTratamiento );
 
         finalTratamientoField = (  TextView ) findViewById( R.id.textView3 );
-        System.out.println( "tratamiento final argumentPaciente" );
-        System.out.println( argumentPaciente );
+        //System.out.println( "tratamiento final argumentPaciente" );
+        //System.out.println( argumentPaciente );
         finalTratamientoField.setText( argumentPaciente.getFinalTratamiento() );
 
-        System.out.println( argumentPaciente.getFinalTratamiento() );
-        System.out.println( finalTratamientoField.getText().toString() );
+        //System.out.println( argumentPaciente.getFinalTratamiento() );
+        //System.out.println( finalTratamientoField.getText().toString() );
 
-        System.out.println( "END----------tratamiento final argumentPaciente" );
-
-        // Button
-        //Button saveTratamientoButton = ( Button ) findViewById( R.id.button_guardar );
-        //saveTratamientoButton.setVisibility(View.GONE);
+        //System.out.println( "END----------tratamiento final argumentPaciente" );
 
         // Fourth Page Info
         pageNumber = 4;
@@ -407,9 +389,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
         // do final processing of the page
         document.finishPage(page);
-
-
-
 
         // Return to the original view
         initializeData();
@@ -509,22 +488,12 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
     private boolean validatePatient( String id, String age, String sex )
     {
-
         boolean valid = true;
-
-
-        /*if ( age.isEmpty() || Integer.parseInt( age ) < 0 ){
-
-            identificacion.setError( "Valor entre 0 y 99" );
-            valid = false;
-        }*/
 
         if ( id.isEmpty() || id.length() != 9 || isNumber( id.substring( 0, 3 ) ) == true || isNumber( id.substring( 3, 9 ) ) == false )
         {
             identificacion.setError( "id debe ser 3 letras iniciales y ddmmaa" );
             valid = false;
-
-
 
             // Check birthday
         }else
@@ -556,18 +525,13 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 // Transform annio
                 annio = annio % 100;
 
-                System.out.println( "date phoenix" );
-                System.out.println( dia );
-                System.out.println( mes );
-                System.out.println( annio );
+                //System.out.println( dia );
+                //System.out.println( mes );
+                //System.out.println( annio );
 
-                System.out.println( "birth phoenix" );
-                System.out.println( day );
-                System.out.println( month );
-                System.out.println( year );
-
-               // 4 abril 2017
-                // 30 marzo 2017
+                //System.out.println( day );
+                //System.out.println( month );
+                //System.out.println( year );
 
                 // Get year
                 if ( annio < year )
@@ -592,11 +556,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 }
 
                 edad.setText( Integer.toString( ageValue ) );
-
-
-
-
-
 
             }
 
@@ -665,20 +624,12 @@ public class PacienteValidarActivity extends AppCompatActivity {
         PDFButton = ( Button ) findViewById( R.id.pdf );
 
         // Get in data
-        //Bundle bundle = getIntent().getExtras();
-        System.out.println( "freeze phoenix" );
-        //System.out.println( ( Paciente ) getIntent().getSerializableExtra( "paciente" ) );
-
-        //argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
-
         argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
-        System.out.println( "phoenix of hunger");
-        System.out.println( identificacion );
-        System.out.println( argumentPaciente.getId() );
-        System.out.println( edad );
-        System.out.println( argumentPaciente.getEdad() );
-
+        //System.out.println( identificacion );
+        //System.out.println( argumentPaciente.getId() );
+        //System.out.println( edad );
+        //System.out.println( argumentPaciente.getEdad() );
 
         // Set info data
         identificacion.setText( argumentPaciente.getId() );
@@ -686,7 +637,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
         edad.setEnabled(false);
 
         String sexValue =  argumentPaciente.getSexo();
-
 
         if ( sexValue.equals ( "M" ) )
         {
@@ -696,11 +646,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
         {
             Femenino.setChecked( true );
         }
-
-
-
-
-        // Colegiado.setText( bundle.getString( "colegiado" ) );
 
         saveButton.setOnClickListener(new View.OnClickListener() {
 
@@ -713,14 +658,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
                             age, DAOCardiovascular.getInstance().getLoggedUser().getColegiado(), "false");
                 }
 
-                //logIn(v);
-
-
-               /* System.out.println( "gaia phoenix" );
-                System.out.println( argumentPaciente );
-
-                System.out.println( "sedna phoenix" );*/
-
             }
         });
 
@@ -729,13 +666,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //new CreatePDF().generatePdf();
-                //Toast.makeText(getBaseContext(), "PDF Descargado", Toast.LENGTH_LONG).show();
-
                 PdfGenerationAction();
 
-                /*Intent intent = new Intent(getApplicationContext(), CreatePDF.class);
-                startActivity(intent);*/
             }
         });
 
@@ -778,42 +710,15 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-
-
         initializeData();
 
         new getTratamiento().execute( argumentPaciente.getId() );
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private class getTratamiento extends AsyncTask<String,Void,String> {
 
@@ -836,8 +741,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
             try {
 
-                System.out.println("phoenix white");
-
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(DAOCardiovascular.getInstance().getReadTimeout());
@@ -848,21 +751,15 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
 
-                System.out.println("phoenix grey");
-
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("pacienteId", params[0])
                         ;
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for (int i = 0; i < params.length; i++) {
                     System.out.println(params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -873,10 +770,7 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -892,8 +786,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -903,13 +795,9 @@ public class PacienteValidarActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
 
@@ -924,50 +812,24 @@ public class PacienteValidarActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
 
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
+
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             // Set tratamiento on the data
             argumentPaciente.setFinalTratamiento( result );
             DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
-
-
-
-           /* if (result.equalsIgnoreCase("Paciente no encontrado")) {
-
-                Toast.makeText(getBaseContext(), "Paciente no encontrado", Toast.LENGTH_LONG).show();
-
-            } else {
-
-                Toast.makeText(getBaseContext(), "Error al guardar el tratamiento", Toast.LENGTH_LONG).show();
-
-
-            }*/
         }
-
     }
-
-
 
     private class updatePatient extends AsyncTask<String,Void,String> {
 
@@ -979,12 +841,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-            //this method will be running on UI thread
-           /* pdLoading.setMessage("\tProcessing Sign Up...");
-            pdLoading.setCancelable(false);
-            pdLoading.show();*/
-
         }
 
         @Override
@@ -993,10 +849,8 @@ public class PacienteValidarActivity extends AppCompatActivity {
             // Get url
             url = DAOCardiovascular.getInstance().getUrl( "updatePatient.php" );
 
-
             try {
 
-                System.out.println("phoenix white");
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -1006,8 +860,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 // setDoInput and setDoOutput method depict handling of both send and receive
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
-                System.out.println("phoenix grey");
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
@@ -1020,14 +872,10 @@ public class PacienteValidarActivity extends AppCompatActivity {
                         ;
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
                 for ( int i = 0; i < params.length; i++ )
                 {
                     System.out.println( params[i]);
                 }
-                System.out.println("phoenix apple");
-
 
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
@@ -1038,10 +886,7 @@ public class PacienteValidarActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -1057,8 +902,6 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -1068,59 +911,31 @@ public class PacienteValidarActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
-
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
 
                 } else {
 
-                    //return("unsuccessful");
                 }
 
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-            // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
-            // Remove loading
-            //pdLoading.dismiss();
-
-            System.out.println( "phoenix dungeon" );
-            System.out.println( result );
+            //System.out.println( result );
 
             if (result.equalsIgnoreCase("error")) {
-
-                // Clear the fields
-               /* name_text.getText().clear();
-                surname_text.getText().clear();
-                number_text.getText().clear();
-                telephone_text.getText().clear();
-                mail_text.getText().clear();
-                password_text.getText().clear();*/
 
                 // On Sign Up Failed
                 Toast.makeText(getBaseContext(), "Error en el proceso", Toast.LENGTH_LONG).show();
@@ -1128,16 +943,11 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("false") || result.equalsIgnoreCase( "exception" )) {
 
-
             }else if (  result.equalsIgnoreCase("Paciente ya asignado a un medico")    ){
-
 
                 Toast.makeText(getBaseContext(), "Paciente ya asignado a un médico", Toast.LENGTH_LONG).show();
 
-
-
             }else if (  result.equalsIgnoreCase("Error actualizando")    ){
-
 
                 Toast.makeText(getBaseContext(), "Error actualizando", Toast.LENGTH_LONG).show();
 
@@ -1163,60 +973,9 @@ public class PacienteValidarActivity extends AppCompatActivity {
 
                 Toast.makeText(getBaseContext(), "Eliminado con exito", Toast.LENGTH_LONG).show();
 
-
                 Intent intent = new Intent( getApplicationContext(), MisPacientesActivity.class);
-                // intent.putExtra("colegiado", currentLead.getColegiado());
                 startActivity(intent);
-                //identificacion.getText().clear();
-               // edad.getText().clear();
-                //Masculino.setChecked( true );
-                //Femenino.setChecked( false );
-
-                //recreate();
-
-                // Prepare next window
-                //Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //startActivity(intent);
-
-
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-                // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
-
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
-
-
-        // if (usu1==null) {
-                /*if(primero){
-                    //inicializarVentana();
-                }else {*/
-      /*          Toast toast =
-                        Toast.makeText(getApplicationContext(),
-                                "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                toast.show();
-                //}
-            } else {
-                Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setColegiado(usu1.getColegiado());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());
-
-                //usu.setImagen(usu1.getImagen());
-
-                //IniciarAplicacion(usu);
-            }
-*/
     }
 }

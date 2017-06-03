@@ -3,12 +3,10 @@ package ucm.fdi.tfg;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class InicioActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";

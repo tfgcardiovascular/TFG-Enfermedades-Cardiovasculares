@@ -21,9 +21,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-
-import static java.lang.Math.pow;
 
 public class colesterolActivity extends AppCompatActivity {
 
@@ -47,25 +44,12 @@ public class colesterolActivity extends AppCompatActivity {
     private double trigliceridosValue;
     private double ldlValue;
 
-
     // Argument
     private Paciente argumentPaciente;
 
-
-
-    public void onResume(Bundle savedInstanceState)
-    {
-/*
-        Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );
-*/
-        // Get Data
-        //new getImc().execute( argumentPaciente.getId() );
-
+    public void onResume(Bundle savedInstanceState){
 
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -226,13 +210,9 @@ public class colesterolActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
                     //return(result.toString());
@@ -256,11 +236,7 @@ public class colesterolActivity extends AppCompatActivity {
 
         // @Override
         protected void onPostExecute(String result) {
-
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
@@ -285,8 +261,6 @@ public class colesterolActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Error al guardar Colesterol Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
-
-
 
             }
         }

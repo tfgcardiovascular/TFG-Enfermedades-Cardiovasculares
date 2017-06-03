@@ -1,14 +1,11 @@
 package ucm.fdi.tfg;
 
-import android.graphics.drawable.Drawable;
-
 public class Category {
 
     private String nombre;
     private String colegiado;
     private String mail;
     private String categoryId;
-    //private Drawable imagen;
 
     public Category() {
         super();
@@ -21,7 +18,6 @@ public class Category {
         this.mail = mail;
         this.categoryId = categoryId;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -47,15 +43,7 @@ public class Category {
         this.mail = mail;
     }
 
-    /*public Drawable getImage() {
-        return imagen;
-    }
-
-    public void setImagen(Drawable imagen) {
-        this.imagen = imagen;
-    }*/
-
-    public String getCategoryId(){
+     public String getCategoryId(){
         return categoryId;
     }
 

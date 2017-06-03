@@ -21,9 +21,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-
-import static ucm.fdi.tfg.R.mipmap.new_patient;
 
 public class htaActivity extends AppCompatActivity {
 
@@ -59,17 +56,18 @@ public class htaActivity extends AppCompatActivity {
 
             if ( diastolicaInt >= 85 )
             {
+
                 diastolica.setError( "Diastolica suele estar por debajo de 85", getResources().getDrawable(R.mipmap.warning)   );
 
             }
         }
         else if ( sistolicaInt >= 130 && sistolicaInt <= 139 )
         {
-
             clasif = "PRESIÓN ARTERIAL ELEVADA NORMAL";
 
             if ( diastolicaInt < 85 || diastolicaInt > 89 )
             {
+
                 diastolica.setError( "Diastolica suele estar entre 85 y 89", getResources().getDrawable(R.mipmap.warning)   );
 
             }
@@ -80,11 +78,10 @@ public class htaActivity extends AppCompatActivity {
 
             if ( diastolicaInt < 90 || diastolicaInt > 99 )
             {
+
                 diastolica.setError( "Diastolica suele estar entre 90 y 99", getResources().getDrawable(R.mipmap.warning)   );
 
             }
-
-
         }
         else if ( sistolicaInt >= 160 && sistolicaInt <= 179 )
         {
@@ -93,6 +90,7 @@ public class htaActivity extends AppCompatActivity {
 
             if ( diastolicaInt < 100 || diastolicaInt > 109 )
             {
+
                 diastolica.setError( "Diastolica suele estar entre 100 y 109", getResources().getDrawable(R.mipmap.warning)   );
 
             }
@@ -104,6 +102,7 @@ public class htaActivity extends AppCompatActivity {
 
             if ( diastolicaInt < 110 || diastolicaInt > 119 )
             {
+
                 diastolica.setError( "Diastolica suele estar entre 90 y 99", getResources().getDrawable(R.mipmap.warning)   );
 
             }
@@ -115,12 +114,12 @@ public class htaActivity extends AppCompatActivity {
 
             if ( diastolicaInt < 120 )
             {
+
                 diastolica.setError( "Diastolica suele ser mayor o igual que 120", getResources().getDrawable(R.mipmap.warning)   );
 
             }
 
         }
-
 
         resultData.setText( clasif );
     }
@@ -143,11 +142,6 @@ public class htaActivity extends AppCompatActivity {
 
         // Buttons
         htaButton = (Button) findViewById( R.id.button_calcular_hta);
-
-        // Get in data
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );*/
 
         argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
@@ -172,13 +166,7 @@ public class htaActivity extends AppCompatActivity {
         catch(NumberFormatException e)
         {
 
-
         }
-
-
-        // Buttons Listener
-        // Get Data
-       // new getHta().execute( argumentPaciente.getId() );
 
         htaButton.setOnClickListener(new View.OnClickListener() {
 
@@ -189,9 +177,6 @@ public class htaActivity extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(sistolica.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
                 imm.hideSoftInputFromWindow(diastolica.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
-
-                // Check correct number
-
 
                 // Get data
                 try
@@ -212,12 +197,6 @@ public class htaActivity extends AppCompatActivity {
 
                     if (  sistolicaValue >= 90 && diastolicaValue >= 60 ){
 
-                        // Calculate
-                       // htaResult = diastolicaValue / pow( sistolicaValue, 2 );
-
-                        // Set Data
-                       // resultData.setText( String.valueOf( htaResult ) );
-
                         // Set clasif data
                         updateClasif( sistolicaValue, diastolicaValue );
 
@@ -229,26 +208,10 @@ public class htaActivity extends AppCompatActivity {
                 }catch(NumberFormatException e)
                 {
 
-
                 }
-
-
-
-
-
-
-
-
             }
         });
-
-
-
-
     }
-
-
-
 
     // Save The Imc Data
     public class saveHta extends AsyncTask<String, String, String> {
@@ -320,13 +283,9 @@ public class htaActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
                     //return(result.toString());
@@ -347,21 +306,15 @@ public class htaActivity extends AppCompatActivity {
             return finalResult;
         }
 
-
         // @Override
         protected void onPostExecute(String result) {
-
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
                 // Clear the fields
 
             } else if (result.equalsIgnoreCase("HTA Data actualizado")) {
-
 
                 Toast.makeText(getBaseContext(), "HTA Data Actualizado", Toast.LENGTH_LONG).show();
 
@@ -371,49 +324,13 @@ public class htaActivity extends AppCompatActivity {
                 DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
 
 
-
             } else if (result.equalsIgnoreCase("Error al guardar HTA Data")) {
-
 
                 Toast.makeText(getBaseContext(), "Error al guardar HTA Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
 
-
-                //recreate();
-
-                // Prepare next window
-                //Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //startActivity(intent);
-
-
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-                // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

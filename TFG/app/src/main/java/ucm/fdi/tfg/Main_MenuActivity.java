@@ -37,7 +37,6 @@ public class Main_MenuActivity extends AppCompatActivity {
 
         //Medico currentLead =
 
-
         Nuevo.setOnClickListener(new View.OnClickListener() {
 
             @Override

@@ -39,6 +39,6 @@
         android:layout_below="@id/textView2"
         android:layout_marginTop="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        />
+        android:textSize="18sp"/>
+
 </RelativeLayout>

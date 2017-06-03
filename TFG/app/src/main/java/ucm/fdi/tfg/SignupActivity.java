@@ -19,7 +19,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class SignupActivity extends AppCompatActivity {
@@ -69,8 +68,6 @@ public class SignupActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-                System.out.println ( "phoenix stardust " );
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
@@ -80,7 +77,6 @@ public class SignupActivity extends AppCompatActivity {
 
 
     public void signUp (View view){
-        //Button SignUp_Button = (Button) findViewById(R.id.button_signup);
 
         // Get field values
         name_text = (EditText) findViewById(R.id.edit_message_Name);
@@ -101,53 +97,11 @@ public class SignupActivity extends AppCompatActivity {
         // Validate
         if (!validate()) {
             onSignUpFailed();
-            System.out.println( "phoenix icetear");
             return;
         }
 
-        System.out.println( "Phoenix volcano" );
-
-       // SignUp_Button.setEnabled(false);
-
-       // final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
-          //      R.style.AppTheme);
-        //PENDIENTE!!!
-        // progressDialog.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        //progressDialog.setMessage("Creating account...");
-        //progressDialog.setIndeterminate(false);
-        //progressDialog.setMax(100);
-        //progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        //progressDialog.setCancelable(true);
-       // progressDialog.show();
-
-        // Para que el dialog este un tiempo
-        /*new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
-*/
-
         new SelectInicio().execute(name, surname, number, telephone, password, mail);
     }
-
-   /* public void onLoginSuccess() {
-        Button LogIn_Button = (Button) findViewById(R.id.button_login);
-        LogIn_Button.setEnabled(true);
-        finish();
-    }
-
-    public void onLoginFailed() {
-        Button LogIn_Button = (Button) findViewById(R.id.button_login);
-        Toast.makeText(getBaseContext(), "Login incorrecto", Toast.LENGTH_LONG).show();
-
-        LogIn_Button.setEnabled(true);
-    }*/
-
 
     public void onSignUpFailed(){
         Toast.makeText(getBaseContext(), "Registro incorrecto", Toast.LENGTH_LONG).show();
@@ -156,11 +110,6 @@ public class SignupActivity extends AppCompatActivity {
 
     public boolean validate() {
         boolean valid = true;
-       /* EditText user_text = (EditText) findViewById(R.id.edit_message_User);
-        EditText password_text = (EditText) findViewById(R.id.edit_message_Password);
-
-        //String user = user_text.getText().toString();
-        String password = password_text.getText().toString();*/
 
         // Validate mail
         if (mail.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
@@ -217,8 +166,7 @@ public class SignupActivity extends AppCompatActivity {
             password_text.setError(null);
         }
 
-        System.out.println( "Phoenix giaeaes" );
-        System.out.println( valid );
+        //System.out.println( valid );
 
         return valid;
     }
@@ -246,11 +194,8 @@ public class SignupActivity extends AppCompatActivity {
 
             url = DAOCardiovascular.getInstance().getUrl( "SignUp.php" );
 
-
-
             try {
 
-                System.out.println("phoenix white");
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -260,8 +205,6 @@ public class SignupActivity extends AppCompatActivity {
                 // setDoInput and setDoOutput method depict handling of both send and receive
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
-                System.out.println("phoenix grey");
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
@@ -273,9 +216,6 @@ public class SignupActivity extends AppCompatActivity {
                         .appendQueryParameter("mail", params[5]);
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
-
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(
@@ -285,10 +225,7 @@ public class SignupActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -304,8 +241,6 @@ public class SignupActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -315,18 +250,11 @@ public class SignupActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
-
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
 
                 } else {
 
@@ -336,28 +264,18 @@ public class SignupActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
             return finalResult;
-
-           // return null;//DAOCuentaCuentas.getInstance().login(strings[0],strings[1]);
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
             // Remove loading
             pdLoading.dismiss();
-
-            System.out.println( "phoenix dungeon" );
-            System.out.println( result );
+            //System.out.println( result );
 
             if (result.equalsIgnoreCase("User already exists")) {
 
@@ -368,6 +286,7 @@ public class SignupActivity extends AppCompatActivity {
                 telephone_text.getText().clear();
                 mail_text.getText().clear();
                 password_text.getText().clear();
+                repeatPasswordText.getText().clear();
 
                 // On Sign Up Failed
                 Toast.makeText(getBaseContext(), "El usuario ya existe", Toast.LENGTH_LONG).show();
@@ -386,35 +305,8 @@ public class SignupActivity extends AppCompatActivity {
                 String message = editText.getText().toString();
                 intent.putExtra(EXTRA_MESSAGE, message);
                 startActivity(intent);
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
-
-        // if (usu1==null) {
-                /*if(primero){
-                    //inicializarVentana();
-                }else {*/
-      /*          Toast toast =
-                        Toast.makeText(getApplicationContext(),
-                                "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                toast.show();
-                //}
-            } else {
-                Medico medico;
-                medico = Medico.getIntsance();
-                medico.setId(usu1.getId());
-                medico.setColegiado(usu1.getColegiado());
-                medico.setNombre(usu1.getNombre());
-                medico.setApellidos(usu1.getApellidos());
-                medico.setTelefono(usu1.getTelefono());
-                medico.setPassword(usu1.getPassword());
-
-                //usu.setImagen(usu1.getImagen());
-
-                //IniciarAplicacion(usu);
-            }
-*/
     }
 }
 

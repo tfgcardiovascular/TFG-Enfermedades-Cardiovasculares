@@ -66,8 +66,8 @@
             android:text="@string/button_signup"
             android:gravity="center"
             android:background="@color/colorPrimary"
-            android:textColor="@color/colorText"
-            />
+            android:textColor="@color/colorText" />
 
     </LinearLayout>
+
 </ScrollView>

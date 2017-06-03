@@ -12,8 +12,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="8dp">
 
-    <!-- android:layout_below="@+id/toolbar" -->
-
     <Button android:id="@+id/button_guardar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -175,6 +173,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/button_eliminar"
         android:layout_alignStart="@+id/button_eliminar" />
-
 
 </RelativeLayout>

@@ -1,12 +1,9 @@
 package ucm.fdi.tfg;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.qoppa.android.pdfProcess.PDFCanvas;
@@ -18,14 +15,11 @@ import com.qoppa.android.pdfProcess.PDFPaint;
 import com.qoppa.android.pdfViewer.fonts.StandardFontTF;
 
 
-public class AddContentToPDF extends Activity
-{
-    public void onCreate(Bundle saveInstBundle)
-    {
+public class AddContentToPDF extends Activity{
+    public void onCreate(Bundle saveInstBundle){
         super.onCreate(saveInstBundle);
 
-        try
-        {
+        try{
             //this static allows the sdk to access font assets,
             //it must be set prior to utilizing libraries
             StandardFontTF.mAssetMgr = getAssets();
@@ -64,10 +58,8 @@ public class AddContentToPDF extends Activity
             //save the document
             pdf.saveDocument("/sdcard/output.pdf");
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             Log.e("error", Log.getStackTraceString(e));
         }
     }
-
 }

@@ -1,7 +1,5 @@
 package ucm.fdi.tfg;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,10 +19,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/**
- * Created by PC on 02/03/2017.
- */
-
 public class MedicoPerfilActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
 
@@ -42,19 +36,10 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
     private String repeatPassword;
 
-    /*private String name;
-    private String surname;
-    private String number;
-    private String telephone;
-    private String password;
-
-    private String mail;*/
-
     public static final int CONNECTION_TIMEOUT=10000;
     public static final int READ_TIMEOUT=15000;
 
     private Medico argumentMedic;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,54 +64,18 @@ public class MedicoPerfilActivity extends AppCompatActivity {
         Mail.setText( medic.getMail() );
         Telefono.setText( medic.getTelefono() );
 
-
-
-
-        // Get in data
-       // Bundle bundle = getIntent().getExtras();
-        //System.out.println( "freeze phoenix" );
-       // System.out.println( (Medico ) getIntent().getSerializableExtra( "medic" ) );
-
-      //  argumentMedic =  ( Medico ) getIntent().getSerializableExtra( "medic" );
-
-        /*Colegiado.setText( argumentMedic.getColegiado() );
-        Nombre.setText( argumentMedic.getNombre() );
-        Apellidos.setText( argumentMedic.getApellidos() );
-        Mail.setText( argumentMedic.getMail() );
-        Telefono.setText( argumentMedic.getTelefono() );*/
-
         Colegiado.setEnabled(false);
-
-       // Colegiado.setText( bundle.getString( "colegiado" ) );
 
         Guardar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                //logIn(v);
-                //
                 signUp(v);
-
-
-
-
-               /* System.out.println( "gaia phoenix" );
-                System.out.println( argumentMedic );
-
-                System.out.println( "sedna phoenix" );*/
-                /*new ValidateMedic().execute( argumentMedic.getNombre(), argumentMedic.getApellidos(),
-                        argumentMedic.getColegiado(), argumentMedic.getTelefono(),
-                        argumentMedic.getPassword(), argumentMedic.getMail(),
-                        argumentMedic.getId(), "false");*/
             }
         });
-
-
     }
 
     public void signUp (View view){
-        //Button SignUp_Button = (Button) findViewById(R.id.button_signup);
-
 
         medic.setNombre( Nombre.getText().toString() );
         medic.setApellidos( Apellidos.getText().toString() );
@@ -140,36 +89,8 @@ public class MedicoPerfilActivity extends AppCompatActivity {
         // Validate
         if (!validate()) {
             onSignUpFailed();
-            System.out.println( "phoenix icetear");
             return;
         }
-
-        System.out.println( "Phoenix volcano" );
-
-        // SignUp_Button.setEnabled(false);
-
-        // final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
-        //      R.style.AppTheme);
-        //PENDIENTE!!!
-        // progressDialog.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        //progressDialog.setMessage("Creating account...");
-        //progressDialog.setIndeterminate(false);
-        //progressDialog.setMax(100);
-        //progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        //progressDialog.setCancelable(true);
-        // progressDialog.show();
-
-        // Para que el dialog este un tiempo
-        /*new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
-*/
 
         new SaveProfile().execute( medic.getNombre(), medic.getApellidos(), medic.getColegiado(), medic.getTelefono(), medic.getPassword(), medic.getMail() );
     }
@@ -181,11 +102,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
     public boolean validate() {
         boolean valid = true;
-       /* EditText user_text = (EditText) findViewById(R.id.edit_message_User);
-        EditText password_text = (EditText) findViewById(R.id.edit_message_Password);
-
-        //String user = user_text.getText().toString();
-        String password = password_text.getText().toString();*/
 
         // Validate mail
         if ( medic.getMail().isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher( medic.getMail() ).matches()) {
@@ -219,7 +135,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
             Telefono.setError(null);
         }
 
-
         // Validate password
         if ( ( medic.getPassword().length() > 0 && medic.getPassword().length() < 4 ) || medic.getPassword().length() > 16) {
             Contraseña.setError("Introduce entre 4 y 16 carácteres alfanumericos");
@@ -227,25 +142,17 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
         }else if ( !medic.getPassword().equals( repeatPassword ) )
         {
-
             Contraseña.setError("Las contraseñas no coinciden");
             valid = false;
-
 
         } else {
             Contraseña.setError(null);
         }
 
-        System.out.println( "Phoenix giaeaes" );
-        System.out.println( valid );
+        //System.out.println( valid );
 
         return valid;
     }
-
-
-
-
-
 
     private class SaveProfile extends AsyncTask<String,Void,String> {
 
@@ -256,8 +163,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
-
         }
 
         @Override
@@ -265,10 +170,8 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
             url = DAOCardiovascular.getInstance().getUrl("saveProfile.php");
 
-
             try {
 
-                System.out.println("phoenix white");
                 // Setup HttpURLConnection class to send and receive data from php and mysql
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(READ_TIMEOUT);
@@ -278,8 +181,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
                 // setDoInput and setDoOutput method depict handling of both send and receive
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-
-                System.out.println("phoenix grey");
 
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
@@ -291,9 +192,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
                         .appendQueryParameter("mail", params[5]);
                 String query = builder.build().getEncodedQuery();
 
-
-                System.out.println("phoenix orange");
-
                 // Open connection for sending data
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(
@@ -303,10 +201,7 @@ public class MedicoPerfilActivity extends AppCompatActivity {
                 writer.close();
                 os.close();
 
-                System.out.println("phoenix yellow");
                 conn.connect();
-
-                System.out.println("phoenix stone");
 
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
@@ -322,8 +217,6 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
                 int response_code = conn.getResponseCode();
 
-                System.out.println("phoenix diablo");
-
                 // Check if successful connection made
                 if (response_code == HttpURLConnection.HTTP_OK) {
 
@@ -333,19 +226,12 @@ public class MedicoPerfilActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
 
-                    System.out.println("phoenix altmile");
-
                     finalResult = result.toString();
-                    System.out.println( finalResult );
-
-                    // Pass data to onPostExecute method
-                    //return(result.toString());
+                    //System.out.println( finalResult );
 
                 } else {
 
@@ -355,11 +241,7 @@ public class MedicoPerfilActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 finalResult = "exception";
-                //return "exception";
-                //return "exception";
             } finally {
-
-                System.out.println("phoenix tear");
                 conn.disconnect();
             }
 
@@ -369,14 +251,8 @@ public class MedicoPerfilActivity extends AppCompatActivity {
         }
 
         //@Override
-        //protected void onPostExecute(Medico usu1) {
         protected void onPostExecute(String result) {
-
-            // Remove loading
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
-            System.out.println( "phoenix computer" );
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("Usuario modificado con exito")) {
 
@@ -399,12 +275,5 @@ public class MedicoPerfilActivity extends AppCompatActivity {
 
             }
         }
-
-
     }
-
-
-
-
-
 }

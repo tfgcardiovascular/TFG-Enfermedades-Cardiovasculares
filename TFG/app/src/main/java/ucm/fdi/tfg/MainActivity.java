@@ -44,10 +44,15 @@ public class MainActivity extends AppCompatActivity {
     public static final int READ_TIMEOUT=15000;
     private String url_usuario = "http://localhost:8888/android_connect/Usuario.php";
 
+    @Override
     public void onBackPressed() {
+        /*Intent intent;
+        intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);*/
         moveTaskToBack(true);
-        android.os.Process.killProcess(android.os.Process.myPid());
-        System.exit(1);
+        /*android.os.Process.killProcess(android.os.Process.myPid());
+
+        System.exit(1);*/
     }
 
     @Override
@@ -87,37 +92,15 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        //LogIn_Button.setEnabled(false);
-
-       // final ProgressDialog progressDialog = new ProgressDialog(MainActivity.this,
-           //     R.style.AppTheme);
-
         // Get info
         String user = user_text.getText().toString();
         String password = password_text.getText().toString();
 
         // Function to do the login
         new AsyncLogin().execute( user,password);
-
-        /*
-
-        new android.os.Handler().postDelayed(
-                new Runnable() {
-                    public void run() {
-                        // On complete call either onLoginSuccess or onLoginFailed
-                        onLoginSuccess();
-                        // onLoginFailed();
-                        progressDialog.dismiss();
-                    }
-                }, 3000);
-
-        new SelectInicio().execute(user, password);
-
-        */
     }
 
     private class AsyncLogin extends AsyncTask<String, String, Medico>{
-
         ProgressDialog pdLoading = new ProgressDialog(MainActivity.this);
         HttpURLConnection conn;
         URL url = null;
@@ -183,11 +166,8 @@ public class MainActivity extends AppCompatActivity {
                     InputStream input = conn.getInputStream();
                     BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
+                    //System.out.println( reader );
 
-
-                    System.out.println( "phoenix lion" );
-                    System.out.println( reader );
-                    System.out.println( "phoenix falcon" );
                     StringBuilder result = new StringBuilder();
                     String line;
 
@@ -197,9 +177,7 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList< String > linePhp = new ArrayList < String > ();
 
                     while ((line = reader.readLine()) != null) {
-                        System.out.println( "phoenix fox" );
-                        System.out.println( line  );
-                        System.out.println( "phoenix wolf" );
+                        //System.out.println( line  );
 
                         linePhp.add( line );
                         //result.append(line);
@@ -240,25 +218,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-
        // @Override
         protected void onPostExecute(Medico result) {
-
             // Check obtained result
-
-            //this method will be running on UI thread
-            System.out.println( "Phoenix blue wave");
-            System.out.println( result );
-            System.out.println( "Phoenix alter ego");
+            //System.out.println( result );
 
             pdLoading.dismiss();
 
             if ( result != null ) {
-                //if(result.equalsIgnoreCase("true")){
-                /* Here launching another activity when login successful. If you persist login state
-                use sharedPreferences of Android. and logout button to clear sharedPreferences.
-                 */
 
                 // Clear the fields
                 user_text.getText().clear();
@@ -273,13 +240,10 @@ public class MainActivity extends AppCompatActivity {
 
                 // Medico -> Menu Inicio
                 String i = result.getRol();
-                System.out.println("Llega aqui");
-                System.out.println(i);
+                //System.out.println(i);
 
                 // Set logged user
                 DAOCardiovascular.getInstance().setLoggedUser( result );
-
-
 
                 if (i.equals( "1") ) {
                     activityClass = InicioActivity.class;
@@ -294,23 +258,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, activityClass);
                 startActivity(intent);
 
-                //EditText editText = (EditText) findViewById(R.id.edit_message_User);
-                //String message = editText.getText().toString();
-                //intent.putExtra(EXTRA_MESSAGE, message);
-
-               /* Intent intent = new Intent(MainActivity.this,SuccessActivity.class);
-                startActivity(intent);
-                MainActivity.this.finish();*/
-
             }else{
-            //if (result.equalsIgnoreCase("false")){
-                onLoginFailed();
-                // If username and password does not match display a error message
-                // Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).Show();
 
-            }/* else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
-            }*/
+                onLoginFailed();
+
+            }
         }
     }
 
@@ -325,8 +277,6 @@ public class MainActivity extends AppCompatActivity {
         String user = user_text.getText().toString();
         String password = password_text.getText().toString();
 
-       // if (user.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(user).matches()) {
-
         // Validate user
         if ( user.isEmpty() || user.length() != 9 ){
             user_text.setError("Introduce un Nº Colegiado correcto (9 cifras numéricas)");
@@ -334,7 +284,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             user_text.setError(null);
         }
-
 
         // Validate Password
         if (password.isEmpty() || password.length() < 4 || password.length() > 16) {

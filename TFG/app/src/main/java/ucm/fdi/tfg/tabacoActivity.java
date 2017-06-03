@@ -21,10 +21,8 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class tabacoActivity extends AppCompatActivity {
-
     public final static String EXTRA_MESSAGE = "ucm.fdi.tfg .MESSAGE";
     private static final String TAG = "tabacoActivity";
 
@@ -66,13 +64,7 @@ public class tabacoActivity extends AppCompatActivity {
         resultData.setEnabled(false);
 
         // Buttons
-
         tabacoButton = (Button) findViewById( R.id.button_calcular_hta);
-
-        // Get in data
-        /*Bundle bundle = getIntent().getExtras();
-
-        argumentPaciente =  ( Paciente ) getIntent().getSerializableExtra( "paciente" );*/
 
         argumentPaciente = DAOCardiovascular.getInstance().getCurrentPatient();
 
@@ -100,12 +92,6 @@ public class tabacoActivity extends AppCompatActivity {
 
         }
 
-
-
-
-        // Get Data
-        //new getTabaco().execute( argumentPaciente.getId() );
-
         // Buttons Listener
         tabacoButton.setOnClickListener(new View.OnClickListener() {
 
@@ -118,8 +104,6 @@ public class tabacoActivity extends AppCompatActivity {
                 imm.hideSoftInputFromWindow(cantidad.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
 
                 // Check correct number
-
-
                 // Get data
                 try
                 {
@@ -139,16 +123,12 @@ public class tabacoActivity extends AppCompatActivity {
 
                     if (  añosValue >= 0 && cantidadValue >= 0 ){
 
-
-
                         // Calculate
                         tabacoValue = ( double ) ( ( cantidadValue * añosValue ) / 20 );
 
-                        System.out.println( "drugged phoenix" );
-                        System.out.println( añosValue );
-                        System.out.println( cantidadValue );
-                        System.out.println( tabacoValue );
-                        System.out.println( "fin drugged phoenix" );
+                        //System.out.println( añosValue );
+                        //System.out.println( cantidadValue );
+                        //System.out.println( tabacoValue );
 
                         // Set Data
                         resultData.setText( String.valueOf( tabacoValue ) );
@@ -164,19 +144,9 @@ public class tabacoActivity extends AppCompatActivity {
                 }catch(NumberFormatException e)
                 {
 
-
                 }
-
-
-
-
-
-
-
-
             }
         });
-
     }
 
     private void updateClasif( double ipa )
@@ -205,9 +175,6 @@ public class tabacoActivity extends AppCompatActivity {
 
         clasifData.setText( clasif );
     }
-
-
-
 
     // Save The Imc Data
     public class saveTabaco extends AsyncTask<String, String, String> {
@@ -280,13 +247,9 @@ public class tabacoActivity extends AppCompatActivity {
                     StringBuilder result = new StringBuilder();
                     String line;
 
-                    System.out.println("phoenix gaia");
-
                     while ((line = reader.readLine()) != null) {
                         result.append(line);
                     }
-
-                    System.out.println("phoenix altmile");
 
                     finalResult = result.toString();
                     //return(result.toString());
@@ -310,11 +273,7 @@ public class tabacoActivity extends AppCompatActivity {
 
         // @Override
         protected void onPostExecute(String result) {
-
-            //pdLoading.dismiss();
-
-            System.out.println("phoenix dungeon");
-            System.out.println(result);
+            //System.out.println(result);
 
             if (result.equalsIgnoreCase("error")) {
 
@@ -322,49 +281,26 @@ public class tabacoActivity extends AppCompatActivity {
 
             } else if (result.equalsIgnoreCase("Tabaco Data actualizado")) {
 
-
                 Toast.makeText(getBaseContext(), "Tabaco Data actualizado", Toast.LENGTH_LONG).show();
 
                 argumentPaciente.setAdiccion( años.getText().toString() );
                 argumentPaciente.setCantidad( cantidad.getText().toString() );
                 argumentPaciente.setIpa( resultData.getText().toString( ) );
 
-                System.out.println( "tabaco argumentPaciente" );
-                System.out.println( argumentPaciente );
+                //System.out.println( argumentPaciente );
 
                 DAOCardiovascular.getInstance().setCurrentPatient( argumentPaciente );
 
-                System.out.println( "tabaco argumentPaciente DAO" );
-                System.out.println( DAOCardiovascular.getInstance().getCurrentPatient() );
-
+                //System.out.println( "tabaco argumentPaciente DAO" );
+                //System.out.println( DAOCardiovascular.getInstance().getCurrentPatient() );
 
             } else if (result.equalsIgnoreCase("Error al guardar Tabaco Data")) {
-
 
                 Toast.makeText(getBaseContext(), "Error al guardar Tabaco Data", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("Registrado con exito")) {
 
-
-                //recreate();
-
-                // Prepare next window
-                //Intent intent = new Intent(MedicoValidarActivity.this, ValidateActivity.class);
-                //startActivity(intent);
-
-
-                //intent.setFlags( FLAG_ACTIVITY_CLEAR_TASK );
-                // finish();
-                /*EditText editText = (EditText) findViewById(R.id.edit_message_Name);
-                String message = editText.getText().toString();
-                intent.putExtra(EXTRA_MESSAGE, message);*/
-                //intent.setFlags( Intent.FLAG_ACTIVITY_NEW_TASK | IntentCompat.FLAG_ACTIVITY_CLEAR_TASK );
-                //intent.setAction("com.package.ACTION_LOGOUT");
-
-
-                //  Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).Show();
             }
         }
     }
-    
 }

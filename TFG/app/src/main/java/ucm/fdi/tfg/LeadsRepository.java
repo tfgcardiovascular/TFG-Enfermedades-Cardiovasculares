@@ -1,21 +1,5 @@
 package ucm.fdi.tfg;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +22,6 @@ public class LeadsRepository {
 
     public void saveMedicList( ArrayList <Medico> medicList )
     {
-
         medicValidate.clear();
 
         for ( int i = 0; i < medicList.size(); i++)
@@ -46,11 +29,7 @@ public class LeadsRepository {
             saveCategory( medicList.get( i ) );
 
         }
-        /*System.out.println( "ashes phoenix" );
-        System.out.println( medicList );
-        medicValidate = ( ArrayList < Medico > ) medicList.clone();
-        System.out.println( medicValidate );
-        System.out.println( "boreal phoenix" );*/
+
     }
 
     // Update repositories
@@ -74,12 +53,4 @@ public class LeadsRepository {
         return medicValidate;
         //return new ArrayList<>(Categorys.values());
     }
-
-
-
-
-
-
-
-
 }
