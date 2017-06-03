@@ -13,11 +13,11 @@
 \usepackage{float}
 
 
-\title{Desarrollo de un app para el \\
-         tratamiento de las Enfermedades Cardiovasculares}
+\title{\MakeUppercase{Desarrollo de un app para el} \\
+         \MakeUppercase{tratamiento de las Enfermedades Cardiovasculares}}
 \author{Ricardo Cajigas Arenas \\ José Ángel Sánchez Martín}
 \tutor{José Ignacio Hidalgo Pérez}
-\curs{2016-2017}
+\curs{Junio 2017}
 
 
 \keywords{Enfermedades cardiovasculares, Aplicación móvil, Diabetes, Colesterol, Tabaquismo, Obesidad, Hipertensión Arterial, Riesgo Cardiovascular}              % Palabras clave
@@ -31,74 +31,107 @@
 %\chapter{Autorización de difusión}
 %\cleardoublepage
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		   AGRADECIMIENTOS				                     															  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter{Agradecimientos}
-%\cleardoublepage
+\setcounter{page}{1}
+\cleardoublepage
+{\par\hfill \sffamily\bfseries\Huge\ Agradecimientos}
+
+Para comenzar, expresamos nuestro deseo de agradecer a nuestro tutor y coordinador del proyecto, José Ignacio Hidalgo Pérez, por ofrecernos la oportunidad de trabajar en este proyecto, así como por apoyarnos y auxiliarnos en el desarrollo de este TFG. Sus consejos y sugerencias han sido de gran ayuda para mejorar el servicio de esta aplicación y la experiencia de los usuarios.
+
+Debemos reconocer también el esfuerzo e interés demostrado por el doctor Rafael Rubio Díaz, médico del Hospital Virgen de la Salud de Toledo, que con paciencia nos asesoró en el esbozo de este proyecto y nos proporcionó una gran parte de la documentación indispensable para su finalización. Es gracias a su supervisión que esta aplicación ha sido capaz de evolucionar a un trabajo encaminado a resolver un problema real en el ámbito de la medicina de forma práctica y útil.
+
+Comunicamos nuestra gratitud al personal informático por permitirnos hacer uso de un servidor de la Facultad de Informática, fomentando así la difusión de este trabajo.
+
+Por último, no podemos olvidar tampoco el apoyo mostrado por nuestra familia y amigos. Sus ánimos han sido una fuente de motivación que ha permitido impulsar el proyecto en las situaciones difíciles. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																			PROLOGO					                     															  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\chapter{Prólogo}
-%\cleardoublepage
+\cleardoublepage
+{\par\hfill \sffamily\bfseries\Huge\ Prólogo}
+
+**Redactado por Rafa
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																			RESUMEN					                     															  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cleardoublepage
 \begin{abstract}
-\setcounter{page}{1}
+%\setcounter{page}{1}
 \addcontentsline{toc}{chapter}{Resumen}
-El uso de aplicaciones en dispositivos móviles ha ido creciendo con el paso de los años, siendo hoy en día una herramienta fundamental en un amplio ámbito, desde profesionales como son las comunicaciones, economía, comercio, salud hasta las destinadas al ocio, viajes, deportes...
 
-Esta aplicación para Android está enfocada en el ámbito de la medicina, dando solución a uno de los problemas actuales que existe en el Hospital Virgen de la Salud de Toledo, a través de una interfaz intuitiva y simple, proporcionando agilidad al médico en el cálculo del riesgo cardiovascular y asistencia complementaria a los métodos convencionales.
+El uso de aplicaciones en dispositivos móviles ha ido creciendo con el paso de los años, siendo hoy en día una herramienta fundamental en un amplio ámbito; desde profesionales como son las actividades relacionadas con las comunicaciones, economía, comercio y salud hasta las destinadas al ocio, viajes, deportes...
 
-Enfocada para ser gestionada por los médicos, permitiéndoles almacenar los datos actuales de un paciente como son hipertensión arterial, colesterol, diabetes, tabaquismo e índice de masa corporal. Para más tarde obtener el riesgo cardiovascular del mismo y facilitar un tratamiento inicial al médico.
+Esta aplicación para Android está enfocada en el ámbito de la medicina y su objetivo específico es proporcionar una solución a uno de los problemas actuales que existe en el Hospital Virgen de la Salud de Toledo. Para lograr esta meta hemos diseñado una interfaz intuitiva y simple, proporcionando agilidad al médico en el cálculo del riesgo cardiovascular y asistencia complementaria a los métodos convencionales.
+
+Enfocada para ser gestionada por los médicos, permitiéndoles almacenar datos identificativos de un paciente y tratar la información concerniente a su estado en lo que respecta a la hipertensión arterial, el colesterol, la diabetes, el tabaquismo y el índice de masa corporal. Esta última será tomada como base por la app para la determinación del riesgo cardiovascular del paciente y la redacción de una breve sinopsis descriptiva que auxilie al profesional en la especificación de un tratamiento personalizado.
 \end{abstract}
 
 \begin{abstract}[english]
 \addcontentsline{toc}{chapter}{Abstract}
-The use of applications in mobile devices has been growing over the years, and is nowadays a fundamental tool in a wide range, from professionals such as communications, economics, commerce, health or destined to the leisure, travel , sports...
+
+The use of applications in mobile devices has been growing over the years, and is nowadays a fundamental tool in a wide range; from professionals such as activities related to communications, economics, commerce and health to the ones destined to the leisure, travel , sports...
 
 This application for Android is focused on the field of medicine, giving the solution to one of the current problems that existed in the Hospital Virgen de la Salud of Toledo through, an intuitive and simple interface, providing agility to the doctor in calculating the cardiovascular risk, while being complemented by conventional methods.
 
-Intended to be managed by doctors, allowing them to store a patient's current data such as high blood pressure, cholesterol, diabetes, smoking and body mass index. In order to later obtain the cardiovascular risk of the same and facilitate an initial treatment to the doctor.
+Intended to be managed by doctors, allowing them to store a patient's identity data and manage information related to his\/her condition on high blood pressure, cholesterol, diabetes, smoking and body mass index. This last intelligence will be the foundation in order to determine the patient's cardiovascular risk and write a brief descriptive synopsis that assists the professional on the specification of a personalized treatment.
 \end{abstract}
 
 \mainmatter
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																	INTRODUCCIÓN EN ESPAÑOL																				  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introducci\'on}
 
-La constante evolución hacia una sociedad más conectada para conseguir soluciones a problemas informatizando los procesos y métodos e ir acercándonos a los términos de IoT, SmartCities...
+La presencia cada vez más predominante de la digitalización trae como consecuencia una progresiva evolución hacia una sociedad donde una cantidad considerable de situaciones y problemas son resueltos mediante métodos informáticos y otros procedimientos automatizados. En otras palabras, nos acercamos a las circunstancias definidas bajo los términos de IoT, SmartCities...
 
-Con esta idea en mente y tras una reunión con el médico Rafael Rubio Díaz nos enfocamos en la diabetes como punto de partida. Tenían el propósito de conseguir mejorar el proceso de tratamiento de información en pacientes con diabetes para ir dejando atrás los métodos convencionales, escribir los informes médicos en el ordenador de su despacho, para llegar a tener un mecanismo que les permitiera no estar atados a su ordenador y se pudieran mover por el hospital consiguiendo el mismo fin. 
+Teniendo esta idea en mente, organizamos una reunión con el médico Rafael Rubio Díaz y decidimos enfocarnos en la diabetes como el punto de partida. El propósito de esta iniciativa era conseguir la mejora del proceso de tratamiento de información en pacientes con diabetes. Explicado en más detalle, era el deseo del personal disponer de una herramienta que les posibilitase escribir informes médicos, consultar datos de un paciente y otras funciones fácilmente y sin necesidad de tener acceso a un ordenador, proporcionándoles así más libertad de movilidad y un comienzo en el abandono de los medios convencionales en favor de metodologías más modernas.
 
-Finalmente se decidió expandir el proyecto a los factores de riesgo cardiovasculares para tener una aplicación más completa y robusta, y obtener un tratamiento con mayor precisión, a los médicos poseer mayor información del paciente.
+Tras un análisis del proyecto, se decidió expandir su alcance a los factores de riesgo cardiovasculares, obteniendo de esta forma una aplicación más completa y robusta. Esto supondrá un mayor grado informativo de la condición del paciente, permitiendo así la creación de un tratamiento más preciso.
 
-Surge este proyecto como Trabajo Fin de Grado correspondiente al Grado en Ingeniería Informática, con la firme idea de desarrollar una aplicación móvil que fuera capaz de ayudar en el marco de la sanidad, dando rapidez en el cálculo del riesgo cardiovascular de los pacientes.
+Se concibe este proyecto como Trabajo Fin de Grado correspondiente al Grado en Ingeniería Informática, con la firme idea de desarrollar una aplicación móvil capaz de ayudar en el marco de la sanidad, otorgando rapidez en el cálculo del riesgo cardiovascular de los pacientes.
 
 %MOTIVACION
 \section{Motivaci\'on}
 
-Queríamos llevar a cabo un proyecto que no se quedara solo con fines académicos, sino que además fuera de utilidad para un colectivo de la sociedad. 
+Queríamos llevar a cabo un proyecto que no tuviese como objetivo solamente la satisfacción de fines académicos, sino que además fuera de utilidad para un colectivo de la sociedad. 
 
-Decidimos centrarnos en la rama de la sanidad por varios factores influyentes, al tratarse de un ámbito que nos parecía muy interesante y no estaba tan a la vanguardia como otras ramas y que no existían muchas aplicaciones en el mercado que cubrieran esta necesidad en específico. 
-Esta aplicación permitiría al médico calcular el riesgo cardiovascular y almacenar los datos médicos actuales del paciente, pero dotándole de mayor libertad y prontitud al mismo tiempo que ir acercándoles a las nuevas tecnologías.
-\vfill
+Decidimos centrarnos en la rama de la sanidad por varios factores influyentes:
+
+\begin{enumerate}
+	\item El interes personal que sentíamos por esta especialidad del saber.
+
+	\item Su retraso en la incorporación de los últimos avances en la metodología digital con respecto a otros campos.
+
+	\item La casi inexistencia de aplicaciones que tratasen esta necesidad en específico.
+	%\MakeUppercase{Enfermedades Cardiovasculares}
+	\item Esta app presenta al médico con la facultad de gestionar los datos médicos actuales del paciente y la delimitación de su riesgo cardiovascular, al mismo tiempo que le dota de una mayor libertad y prontitud acercando así a estas personas a las nuevas tecnologías.
+\end{enumerate}
 
 %OBJETIVOS
 \section{Objetivos}
 
-El objetivo general del proyecto es desarrollar una herramienta, una aplicación móvil, que facilite el trabajo del personal sanitario en el cálculo del riesgo cardiovascular, almacenamiento de datos del paciente y posterior tratamiento.
+El objetivo primordial del proyecto es el desarrollo de una herramienta, en concreto de una aplicación móvil, que asista en la determinación de la probabilidad del paciente de padecer enfermedades cardiovasculares, así como en el almacenaneje de la información pertinente y la especificación del tratamiento asignado.
 
 El presente Trabajo Fin de Grado tiene los siguientes objetivos:
+
 \begin{itemize}
-	\item Realizar un estudio de los factores de riesgo cardiovascular, para clasificarlos y obtener los que sean más relevantes para el posterior cálculo del riesgo cardiovascular.
-	\item Diseñar y elaborar una aplicación móvil que sea práctica para el usuario, atractiva visualmente e intuitiva.
-	\item Obtener a partir de todos los datos introducidos de un paciente, el índice de riesgo cardiovascular y un tratamiento inicial.
+    \item Planificar un análisis de los aspectos dominantes que concluyen en el sufrimiento de dolencias del corazón o relacionadas con los vasos sanguíneos, con el fin de organizarlos e incluir aquellos que se consideren más adecuados y con mayor influencia en la evolución de estas enfermedades.
+
+    \item Diseñar y concebir una aplicación móvil que resulte sencilla, atractiva e intuitiva, consiguiendo captar el interés de los usuarios ofreciéndoles una herramienta práctica para desempeñar su trabajo.
+    
+    \item Basándonos en los datos introducidos acerca de un paciente por el médico abstraer la información primordial con el fin de determinar el índice REGICOR y determinar los datos que servirán de punto de partida para el tratamiento.
+    
+    \item Plantear y elaborar una base de datos relacional para gestionar el almacenaje de toda la información generada por la app. 
+    
+    \item Establecer un sistema que permita a los médicos la colaboración entre los mismos mediante la participación conjunta en la actualización de la condición de un único paciente.
+    
+    \item Garantizar la autenticidad de los registros realizados por el médico mediante la introducción de un rol de administrador, el cual tendrá privilegios para aceptar o rechazar los nuevos usuarios y modificar los datos personales de cualquier médico o paciente. 
 \end{itemize}
 
 %ESTADO DEL ARTE
@@ -128,63 +161,80 @@ Permite calcular una aproximación del riesgo cardiovascular con los fines y tra
 \noindent
 Proporciona acceso rápido a recomendaciones específicas para los riesgos estimados por el calculador a la vez que vez que referencia información relacionado con terapia, monitorización y estilo de vida que puede interesar a pacientes y médicos.
 
-\bigskip
-
 En definitiva, hay varias aplicaciones con una meta temática afín. No obstante, nuestra aplicación presenta funcionalidades únicas no cubiertas por las mencionadas anteriormente que le proporciona un carácter innovador. 
 
-\vfill
 %ESTRUCTURA DE LA MEMORIA
 \section{Estructura de la mem\'oria}
 
 La memoria está organizada en cinco capítulos siendo el primero de estos la presente introducción.
 
-En el capítulo 2 se hace una explicación detallada de las funcionalidades de la aplicación móvil. Incluyendo los respectivos diagramas de actividades y ventana correspondiente de cada uno de ellos.
+En el capítulo 2 se hace una explicación detallada de las funcionalidades de la aplicación móvil. Este punto incluye los respectivos diagramas de actividades y las ventana correspondientes a cada uno de ellos.
 
-El capítulo 3 presenta los módulos que conforman el sistema.
+El capítulo 3 especifica los distintos módulos que constituyen el sistema. 
 
-El capítulo 4 se detalla la estructura de la base de datos empleada.
+En el capítulo 4 se profundiza en la estructura y la disposición decidida para el diseño de la base de datos relacional en la que se almacena la información.
 
-El capítulo 5 presenta las tecnologías empleadas acompañadas de una breve descripción y características.
+El capítulo 5 puntualiza las tecnologías de las que se ha valido la aplicación, exponiendo las propiedades características de cada una de ellas y la línea de pensamiento que nos ha llevado a escogerlas para el desarrollo de este proyecto.
 
-En el capítulo 6 se presentan las principales conclusiones de este trabajo. En un último lugar se listan las mejoras que se podrían realizar con el fin de incrementar sus funcionalidades y acrecentar su competitividad en el mercado.
+En el capítulo 6 se exponen las principales conclusiones deducidas a partir de este proyecto. Se tratan aspectos como la experiencia de los desarrolladores de este trabajo y las nuevas competencias adquiridas durante el mismo.
+
+El capítulo 7 presenta un plan de mejora a satisfacer en el futuro. Con las ideas planteadas se pretende incrementar las funcionalides ofrecidas por nuestra aplicación y acrecentar su competitividad en el mercado.
+
+El capítulo 8 delimita el alcance de la contribución de cada uno de los miembros del grupo.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																	INTRODUCCIÓN EN INGLÉS																				  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Solucionar
 \addtocounter{chapter}{-1}
 \selectlanguage{english}
 \chapter{Introduction}
 \phantomsection
 
-The constant evolution towards a more connected society to get solutions to problems by computerizing the processes and methods and getting closer to the terms of IoT, SmartCities ...
+The increasingly predominant presence of digitalization results in a progressive evolution towards a society where a considerable number of situations and problems are solved through computer methods and other automated procedures. In other words, we approach the circumstances defined under the terms of IoT, SmartCities ...
 
-With this idea in mind and after a meeting with the doctor Rafael Rubio Diaz we focus on diabetes as a starting point. They were intended to improve the process of information processing in patients with diabetes to go beyond conventional methods, write medical reports on the computer in their office, to have a mechanism that would allow them not to be tied to their computer and could move around the hospital getting the same end.
+Having this idea in mind, we organized a meeting with the doctor Rafael Rubio Diaz and decided to focus on diabetes as the starting point. The purpose of this initiative was to improve the process of information processing in patients with diabetes. Explained in more detail, it was the staff$'$s desire to have a tool that would enable them to write medical reports, consult a patient$'$s data and other functions easily and without requiring access to a computer, thus giving them more freedom of mobility and a beginning in the abandonment of conventional means on favour of more modern methodologies.
 
-Finally, it was decided to expand the project to cardiovascular risk factors to have a more complete and robust application, and to obtain a treatment with more precision, to the doctors to possess more information of the patient.
+After an analysis of the project, it was decided to expand its reach to cardiovascular risk factors, obtaining a more complete and robust application. This will imply a greater informative degree of the patient$'$s condition, thus allowing the creation of a more precise treatment.
 
-This project emerges as a Degree Final Work corresponding to the Degree in Computer Engineering, with the firm idea of developing a mobile application that would be able to help within the healthcare framework, giving rapid calculation in the cardiovascular risk of patients.
+This project was conceived as an End of Grade Work corresponding to the Degree in Computer Engineering, with the firm idea of developing a mobile application capable of helping within the framework of health, granting speed in the calculation of cardiovascular risk of patients.
 
 %MOTIVATION
 \section{Motivation}
 
-We wanted to carry out a project that was not only for academic purposes, but was also of no use to a group of society.
+We wanted to carry out a project that was not only aimed at satisfying academic goals, but was also useful for a group of society.
 
-We decided to focus on the health sector by several influential factors, as it was a field that we found very interesting and was not as cutting edge as other branches and that there were many applications in the market that covered this specific need.
-This application would allow the physician to calculate the cardiovascular risk and store the patient's current medical data, but giving him greater freedom and promptness at the same time as approaching the new technologies.
+We decided to focus on the health sector because of several influential factors:
 
-\vfill
+\begin{enumerate}
+	\item The personal interest we felt in this specialty of knowledge.
+
+	\item Its delay in incorporating the latest advances in digital methodology with respect to other fields.
+
+	\item The almost nonexistence of applications that addressed this need in specific.
+	%\MakeUppercase{Enfermedades Cardiovasculares}
+	\item This app presents the doctor with the power to manage the patient's current medical data and the delimitation of his cardiovascular risk, while giving him greater freedom and promptness thus bringing these people to the new technologies.
+\end{enumerate}
+
 %OBJECTIVES
 \section{Objectives}
 
-The overall objective of the project is to develop a tool, a mobile application, that facilitates the work of health personnel in the calculation of cardiovascular risk, storage of patient data and subsequent treatment.
+The primary objective of the project is the development of a tool, specifically a mobile application, that assists in determining the patient's likelihood of suffering cardiovascular diseases, as well as the storage of pertinent information and the specification of the assigned treatment.
 
-The present Work End of Degree has the following objectives:
+The present End of Degree Work has the following objectives:
+
 \begin{itemize}
-	\item Carry out a study of cardiovascular risk factors, to classify them and obtain those that are most relevant for the subsequent calculation of cardiovascular risk.
-	\item Design and build a mobile application that is user-friendly, visually appealing and intuitive.
-	\item Obtain from all the entered data of a patient, the cardiovascular risk index and an initial treatment.
+    \item Plan an analysis of the dominant aspects that end in the suffering of heart ailments or related to the blood vessels, in order to organize them and to include those that are considered more suitable and with greater influence in the evolution of these diseases.
+
+    \item Designing and designing a mobile application that is simple, attractive and intuitive, capturing users' interest by offering them a practical tool to carry out their work.
+    
+    \item Based on the data entered about a patient by the physician, abstracting the primary information in order to determine the REGICOR index and determine the data that will serve as a starting point for treatment.
+    
+    \item Arrange and build a relational database to manage the storage of all the information generated by the app. 
+    
+    \item Establish a system that allows physicians to collaborate among themselves through joint participation on updating the condition of a single patient.
+    
+    \item Guarantee the authenticity of the records made by the doctor by introducing an administrator role, which will have privileges to accept or reject new users and modify the personal data of any doctor or patient. 
 \end{itemize}
 
 %STATE OF THE ART
@@ -207,6 +257,7 @@ It is a project carried out by the Spanish Society of Cardiology and the Spanish
 \noindent
 It allows to calculate an approximation of the cardiovascular risk with the purposes and treatments associated to each level of risk. It offers information on the diagnosis, management and follow-up in type 2 diabetes, hypertension, myocardial infarction ...
 
+\newpage
 \noindent
 \textbf {ASCVD Risk Estimator}
 \includegraphics[height=0.7cm]{ASCVD_icon.jpg}
@@ -214,25 +265,27 @@ It allows to calculate an approximation of the cardiovascular risk with the purp
 \noindent
 It provides quick access to specific recommendations for the calculator's estimated risks, while referring to information related to therapy, monitoring and lifestyle that may be of interest to patients and physicians.
 
-\bigskip
-
 In short, there are several applications with a related thematic goal. However, our application presents unique functionalities not covered by the aforementioned that provides an innovative character. 
 
-\vfill
 %MEMORY STRUCTURE
 \section{Memory structure}
 
-The memory is organized in five chapters and the first of these is the present introduction.
+The memory is organized into five chapters, the first of which is the present introduction.
 
-Chapter 2 provides a detailed explanation of the features of the mobile application. Including the respective activity diagrams of each of them.
+Chapter 2 provides a detailed explanation of the features of the mobile application. This point includes the respective activity diagrams and the corresponding window of each one.
 
-Chapter 3 presents the modules that make up the system.
+Chapter 3 specifies the different modules that make up the system.
 
-Chapter 4 details the structure of the database used.
+Chapter 4 explores the structure and willingness to design the relational database in which information is stored.
 
-Chapter 5 presents the technologies used, accompanied by a brief description and characteristics.
+Chapter 5 points out the technologies that the application has validated, exposing the characteristic properties of each one of them and the line of thought that has led us to choose them for the development of this project.
 
-In chapter 6 the main conclusions of this work are presented. Finally, we list the improvements that could be made in order to increase its functionality and increase its competitiveness in the market.
+Chapter 6 sets out the main conclusions drawn from this project. It deals with aspects such as the experience of the developers of this work and the new skills acquired during it.
+
+Chapter 7 presents an improvement plan to be met in the future. With the ideas put forward we intend to increase the functionalities offered by our application and increase its competitiveness in the market.
+
+Chapter 8 delimits the scope of the contribution of each member of the group.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																	ESPECIFICACIÓN DE LA APLICACION																			  %
@@ -257,6 +310,7 @@ Las interacciones que puede llevar a cabo exclusivamente el personal médico se 
 \caption{Diagrama de caso de uso - Usuario Registrado}
 \end{figure}
 
+\vfill
 %NUEVO PACIENTE
 \subsection {Nuevo paciente}
 
@@ -294,6 +348,7 @@ Los algoritmos se presentan gráficamente en diagramas de flujo.
 \caption{Diagrama de actividad -  Consultar Algorítmos}
 \end{figure}
 
+\vfill
 %CONSULTAR FARMACOS
 \subsection {Consultar fármacos}
 
@@ -313,6 +368,7 @@ En un principio la idea original era crear nuestra propia base de datos de fárm
 \caption{Diagrama de actividad -  Consultar Fármacos}
 \end{figure}
 
+\vfill
 %MI PERFIL
 \subsection {Mi perfil}
 
@@ -320,28 +376,32 @@ Es imprescindible que el usuario tenga poder administrativo sobre sus propios da
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/mi_perfilFull.png}
+\includegraphics[height= 7cm]{capturas/mi_perfilFull.png}
 \caption{Ventana - Mi Perfil}
 \end{figure}
 
+\vfill
 \begin{figure}[H]
 \centering
 \includegraphics[height= 11cm]{diagramas/VerperfilActivitydiagram.png}
 \caption{Diagrama de actividad -  Mi Perfil}
 \end{figure}
 
+\vfill
 %%%%%%%%%%%%ADMINISTRADOR
 \section {Potestades asignadas al administrador}
 La necesidad de gestionar el perfil anterior es esencial incluir un rol administrativo. Este supervisor decidirá la autenticidad de la información suministrada en los registros (Validar/Rechazar aspirante), asi como enmendar posibles errores al proveer o modificar las credenciales y atribuciones de los pacientes.
 
 A continuación estas aptitudes quedan reflejadas en un diagrama.
 
+\vskip 1.5cm
 \begin{figure}[H]
 \centering
-\includegraphics[height= 4.5cm]{diagramas/AdministradorUseCasediagram.png}
+\includegraphics[width= 15cm ]{diagramas/AdministradorUseCasediagram.png}
 \caption{Diagrama de caso de uso - Administrador}
 \end{figure}
 
+\vfill
 %LISTA ASPIRANTES
 \subsection {Lista de aspirantes}
 
@@ -359,6 +419,7 @@ Como consecuencia de la necesidad de verificar si el canditato realmente posee u
 \caption{Diagrama de actividad -  Lista Aspirantes}
 \end{figure}
 
+\vfill
 %BUSCAR ASPIRANTES
 \subsection {Buscar aspirante}
 
@@ -366,16 +427,18 @@ En numerosas ocasiones, el supervisor de la aplicación podría requerir localiz
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 18cm]{capturas/buscarMedicoFull.png}
+\includegraphics[height= 14cm]{capturas/buscarMedicoFull.png}
 \caption{Ventana -  Buscar Aspirante}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[height= 11cm]{diagramas/BuscarmedicoActivitydiagram.png}
 \caption{Diagrama de actividad -  Buscar Aspirante}
 \end{figure}
 
+\vfill
 %CONSULTAR ASPIRANTE
 \subsection {Consultar aspirante}
 
@@ -393,6 +456,7 @@ Al interactuar con un elemento de la lista de aspirantes, al administrador se le
 \caption{Diagrama de actividad -  Consultar Aspirante}
 \end{figure}
 
+\vfill
 %VALIDAR ASPIRANTE
 \subsection {Validar aspirante}
 
@@ -410,6 +474,7 @@ Si el usuario presiona el botón de validar en la ventana mencionada anteriormen
 \caption{Diagrama de actividad -  Validar Aspirante}
 \end{figure}
 
+\vfill
 %RECHAZAR ASPIRANTE
 \subsection {Rechazar aspirante}
 
@@ -427,6 +492,7 @@ Si por el contrario el individuo presiona el botón rechazar, la candidatura act
 \caption{Diagrama de actividad -  Rechazar Aspirante}
 \end{figure}
 
+\vfill
 %%%%%%%%%%%%COMUNES
 \section {Facultades comunes a ambos perfiles}
 
@@ -444,12 +510,14 @@ Si no dispones de una cuenta puedes aplicar por una mediante el botón de la par
 \caption{Ventana - Inicio de sesión}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[height= 11cm]{diagramas/LoginActivitydiagram.png}
 \caption{Diagrama de actividad - Inicio Sesión}
 \end{figure}
 
+\newpage
 %REGISTRO
 \subsection {Registro}
 
@@ -502,6 +570,7 @@ La aplicación permite que un paciente sea tratado simultáneamente  por más de
 \caption{Diagrama de actividad - Compartir Paciente}
 \end{figure}
 
+\newpage
 %BUSCAR PACIENTE
 \subsection {Buscar paciente}
 
@@ -509,16 +578,18 @@ Para evitar los deméritos de una lista con una gran cantidad de pacientes se fa
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 18cm]{capturas/buscarPacienteFull.png}
+\includegraphics[height= 14cm]{capturas/buscarPacienteFull.png}
 \caption{Ventana - Buscar Paciente}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[height= 11cm]{diagramas/BuscarpacienteActivitydiagram.png}
 \caption{Diagrama de actividad - Buscar Paciente}
 \end{figure}
 
+\newpage
 %CONSULTAR PACIENTE
 \subsection {Consultar paciente}
 
@@ -555,7 +626,7 @@ El hábito de fumar es uno de los aspectos más sobresalientes en el cálculo de
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/tabaquismoFull.png}
+\includegraphics[height= 7cm]{capturas/tabaquismoFull.png}
 \caption{Ventana - Tabaquismo}
 \end{figure}
 
@@ -572,7 +643,7 @@ La diabetes es el agente esencial entre los causantes de enfermedades cardiovasc
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/diabetesFull.png}
+\includegraphics[height= 7cm]{capturas/diabetesFull.png}
 \caption{Ventana - Diabetes}
 \end{figure}
 
@@ -590,7 +661,7 @@ Tanto los parámetros de entrada como los resultados obtenidos se definen en mg/
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/colesterolFull.png}
+\includegraphics[height= 7cm]{capturas/colesterolFull.png}
 \caption{Ventana - Colesterol}
 \end{figure}
 
@@ -615,12 +686,14 @@ Es notable mencionar que, en principio, los rangos de diastólica suelen tener u
 \caption{Ventana - Hipertensión Arterial}
 \end{figure}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[height= 11cm]{diagramas/HtaActivitydiagram.png}
 \caption{Diagrama de actividad - Hipertensión Arterial}
 \end{figure}
 
+\newpage
 %IMC
 \subsection {Calcular índice de masa corporal}
 
@@ -629,7 +702,7 @@ Atendiendo a la fórmula, los parámetros de entrada son el peso definido en kil
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/ImcFull.png}
+\includegraphics[height= 7cm]{capturas/ImcFull.png}
 \caption{Ventana - Índice de Masa Corporal}
 \end{figure}
 
@@ -646,7 +719,7 @@ En función de los datos recaudados sobre el paciente el médico tiene la posibi
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/TratamientoFull.png}
+\includegraphics[height= 7cm]{capturas/TratamientoFull.png}
 \caption{Ventana - Tratamiento}
 \end{figure}
 
@@ -663,7 +736,7 @@ Es de notable conveniencia disponer de un método para almacenar y transmitir la
 
 \begin{figure}[H]
 \centering
-\includegraphics[height= 9cm]{capturas/PDF_Full.png}
+\includegraphics[height= 7cm]{capturas/PDF_Full.png}
 \caption{Ventana - Descargar PDF}
 \end{figure}
 
@@ -673,6 +746,7 @@ Es de notable conveniencia disponer de un método para almacenar y transmitir la
 \caption{Diagrama de actividad - Descargar PDF}
 \end{figure}
 
+\newpage
 %CERRAR SESION
 \subsection {Cerrar sesión}
 
@@ -690,31 +764,65 @@ Deja por concluida la actividad con su cuenta en la app. Esta última preguntar�
 \caption{Diagrama de actividad -  Cerrar Sesión}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																	ARQUITECTURA DE LA APLICACIÓN     																		             %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Arquitectura de la aplicaci\'on}
 
-El sistema está formado de una aplicación Android para el uso de los médicos y de una base de datos relacional. Presentamos a continuación una descripción detallada de la arquitectura para cada módulo del proyecto. 
+El sistema consta de una aplicación Android que desempeña las funciones de cliente y de un servidor remoto que regula el acceso a la base de datos donde se almacenan los datos que precisa la app. Cada uno de los elementos involucrados en esta estructura serán explicados en los puntos desarrollados a continuación.
+
+La ilustración presente refleja un esquema de las tecnologías empleadas en la arquitectura del proyecto.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 11cm]{arquitectura.jpg}
+\caption{Arquitectura de la aplicación}
+\end{figure}
 
 %ANDROID STUDIO
 \section {Aplicación Android}
 
-La aplicación es para dispositivos Android a partir de la versión X, que está actualmente es compatible con X de los teléfonos móviles de la población. Además tiene un nivel de API 21?.
+La aplicación está dirigida a dispositivos Android. Está diseñada para garantizar la compatibilidad con versiones de Android API 21: 5.0 (Lollipop) o superiores, pero para obtener los óptimos resultados se recomienda el empleo de la versión de Android API 24: Android 7.0 (Nougat). 
 
-Es la aplicación la principal y única fuente de datos, a través de la cual el médico puede tener en todo momento al alcance de su mano los datos de un paciente para consultar o actualizar la información del mismo. La aplicación móvil tiene como tarea principal poder obtener el índice de riesgo cardiovascular.
+De acuerdo con los últimos estudios, las versiones anteriores a Lollipop han experimentado un drástico decremento en su utilización cayendo a cifras en torno al 30\%. Por el contrario, los objetivos finales de nuestra aplicación cada vez poseen una mayor presencia en el mercado alcanzando a mayo de 2017 más del 70\% de los usuarios. Ello significa la garantía de que un gran número de los dispositivos Android existentes sean capaces de valerse de todas las funcionalidades ofrecidas por nuestra app.
+
+En las siguientes figuras se evidencia la evolución de las versiones con más popularidad en el año que va de 2016 al presente 2017.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 6.5cm]{android_2016_tabla.png}
+\caption{Gráfico de versiones Android en el mercado en 2016}
+\end{figure}
+
+En 2016 ya se advertía un refuerzo en la posición de Lollipop incrementando en un 2\%  sus seguidores en únicamente un mes, al mismo tiempo que se producía una caída de las cifras de versiones anteriores en el mismo periodo de tiempo. La situación de KitKat sufría el infortunio de verse deteriorada en un 1.2\%, Jelly Bean bajó 2.4\% y versiones todavía más arcaicas se ven en proceso de desaparición.
+
+\begin{figure}[H]
+\centering
+\includegraphics[height= 8cm]{android_2017_tabla.png}
+\caption{Gráfico de versiones Android en el mercado en 2017}
+\end{figure}
+
+En 2017 esta tendencia negativa en las versiones antiguas se confirmó. En este año la popularidad de KitKat se reduce de 34.3\% a la baja cantidad de 18.8\% y las versiones anteriores entran en el límite de su vida siendo incapaces de alcanzar la dimensión de dos cifras. Las circunstancias son muy diferentes para las versiones a las que esta aplicación va dirigido. En el análisis de 2016 Lollilop se erigía como el gigante entre sus competidores estando la nueva versión Marshmallow en sus inicios con 2.3\%. Sin embargo, en 2017 Lollipop mantiene su puesto en la vanguardia con un 32\% pero Marshmallow amenaza con sobrepasarle con un 31.2\%. Además, la última versión de Android bajo el nombre de Android Nougat y objetivo ideal de nuestra app experimenta un repunte de abril a mayo pasando del 4.9\% al 7.1\%. Su futuro parece prometedor como consecuencia de las nuevas actualizaciones y la nueva generación de dispositivos que llegan al mercado con esta versión de fábrica, como el LG G6	 o el Samsung Galaxy S8.
+
+En definitiva, basándonos en los datos podemos esperar la eliminación inminente de las versiones no soportadas y el auge inmediato de Android Nougat en los próximos meses, asegurando el futuro de nuestra aplicación.
+
+La aplicación cliente desarrollada con este IDE constituye nuestra principal y única fuente de datos, a través de la cual el médico puede tener en todo momento al alcance de su mano los datos de un paciente si necesitase consultar o actualizar la información del mismo. La aplicación móvil tiene como finalidad principal la determinación del índice de riesgo cardiovascular a partir de la facilitación de los datos médicos analizados sobre un conjunto de parámetros de influencia (imc, tensión arterial, colesterol...).
 
 %BASE DE DATOS
 \section {Base de datos}
 
-La base de datos está alojada en una máquina virtual en un servidor, la cual su función es el almacenaje de la información generada por la aplicación.
+La base de datos está alojada en una máquina virtual en un servidor y satisfacerá las funciones relativas al almacenaje de la información generada por la aplicación. 
 
-Usamos bases de datos relacionales para guardar todos los datos, al tener una clave primaria que identifique a cada uno de manera única en su respectiva tabla. 
+En nuestra aplicación se requiere la lectura, escritura y manipulación de los datos facilitados por el cliente. Estos registrarán información relativa a los médicos y pacientes tales como los datos personales de los mismos, el estado médico del paciente...
 
-Descartamos el uso de bases de datos no relacionales, como MongoDB, ya que con los datos no solo se harían lecturas y escrituras, sino que además podrían ser modificados. Características más propias de una base de datos estructurada.
+Como consecuencia del requerimiento de estar en capacidad de realizar modificaciones a los datos almacenados, y no solamente lecturas y escrituras, descartamos el empleo de bases de datos no relacionales. Los datos presentarán una organización estructurada, identificados unívocamente valiéndose de una clave primaria. En concreto, por razones expuestas posteriormente en Modelo de datos nos decantamos por la utilización de MySQL.
 
-%SERVIDOR Y UNIDAD DE PROCESAMIENTO
-\section {Servidor y unidad de porcesamiento}
+%SERVIDOR
+\section {Servidor}
+
+Para hacer las funciones de servidor empleamos una máquina virtual con el Sistema Operativo Linux alojada en un ordenador remoto. Este servidor dispondrá del acceso a la base de datos y otras herramientas necesarias para el correcto manejo de la misma.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		MODELO DE DATOS    																		                       %
@@ -860,6 +968,7 @@ Enlaza cada paciente con la información concerniente a su estado de diabetes.
 	\item fecha: momento en el que se introdujeron dichos datos.	
 \end{itemize}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		     TECNOLOGIAS  																		                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -910,7 +1019,8 @@ A todo lo mencionado anteriormente hay que añadir que su enorme popularidad ent
 
 Para la cuestión del servidor, hemos diseñado una máquina virtual linux para desempeñar este cometido. La máquina virtual empleará las facilidades ofrecidas por Apache Tomcat para la gestión de la comunicación entre el servidor y la aplicación móvil de android que actúa como el cliente.
 
-****Hablar de Tomcat y de la maquina virtual. modo de comunicacion...
+%Hablar de Tomcat y de la maquina virtual. modo de comunicacion...
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		    	 CONCLUSIONES														                             			             %
@@ -927,11 +1037,12 @@ Con la creación de esta aplicación móvil hemos experimentado el avance contin
 
 Aunque hemos vivido complicaciones en nuestro trabajo con este IDE, especialmente en la puesta en marcha del TFG, nuestra experiencia nos ha permitido adquirir nuevos conocimientos de utilidad y los resultados han sido gratificantes. 
 
-En el plano de lo que puede llegar a contribuir a la sociedad, es destacable la colaboración entre los médicos para tratar a un mismo paciente. Es habitual que las aplicaciones de esta naturaleza tengan un enfoque en el lado del paciente, desempeñando un servicio centrado en calcular los resultados (IMC, HTA, IPA, riesgo cardiovascular...). Por el contrario, en adicción a estas operaciones, ofrecemos un sistema de gestión de los pacientes asistiendo a los médicos.
+En el plano de lo que puede llegar a contribuir a la sociedad, es destacable la colaboración entre los médicos para tratar a un mismo paciente. Es habitual que las aplicaciones de esta naturaleza tengan un enfoque en el lado del paciente, desempeñando un servicio centrado en calcular los resultados (imc, hta, ipa, riesgo cardiovascular...). Por el contrario, en adicción a estas operaciones, ofrecemos un sistema de gestión de los pacientes asistiendo a los médicos.
 
 Teniendo en cuenta lo establecido, podemos alegar que nuestros propósitos han sido hechos realidad al implementar una app que cubra una necesidad a las que la competencia no ha dedicado una especial atención.
+%\MakeUppercase{Enfermedades Cardiovasculares}
+En definitiva, estimamos que el desarrollo de esta aplicación móvil nos ha proporcionado una visión más madura sobre los inconvenientes que sobrevienen al tratar con un proyecto orientado al público y los requerimientos que conlleva la producción de un trabajo de larga duración, como el acondicionamiento a la actualización de las tecnologías empleadas.
 
-En definitiva, estimamos que el desarrollo de \MakeUppercase{Enfermedades Cardiovasculares} nos ha proporcionado una visión más madura sobre los inconvenientes que sobrevienen al tratar con un proyecto orientado al público y los requerimientos que conlleva la producción de un trabajo de larga duración, como el acondicionamiento a la actualización de las tecnologías empleadas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		    	 CONCLUSIONS														                             			             %
@@ -944,25 +1055,26 @@ The goal to be achieved with the development of this Final Degree Work is to exp
 
 In this respect, medicine has undergone a slow evolution in regard to this revolution towards the automation of processes. For all this, the present project aims at innovation in this field.
 
-After finishing the GFR and recording the progress in the present report, it is the perfect occasion to carry out an analysis of the ideals reached.
+After finishing the TFG and recording the progress in the present report, it is the perfect occasion to carry out an analysis of the ideals reached.
 
 With the creation of this mobile application we have experienced the continuous advancement of technology platforms. This year Android Studio has benefited from successive updates that have allowed it to adapt to the latest requirements and improve the interaction of developers. The introduction of the new launch button of the Android emulator, which allows you to implement quick changes without having to reload the system, has meant an excellent novelty for us as it is frequent constant checks for minor modifications. However, this event also has implications that require additional effort on the part of programmers. The appearance of a new version usually results in numerous cases of obsolete functions, pressing its adaptation to the new version if it is desired to avoid possible unforeseen results.
 
-Although we have experienced complications in our work with this IDE, especially in the implementation of the GFR, our experience has allowed us to acquire new knowledge of usefulness and the results have been rewarding.
+Although we have experienced complications in our work with this IDE, especially in the implementation of the TFG, our experience has allowed us to acquire new knowledge of usefulness and the results have been rewarding.
 
-In terms of what can contribute to society, it is remarkable the collaboration between doctors to treat the same patient. It is common for applications of this nature to have a patient-centered approach, performing a service centered on calculating the results (BMI, HTA, IPA, cardiovascular risk ...). On the contrary, in addiction to these operations, we offer a management system for patients attending physicians.
+In terms of what can contribute to society, it is remarkable the collaboration between doctors to treat the same patient. It is common for applications of this nature to have a patient-centered approach, performing a service centered on calculating the results (bmi, hta, ipa, cardiovascular risk ...). On the contrary, in addiction to these operations, we offer a management system for patients attending physicians.
 
 Given the established, we can claim that our purposes have been realized when implementing an application that meets a need that the competition has not dedicated a special attention.
 
 In short, we believe that the development of \MakeUppercase {Cardiovascular Diseases} has given us a more mature view of the drawbacks of dealing with a public-oriented project and the requirements of producing a long-term work, such as Conditioning to the updating of the technologies used.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		     TRABAJO FUTURO  														                                  			   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \selectlanguage{spanish}
 \chapter{Trabajo futuro}
-
-El análisis realizado en el capítulo anterior nos proporciona una buena base para deducir potenciales mejoras en \MakeUppercase{Enfermedades Cardiovasculares}:
+%\MakeUppercase{Enfermedades Cardiovasculares}
+El análisis realizado en el capítulo anterior nos proporciona una buena base para deducir potenciales mejoras en la aplicación:
 
 \begin{enumerate}
 	\item \textbf {Extender el servicio a otros sistemas operativos (SO).}
@@ -970,8 +1082,8 @@ El análisis realizado en el capítulo anterior nos proporciona una buena base p
 Uno de los aspectos más importantes a tener en cuenta en aplicaciones de esta índole es restringir lo mínimo posible el público al que está dirigido. En consiguiente, estamos estudiando una metodología para mejorar la portabilidad de esta aplicación. Entre nuestras investigaciones, cabe destacar la existencia de Xamarin que permite llevar la app a Windows Phone, iOS y Android a través de un mismo IDE. Sin embargo, está fundamentado en el uso de código programado en C\# y ello supone la traducción de la codificación actual en una entendible por Xamarin.
 
 	\item \textbf {Sistema de notificaciones.} 
-
-En \MakeUppercase{Enfermedades Cardiovasculares} es preciso que el administrador valide tus datos de registro para la activación de tu cuenta. Desafortunadamente, en la fecha presente el médico no es informado de la confirmación o el rechazo de su solicitud, siendo este un inconveniente si esta app se lanzase al mercado. La solución planteada consiste en mensaje automático de notificación personalizado informándote de la decisión sobre tu petición. Manteniendo esta idea en mente, la aplicación solicita tu dirección de correo electrónico en el registro. 
+%\MakeUppercase{Enfermedades Cardiovasculares}
+En la app es preciso que el administrador valide tus datos de registro para la activación de tu cuenta. Desafortunadamente, en la fecha presente el médico no es informado de la confirmación o el rechazo de su solicitud, siendo este un inconveniente si esta app se lanzase al mercado. La solución planteada consiste en mensaje automático de notificación personalizado informándote de la decisión sobre tu petición. Manteniendo esta idea en mente, la aplicación solicita tu dirección de correo electrónico en el registro. 
 
 Otra de las situaciones en las que sería aconsejable disponer de una notificación es al compartir un paciente con otros médicos. Los afectados recibirían noticia esta situación en forma de pop-up al acceder a su lista de pacientes.
 
@@ -992,9 +1104,10 @@ En la actualidad existen sistemas GCM que te permiten obtener información sobre
 Siguiendo el principio del caso anterior, se añadirá un método para medir las cantidades representantes de la tensión arterial. Tomando como referencia aplicaciones existentes en el mercado que implementan esta funcionalidad, hemos determinado el uso de la cámara como la herramienta más apropiada para la obtención de los datos debido a estar presente en básicamente la totalidad de los dispositivos móviles. Su funcionamiento se basa en detectar los leves cambios de color del dedo causados por sus capilares sanguíneos, que se expanden y se contraen con cada latido del corazón. Esto permite que la aplicación medir el pulso.
 
 	\item \textbf {Aplicación web para el ordenador.}
-
-Con el fin de evitar que \MakeUppercase{Enfermedades Cardiovasculares} sea inaccesible para los métodos convencionales hemos decidido ampliar el servicio con un futuro servicio web. Esto permite la libertad de movimiento propia de las aplicaciones móviles, al mismo tiempo que se garantiza la posibilidad de valerse de herramientas exclusivas de ordenadores para complementar la información de la aplicación.
+%\MakeUppercase{Enfermedades Cardiovasculares}
+Con el fin de evitar que la aplicación sea inaccesible para los métodos convencionales hemos decidido ampliar el servicio con un futuro servicio web. Esto permite la libertad de movimiento propia de las aplicaciones móviles, al mismo tiempo que se garantiza la posibilidad de valerse de herramientas exclusivas de ordenadores para complementar la información de la aplicación.
 \end{enumerate}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		          DIVISIÓN DEL TRABAJO            												                                                                  %
@@ -1003,26 +1116,84 @@ Con el fin de evitar que \MakeUppercase{Enfermedades Cardiovasculares} sea inacc
 
 %RICARDO
 \section{Ricardo Cajigas Arenas}
+Para el desarrollo de este trabajo fue necesario la completa colaboración entre todos los miembros del equipo. Ambos nos hemos esforzado en obtener el resultado más óptimo para los obstáculos que ha ido encontrando cualquiera de los dos.
 
+Las tareas solicitadas por el proyecto fueron distribuidas en función de las especialidades de los integrantes, sin por ello desatender la posibilidad de auxiliar al compañero si este se viese en un dilema.
+
+Especificamente, mi colaboración a este proyecto ha hecho enfásis en el diseño del esquema organizativo de la app y la implementación gráfica de las interfaces. Asi como ayudar en la codificación a mi compañero en situaciones donde había un alta carga de trabajo en esta parte.
+
+Como consecuencia de la necesidad de Android Studio para este proyecto, dediqué un tiempo inicial a formarme en el manejo de este IDE. Una pequeña parte del esfuerzo destinado a este fin queda reflejado en la información expuesta en la bibliografía.
+
+En los comienzos centré mis esfuerzos en la creación de bocetos que sirviesen de orientación para el desarrollo de la versión final. Con la ayuda de los colaboradores escogimos a partir de los croquis mencionados los elementos a añadir, modificar y/o eliminar y la organización de las ventanas que considerabamos más adecuada para la finalidad de esta aplicación.
+
+Una vez concluida la preparación anterior, tras terminar el diseño de una primera versión de la ventana de login procedimos en equipo a establecer la comunicación entre la misma y la base de datos.
+Tras la redacción del código por parte de mi compañero encontramos nuestro primer obstáculo. La desorganización en la información y documentación disponible en Internet resultó en equivocaciones en las suposiciones iniciales sobre la metodología requerida para establecer la conexión.
+Una vez superado este impedimento, comenzamos la elaboración de las tareas relativas al registro. El proceso fue relativamente sencillo y no se sucedieron complicaciones adicionales que retrasasen la finalización de este punto.
+
+En este momento, tomamos conciencia de la necesidad de garantizar la legitimidad de los usuarios registrados. En una reunión con nuestro tutor concluimos la conveniencia de introducir un nuevo rol de administrador que confirmase los registros verídicos. 
+
+Este nuevo papel supuso un replanteamiento de la estructura de la aplicación. Mientras mi compañero completaba la lógica para otras secciones, inicié el análisis de las interfaces necesarias y los elementos a añadir.
+
+Tras sucesivas reuniones con el tutor y feedbacks suministrados por Rafa, delimitamos una imagen general de la apariencia que tomaría nuestra aplicación en su versión final. Sólo fueron necesarias algunas modificaciones para mejorar eficientemente lo que es hoy día esta aplicación móvil.
+
+En los sucesivos meses, contribuí en la implementación del código aportando sugerencias y buscando información requerida para la mejora de la funcionalidad tratada actualmente.
+Asimismo, realizé las modificaciones pertinentes al diseño de acuerdo al feedback proporcionado por los colaboradores y necesidades del otro miembro del equipo. Un ejemplo de estas ocurrencias es el abandono de la idea inicial en la que se planteó utilizar una base de datos propia que suministrase información de los fármacos al usuario. En su lugar, decidimos valernos de una base exterior ya que los costes de rendimiento serían demasiado grandes para un mínimo beneficio.
+
+Mediante herramientas de diseño, Ricardo se ha encargado de gran parte de los trabajos de maquetación de los documentos, y de la estructuración e investigación de recursos para las obstrucciones que han ido apareciendo durante la evolución de este proyecto. También he colaborado con el otro miembro del equipo en la redacción de la presente memoria.
+
+Las capturas de pantalla del móvil que sirven de ilustración complementaria en la especificación de las funcionalidades e itentan reflejar en la mayor medida de lo posbible todos los posibles situaciones en las que se podría encontrar el usuario, han sido realizadas por mí. También, he elaborado los diagramas de caso de uso, actividades... expuestos en la presente memoria.
+
+Para finalizar, querría destacar que la organización ha sido eficiente y hemos procurado realizar los objetivos al máximo de nuestras facultades. Esta realidad ha sido posible solamente al tratarse de un proyecto que cuanto más trabajábamos en él más despertaba nuestra ilusión e interés. Sin la complicidad con Ángel hubiera sido imposible alcanzar un resultado tan positivo como es este TFG. 
+ 
 %ANGEL
+\newpage
 \section{José Ángel Sánchez Martín}
+Es mi deseo confirmar que solamente a través de la participación conjunta de ambos miembros del equipo, ha sido posible la finalización de un proyecto de esta envergadura.
+Todas las partes involucradas han participado y asistido en el trabajo del resto de los integrantes del grupo, proporcionando nuevos puntos de vista que han enriquecido los frutos finales de la labor realizada.
+
+Sin embargo, la existencia de diferencias en las capacidades de cada miembro es una conclusión inevitable. Ello significa que es más adecuado adjudicar determinados cometidos del proyecto a una persona específica.
+
+En concreto, mi participación en esta aplicación ha estado más centrada en la implementación del código requerido por las distintas funcionalidades ofrecidas por la app.
+
+En los primeros días me familiarizé con las funcionalidades ofrecidas por Android Studio y sus convencionalismos. Para ello, estudié tutoriales y consulté libros, poniendo finalmente los conocimientos adquiridos en práctica mediante la realización de casos introductorios ofrecidos en la red.
+
+Finalizado un primer contacto con este nuevo IDE, mientras mi compañero delineaba la apariencia y elementos interactivos a considerar en la aplicación, yo esquematizaba la base de datos asociada. La estructura esencial estaba básicamente decidida desde el principio, por lo que no tuve que realizar grandes modificaciones para atender a las circunstancias originadas como resultado de las decisiones conjuntas que realizamos sobre los bocetos iniciales. No obstante, fue precisa la incorporación, eliminación y/o alteración de los campos existentes en las tablas, así como la creación de nuevas entidades de las mismas durante el proceso evolutivo de nuestra app. 
+
+Solventadas nuestras diferentes responsabilidades, trabajamos en equipo en una primera conexión de la aplicación con la base de datos. Para ello, implementé el código requerido para el correcto funcionamiento del login de acuerdo a a la interfaz suministrada por Ricardo. Como comentó mi compañero anteriormente, surgieron inconvenientes en esta primera fase lo que resultó en pequeñas modificaciones en la implementación que resolviesen esta situación.
+La siguiente funcionalidad a implementar concernía al registro de usuarios. Una vez concluida la funcionalidad anterior, el progreso en este requisito fue fluido al haber tratado ya con las complicaciones que pudiesen surgir.
+
+La preocupación por la seguridad nos llevó a reflexionar sobre un método que permitiese garantizar la legitimidad de los usuarios. Como indicó anteriormente Ricardo, se decidió que era adecuado introducir un rol de administrador.
+
+Este nuevo cometido implica una reformulación de la estructura de la aplicación. Como consecuencia, debíamos diseñar interfaces que atendiesen a las nuevas necesidades. Durante él tiempo en el que mi compañero completaba estos requisitos, procedí al desarrollo de otras funcionalidades ya definidas.
+
+Una vez concluidas las nuevas ventanas y varias funcionalidades nos reunimos con el director del proyecto en sucesivas tutorías y, con la ayuda del feedback proporcionado por el médico Rafa, concluimos la definición de un modelo casi definitivo. 
+
+En los meses posteriores, participé en el diseño de las interfaces ofreciendo críticas de las mismas y proponiendo alternativas o cambios en aquellos casos en los que el código lo requería. Asímismo, efectúe las alteraciones pertinentes a la lógica de acuerdo al feedback proporcionado por los colaboradores y mejoras recomendadas por el otro miembro del equipo. Por ejemplo, en el caso de los fármacos fue necesaria la alteración del código para satisfacer la nueva implementación.
+
+En lo que concierne a la presente memoria, he contribuido a la redacción de la mayor parte de los puntos de la misma. En lo relativo a la parte gráfica, me he encargado de la edición de las imágenes con el fin de garantizar el mejor resultado complementario al texto descriptivo que acompaña a estas ilustraciones.
+
+Ha sido enriquecedor desarrollar este proyecto junto con Ricardo y ha constituido una experiencia inolvidable que ha mejorado nuestras aptitudes y relaciones. Solamente a través del esfuerzo conjunto de ambos hemos sido capaces de hacer realidad el ideal que estabozamos en agosto del año pasado. En definitiva, estoy orgulloso y satisfecho de haber vivido esta experiencia de equipo.
 
 \cleardoublepage
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		               APENDICES														                                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                            
 \chapter{Apéndices}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		     MANUAL DE USUARIO        		  														                                  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Manual de usuario}
 
-En este anexo se procede a explicar la aplicación móvil diseñada en este trabajo.
+En el siguiente anexo procedemos a realizar una explicación muy detallada sobre la aplicación que se ha diseñado de acuerdo al rol de médico. El propósito de este manual es  acercar y facilitar al usuario el empleo de nuestra aplicación a todo su potencial. 
+
+Esta guía presenta todas las funcionalidades de las que se va a valer este usuario, cada una de las cuales tiene sus características detalladas en un breve texto. Para mayor comprensión del lector, se ha incluido una ilustración de la vista asociada en la que los elementos interactivos están identificados con números a los que se hace alusión en la descripción anterior.
 
 %INICIAR SESION
-\textbf {Iniciar sesión}
+\subsection {Iniciar sesión}
 
 %\begin{wrapfigure}{R}{0.4\linewidth}
 %    \centering
@@ -1030,19 +1201,19 @@ En este anexo se procede a explicar la aplicación móvil diseñada en este trab
 %    \caption{Manual - Pantalla de inicio sesión}	
 %\end{wrapfigure}
 
-Al iniciar la app se abre la pantalla de inicio de sesión (Figura B.1). La operación es relativamente sencilla, requiriendo que introduzcas únicamente el número de colegiado (1) (número de 9 cifras siguiendo la estructura XX/YY/ZZZZ; siendo XX el código del colegio actual, YY código del colegio inicial, ZZZZ número correlativo asignado por su colegio) y la contraseña (2). Tras pulsar el botón de \textquotedbl Iniciar Sesión\textquotedbl{} (3), si las credenciales son correctas accederás a la pantalla principal de tu cuenta. Adicionalmente, el otro botón \textquotedbl Regístrate\textquotedbl{} (4) te reconducirá al formulario de registro (Figura B.2).
+Al iniciar la app se abre la pantalla de inicio de sesión (Figura 9.1). La operación es relativamente sencilla, requiriendo que introduzcas únicamente el número de colegiado (1) (número de 9 cifras siguiendo la estructura xx/yy/zzzz; siendo xx el código del colegio actual, yy código del colegio inicial, zzzz número correlativo asignado por su colegio) y la contraseña (2). Tras pulsar el botón de \textquotedbl Iniciar Sesión\textquotedbl{} (3), si las credenciales son correctas accederás a la pantalla principal de tu cuenta. Adicionalmente, el otro botón \textquotedbl Regístrate\textquotedbl{} (4) te reconducirá al formulario de registro (Figura B.2).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/log_in_n.png}
-\caption{Manual - Pantalla de inicio sesión}	
+\caption{Manual de usuario - Pantalla de inicio sesión}	
 \end{figure}
 
 %CREAR CUENTA
 %\vspace{5cm}
-\textbf {Crear una cuenta}
+\subsection {Crear una cuenta}
 
-En esta ventana se facilita la información personal para la creación de una nueva cuenta. Te solicitará el nombre (1), los apellidos (2), el número de colegiado (3), la dirección de correo electrónico (4), el teléfono de contacto (5) y la contraseña (6) (7) que te permita autentificarte. Una vez completado todos los campos, podrás formalizar tu petición de acceso con el botón \textquotedbl Crear Cuenta\textquotedbl{} (8). Si accedieses por equivocación a esta interfaz, el botón \textquotedbl Ya tienes cuenta? Inicia sesión\textquotedbl{} (9) te permitirá regresar fácilmente a la ventana anterior (Figura B.1).
+En esta ventana se facilita la información personal para la creación de una nueva cuenta. Te solicitará el nombre (1), los apellidos (2), el número de colegiado (3), la dirección de correo electrónico (4), el teléfono de contacto (5) y la contraseña (6) (7) que te permita autentificarte. Una vez completado todos los campos, podrás formalizar tu petición de acceso con el botón \textquotedbl Crear Cuenta\textquotedbl{} (8). Si accedieses por equivocación a esta interfaz, el botón \textquotedbl Ya tienes cuenta? Inicia sesión\textquotedbl{} (9) te permitirá regresar fácilmente a la ventana anterior (Figura 9.2).
 
 %\begin{wrapfigure}{L}{0.4\linewidth}
 %    \centering
@@ -1053,13 +1224,13 @@ En esta ventana se facilita la información personal para la creación de una nu
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/sign_up_n.png}
-\caption{Manual - Pantalla para registrarse}
+\caption{Manual de usuario - Pantalla para registrarse}
 \end{figure}
 
 %PANTALLA INICIAL
-\textbf {Pantalla al iniciar la aplicación}
+\subsection {Pantalla al iniciar la aplicación}
 
-Una vez iniciado sesión se te mostrará la siguiente vista (Figura B.3). 
+Una vez iniciado sesión se te mostrará la siguiente vista (Figura 9.3). 
 
 \begin{itemize}
 	\item El botón \textquotedbl Comenzar\textquotedbl{} (1) es el más importante puesto que es el que te dirige a la funcionalidad principal de la app.
@@ -1069,16 +1240,17 @@ Una vez iniciado sesión se te mostrará la siguiente vista (Figura B.3).
 	\item Por último el botón \textquotedbl Sobre Nosotros\textquotedbl{} (3) ofrece una imagen descriptora de los desarrolladores involucrados en el proyecto.
 \end{itemize}
 
+\newpage
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/medico_main_menu_n.png}
-\caption{Manual - Pantalla inicial}
+\caption{Manual de usuario - Pantalla inicial}
 \end{figure}
 
 %MENU PRINCIPAL
-\textbf {Opciones del menú principal}
-
-Constituye el foco central a partir del cual puedes acceder a todas las posibilidades tratadas por \MakeUppercase{Enfermedades Cardiovasculares} en lo que concierne al rol de médico (Figura B.4). Los botones tienen un diseño claro y directo logrado a través del uso de iconos complementados con texto. 
+\subsection {Opciones del menú principal}
+%\MakeUppercase{Enfermedades Cardiovasculares}
+Constituye el foco central a partir del cual puedes acceder a todas las posibilidades tratadas por la aplicación en lo que concierne al rol de médico (Figura 9.4). Los botones tienen un diseño claro y directo logrado a través del uso de iconos complementados con texto. 
 
 \begin{itemize}
 	\item \textquotedbl Nuevo Registro\textquotedbl{} (1) te lleva a una ventana (Figura B.5) donde realizarás el alta de un nuevo paciente.
@@ -1095,57 +1267,59 @@ Constituye el foco central a partir del cual puedes acceder a todas las posibili
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/medico_main_menu_2_n.png}
-\caption{Manual - Menú Principal}
+\caption{Manual de usuario - Menú Principal}
 \end{figure}
 
 %ALTA PACIENTE
-\textbf {Añadir un nuevo paciente}
+\subsection {Añadir un nuevo paciente}
 
-Te proporciona una vista (Figura B.5) en la que proveer el identificador exclusivo del paciente (1), consistente en nueve caracteres alfanuméricos respondiendo al esquema NAADDMMYY; NAA designan las letras iniciales del nombre, apellido 1 y apellido 2 respectivamente, mientras DDMMYY se refieren a la fecha de nacimiento. Además de esta clave debes seleccionar el género (2) al que pertenece el individuo puesto que es un factor con enorme influencia en las enfermedades cardiovasculares. El proceso finaliza con el botón \textquotedbl Añadir\textquotedbl{} (3), quedando esta persona anotada en tu lista particular de pacientes (Figura B.6).
+Te proporciona una vista (Figura 9.5) en la que proveer el identificador exclusivo del paciente (1), consistente en nueve caracteres alfanuméricos respondiendo al esquema NAADDMMYY; NAA designan las letras iniciales del nombre, apellido 1 y apellido 2 respectivamente, mientras DDMMYY se refieren a la fecha de nacimiento. Además de esta clave debes seleccionar el género (2) al que pertenece el individuo puesto que es un factor con enorme influencia en las enfermedades cardiovasculares. El proceso finaliza con el botón \textquotedbl Añadir\textquotedbl{} (3), quedando esta persona anotada en tu lista particular de pacientes (Figura B.6).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/nuevo_paciente_n.png}
-\caption{Manual - Dar de alta un paciente}
+\caption{Manual de usuario - Dar de alta un paciente}
 \end{figure}
 
 %LISTA PACIENTES
-\textbf {Consultar tu lista de pacientes}
+\subsection {Consultar tu lista de pacientes}
 
-Presenta tus pacientes ordenados adecuadamente por fecha de ingreso (Figura B.6). En cada uno de los componentes se muestra los campos más relevantes (identificador, edad, género). Al interactuar con uno de estos elementos la app te guiará a la ventana del paciente seleccionado.
+Presenta tus pacientes ordenados adecuadamente por fecha de ingreso (Figura 9.6). En cada uno de los componentes se muestra los campos más relevantes (identificador, edad, género). Al interactuar con uno de estos elementos la app te guiará a la ventana del paciente seleccionado.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas/mis_pacientes.png}
-\caption{Manual - Lista de tus pacientes}
+\caption{Manual de usuario - Lista de tus pacientes}
 \end{figure}
 
+\newpage
 %BUSQUEDA PACIENTE
-\textbf {Realizar una búsqueda para encontrar un paciente}
+\subsection {Realizar una búsqueda para encontrar un paciente}
 
-Si tuvieras dificultades para localizar un paciente específico este sistema de filtros (Figura B.7) proporciona una solución rápida y eficaz a este inconveniente. Entre las posibilidades disponibles se encuentra la búsqueda por identificador (1) (parcial o completo), género (2), edad (3) y/o un subconjunto de la totalidad de ellos.
+Si tuvieras dificultades para localizar un paciente específico este sistema de filtros (Figura 9.7) proporciona una solución rápida y eficaz a este inconveniente. Entre las posibilidades disponibles se encuentra la búsqueda por identificador (1) (parcial o completo), género (2), edad (3) y/o un subconjunto de la totalidad de ellos.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/buscar_paciente_n.png}
-\caption{Manual - Buscar un paciente}
+\caption{Manual de usuario - Buscar un paciente}
 \end{figure}
 
 %COMPARTIR PACIENTE
-\textbf {Compartir un paciente con otro médico}
+\subsection {Compartir un paciente con otro médico}
 
-Es una ocurrencia común que un paciente sea atendido conjuntamente por dos o más médicos. En la lista de pacientes, si mantienes pulsado un elemento de tu elección se desplegará una ventana emergente (Figura B.8) donde introducirás el número de colegiado (1) que identifica al profesional sanitario con el que quieres compartir.
+Es una ocurrencia común que un paciente sea atendido conjuntamente por dos o más médicos. En la lista de pacientes, si mantienes pulsado un elemento de tu elección se desplegará una ventana emergente (Figura 9.8) donde introducirás el número de colegiado (1) que identifica al profesional sanitario con el que quieres compartir.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/compartir_paciente_n.png}
-\caption{Manual - Compartir un paciente}
+\caption{Manual de usuario - Compartir un paciente}
 \end{figure}
 
+\newpage
 %CONSULTAR ALGORITMOS
-\textbf {Consultar los algoritmos usados}
+\subsection {Consultar los algoritmos usados}
 
-A través de esta interfaz, obtendrás acceso a representaciones de las fórmulas utilizadas para el cálculo de cada uno de los factores de influencia en el riesgo cardiovascular (Figura B.9), a saber, colesterol, diabetes, tratamiento, tabaquismo, hta, imc.
+A través de esta interfaz, obtendrás acceso a representaciones de las fórmulas utilizadas para el cálculo de cada uno de los factores de influencia en el riesgo cardiovascular (Figura 9.9), a saber, colesterol, diabetes, tratamiento, tabaquismo, hta, imc.
 
 \begin{itemize}
 	\item \textquotedbl Colesterol\textquotedbl{} (1) el botón nos mostrará una imagen representado el algoritmo del LDL.
@@ -1164,57 +1338,61 @@ A través de esta interfaz, obtendrás acceso a representaciones de las fórmula
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/algoritmos_n.png}
-\caption{Manual - Consultar algoritmos}
+\caption{Manual de usuario - Consultar algoritmos}
 \end{figure}
 
+\newpage
 %CONSULTAR FARMACOS
-\textbf {Consultar fármacos}
+\subsection {Consultar fármacos}
 
 Navegas por los servicios que ofrece \url {http://www.vademecum.es/medicamentos-a_1}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas/farmacos.png}
-\caption{Manual - Consultar fármacos}
+\caption{Manual de usuario - Consultar fármacos}
 \end{figure}
 
 %CONSULTAR PACIENTE
-\textbf {Consultar uno de tus pacientes}
+\subsection {Consultar uno de tus pacientes}
 
-Instituye la base de todas las operaciones relacionadas con un paciente específico (Figura B.11). En primer lugar, tienes la facultad de actualizar (1) los datos que se facilitaban en el registro (el identificador y el género) o remover (2) al paciente de tu lista. En segundo lugar, incluye botones para calcular el riesgo cardiovascular (3) y definir el tratamiento (4) adecuado para las circunstancias del individuo. Por último, si deseas descargar los datos para imprimirlos, enviarlos por correo electrónico... El botón \textquotedbl Descargar PDF\textquotedbl{} (5) satisface este interés recolectando la información en un documento PDF.
+Instituye la base de todas las operaciones relacionadas con un paciente específico (Figura 9.11). En primer lugar, tienes la facultad de actualizar (1) los datos que se facilitaban en el registro (el identificador y el género) o remover (2) al paciente de tu lista. En segundo lugar, incluye botones para calcular el riesgo cardiovascular (3) y definir el tratamiento (4) adecuado para las circunstancias del individuo. Por último, si deseas descargar los datos para imprimirlos, enviarlos por correo electrónico... El botón \textquotedbl Descargar PDF\textquotedbl{} (5) satisface este interés recolectando la información en un documento PDF.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/info_paciente_n.png}
-\caption{Manual - Consultar un paciente}
+\caption{Manual de usuario - Consultar un paciente}
 \end{figure}
 
+\newpage
 %RIESGO CARDIOVASCULAR
-\textbf {Ventana principal para el calculo del riesgo cardiovascular}
+\subsection {Ventana principal para el calculo del riesgo cardiovascular}
 
-Esta pestaña (Figura B.12) realiza los cálculos necesarios para la obtención del riesgo cardiovascular a partir de la información relativa al tabaquismo (1), la diabetes (2), el colesterol (3), el HTA (4) y la obesidad (5). Cada uno de estos factores puede determinarse introduciendo los datos de entrada en las ventanas accesibles a partir de los botones contigüos. Con el fin de que no tengas que acceder a la interfaz particular de estos elementos para consultar el valor numérico obtenido, estos últimos se muestran al lado del botón correspondiente. Finalmente, puedes proceder a conocer el riesgo cardiovascular pulsando el botón amarillo \textquotedbl Calcular riesgo\textquotedbl{} (6) en la parte inferior. No obstante, si no has facilitado datos sobre todos los parámetros de entrada la aplicación decidirá valores por defecto para los mismos.
+Esta pestaña (Figura 9.12) realiza los cálculos necesarios para la obtención del riesgo cardiovascular a partir de la información relativa al tabaquismo (1), la diabetes (2), el colesterol (3), el hta (4) y la obesidad (5). Cada uno de estos factores puede determinarse introduciendo los datos de entrada en las ventanas accesibles a partir de los botones contigüos. Con el fin de que no tengas que acceder a la interfaz particular de estos elementos para consultar el valor numérico obtenido, estos últimos se muestran al lado del botón correspondiente. Finalmente, puedes proceder a conocer el riesgo cardiovascular pulsando el botón amarillo \textquotedbl Calcular riesgo\textquotedbl{} (6) en la parte inferior. No obstante, si no has facilitado datos sobre todos los parámetros de entrada la aplicación decidirá valores por defecto para los mismos.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/riesgo_paciente_n.png}
-\caption{Manual - Cáculo del riesgo cardiovascular de un paciente}
+\caption{Manual de usuario- Cáculo del riesgo cardiovascular de un paciente}
 \end{figure}
 
+\newpage
 %TABAQUISMO
-\textbf {Calcular el tabaquismo}
+\subsection {Calcular el tabaquismo}
 
-El primer elemento para la determinación del riesgo cardiovascular es concretado en la interfaz ilustrada en la imagen (Figura B.13). Debes suministrar las cantidad (1) de cigrarrillos que fuma el paciente en un día y los años (2) que han trascurrido desde que empezó dicha práctica. El resultado se formaliza cuando pulsas el botón \textquotedbl Calcular tabaquismo\textquotedbl{} (3). El mensaje que se te muestra en adicción al valor exacto numérico (4) te indica un análisis inicial de lo que se puede concluir del resultado obtenido.
+El primer elemento para la determinación del riesgo cardiovascular es concretado en la interfaz ilustrada en la imagen (Figura 9.13). Debes suministrar las cantidad (1) de cigrarrillos que fuma el paciente en un día y los años (2) que han trascurrido desde que empezó dicha práctica. El resultado se formaliza cuando pulsas el botón \textquotedbl Calcular tabaquismo\textquotedbl{} (3). El mensaje que se te muestra en adicción al valor exacto numérico (4) te indica un análisis inicial de lo que se puede concluir del resultado obtenido.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/tabaquismo_n.png}
-\caption{Manual - Calcular el tabaquismo para un paciente}
+\caption{Manual de usuario - Calcular el tabaquismo para un paciente}
 \end{figure}
 
+\newpage
 %DIABETES
-\textbf {Calcular la diabetes}
+\subsection {Calcular la diabetes}
 
-Si has pulsado el botón de diabetes en la Figura B.12 te reconducirá a la vista expuesta (Figura B.14). En ella puedes designar los siguientes puntos:
+Si has pulsado el botón de diabetes en la Figura 9.12 te reconducirá a la vista expuesta (Figura 9.14). En ella puedes designar los siguientes puntos:
 
 \begin{itemize}
 	\item Para definir el tipo de diabetes (1) (diabetes tipo 1, tipo 2, gestacional u otras no definidas en la aplicación) empleas una lista desplegable.
@@ -1243,114 +1421,252 @@ Una vez actualizada la información pulsa el botón \textquotedbl Calcular diabe
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/diabetes_n.png}
-\caption{Manual - Calcular la diabetes para un paciente}
+\caption{Manual de usuario - Calcular la diabetes para un paciente}
 \end{figure}
 
 %COLESTEROL
-\textbf {Calcular el colesterol}
+\subsection {Calcular el colesterol}
 
-El siguiente elemento a considerar es el colesterol en sangre. Tras notificar a la aplicación los valores obtenidos en HDL (1), colesterol total (2) y los triglicéridos (3) la aplicación deduce el LDL (5) cuando presionas el botón \textquotedbl Calcular LDL\textquotedbl{} (4). Todas las magnitudes se expresan en mg/dL (Figura B.15).
+El siguiente elemento a considerar es el colesterol en sangre. Tras notificar a la aplicación los valores obtenidos en HDL (1), colesterol total (2) y los triglicéridos (3) la aplicación deduce el LDL (5) cuando presionas el botón \textquotedbl Calcular LDL\textquotedbl{} (4). Todas las magnitudes se expresan en mg/dL (Figura 9.15).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/colesterol_n.png}
-\caption{Manual - Calcular el colesterol para un paciente}
+\caption{Manual de usuario - Calcular el colesterol para un paciente}
 \end{figure}
 
 %HTA
-\textbf {Calcular la hipertensión arterial}
+\subsection {Calcular la hipertensión arterial}
 
-De forma similar a casos anteriores (Figura B.16), facilitas los valores en los parámetros de entrada (tensión arterial sistólica (1) y diastólica (2)) y concluyes el procedimiento utilizando el botón \textquotedbl Calcular HTA\textquotedbl{} (3). Como queda ilustrado en la Figura B.16, la app suministra un primer diagnóstico de tus condiciones.
+De forma similar a casos anteriores, facilitas los valores en los parámetros de entrada (tensión arterial sistólica (1) y diastólica (2)) y concluyes el procedimiento utilizando el botón \textquotedbl Calcular HTA\textquotedbl{} (3). Como queda ilustrado en la Figura 9.16, la app suministra un primer diagnóstico de tus condiciones.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/hta_n.png}
-\caption{Manual - Calcular el hta para un paciente}
+\caption{Manual de usuario - Calcular el hta para un paciente}
 \end{figure}
 
+\newpage
 %IMC
-\textbf {Calcular el índice de masa corporal}
+\subsection {Calcular el índice de masa corporal}
 
-Para el cálculo del IMC (Figura B.17) tendrás que proveer la información correspondiente a la altura (1) (expresada en metros) y el peso (2) (expuesta en kilogramos). A partir de estos últimos, se determinará el índice de masa corporal (4) cuando pulses el botón \textquotedbl Calcular IMC\textquotedbl{} (3). Análogamente, serás notificado de las deducciones derivadas del resultado alcanzado.
+Para el cálculo del IMC (Figura 9.17) tendrás que proveer la información correspondiente a la altura (1) (expresada en metros) y el peso (2) (expuesta en kilogramos). A partir de estos últimos, se determinará el índice de masa corporal (4) cuando pulses el botón \textquotedbl Calcular IMC\textquotedbl{} (3). Análogamente, serás notificado de las deducciones derivadas del resultado alcanzado.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/imc_n.png}
-\caption{Manual - Calcular el imc para un paciente}
+\caption{Manual de usuario - Calcular el imc para un paciente}
 \end{figure}
 
 %TRATAMIENTO PACIENTE
-\textbf {Asginar tratamiento a un paciente}
+\subsection {Asginar tratamiento a un paciente}
 
-El otro aspecto de importancia es la redacción del diagnóstico destinado a mejorar y estabilizar la condición del paciente. Como confirmarás en la Figura B.18 el diseño es cómodo e intuitivo al usuario. La app redacta una sinopsis (1) del estado del paciente que te servirá de cimiento para establecer una valoración personalizada (2). Para confirmar tu evaluación y registrarlo en la base de datos para posteriores consultas solamente tienes que presionar el botón \textquotedbl Guardar cambios\textquotedbl{} (3).
+El otro aspecto de importancia es la redacción del diagnóstico destinado a mejorar y estabilizar la condición del paciente. Como confirmarás en la Figura 9.18 el diseño es cómodo e intuitivo al usuario. La app redacta una sinopsis (1) del estado del paciente que te servirá de cimiento para establecer una valoración personalizada (2). Para confirmar tu evaluación y registrarlo en la base de datos para posteriores consultas solamente tienes que presionar el botón \textquotedbl Guardar cambios\textquotedbl{} (3).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/tratamiento_n.png}
-\caption{Manual - Tratamineto para un paciente}
+\caption{Manual de usuario - Tratamineto para un paciente}
 \end{figure}
 
+\newpage
 %TU PERFIL
-\textbf {Ver los datos de tu perfil}
+\subsection {Ver los datos de tu perfil}
 
-%%%%%%%%%%terminar
+Esta vista (Figura 9.19) proporciona al usuario la posibilidad de modificar sus datos personales sin necesidad de consultar el asunto con el administrador. Los campos a introducir son los mismos que en la funcionalidad de registro tratada anteriormente, es decir, nombre (1), apellidos (2), contraseña (3), número de teléfono (4) y dirección de correo electrónico (5). Quedando número de colegiado bloqueado, ya que es con el que has sido validado. Una vez has finalizado esta operación, los cambios se salvarán si pulsas \textquotedbl Guardar cambios\textquotedbl{} (6).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/mi_perfil_n.png}
-\caption{Manual - Consultar tu información personal}
+\caption{Manual de usuario - Consultar tu información personal}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%																		          MANUAL DE ADMINISTRADOR														                                                                  
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%																		          MANUAL DE ADMINISTRADOR												                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
 \section{Manual de administrador}
 
-%%%introduccion
+El administrador posee una serie de competencias que son tratadas en el presente anexo. La finalidad de esta sección es auxiliar a los usuarios de esta aplicación en el manejo de estos privilegios. 
 
+Este manual introduce todas las funcionalidades concernientes a este aspecto, cada una de las cuales tiene sus propiedades descritas en una explicación redactada. Con el fin de facilitar el entendimiento del interesado, se ha incluido una ilustración de la vista asociada en la que los elementos interactivos están identificados con números a los que se hace alusión en la descripción anterior.
+ 
 %PANTALLA INICIAL
-\textbf {Pantalla al iniciar la aplicación como administrador}
+\subsection {Pantalla al iniciar la aplicación como administrador}
 
-Si observas la ilustración (Figura C.1) es inmediato reconocer que las funciones del administrador están divididas en dos grandes grupos a los que accederás a través de sus respectivos botones: médicos (1) y pacientes (2).
+Si observas la ilustración (Figura 9.20) es inmediato reconocer que las funciones del administrador están divididas en dos grandes grupos a los que accederás a través de sus respectivos botones: médicos (1) y pacientes (2).
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/admin_menu_n.png}
-\caption{Manual - Pantalla inicial administrador}
+\caption{Manual de administrador - Pantalla inicial administrador}
 \end{figure}
 
+\newpage
 %LISTA MEDICOS
-\textbf {Consultar la lista de aspirantes}
+\subsection {Consultar la lista de aspirantes}
 
-En la siguiente vista (Figura C.2) tendrás acceso a un registro ordenado de todas las personas que han solicitado la validación de una cuenta de médico en la aplicación. En cada uno de los elementos de esta lista se te mostrará la información principal suministrada por el aspirante, es decir, el número único de colegiado, su nombre y su correo electrónico de contacto por si necesitases consultar cualquier asunto con el mismo. Estos datos son suficientes para que determines en una primera impresión si la petición es genuina o si se trata de un  caso de suplantación. Al presionar sobre una de estas solicitudes accederás a una doucmentación más detallada del candidato.
+En la siguiente vista (Figura 9.21) tendrás acceso a un registro ordenado de todas las personas que han solicitado la validación de una cuenta de médico en la aplicación. En cada uno de los elementos de esta lista se te mostrará la información principal suministrada por el aspirante, es decir, el número único de colegiado, su nombre y su correo electrónico de contacto por si necesitases consultar cualquier asunto con el mismo. Estos datos son suficientes para que determines en una primera impresión si la petición es genuina o si se trata de un  caso de suplantación. Al presionar sobre una de estas solicitudes accederás a una doucmentación más detallada del candidato.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/medicos_lista_n.png}
-\caption{Manual - Lista de aspirantes}
+\caption{Manual de administrador - Lista de aspirantes}
 \end{figure}
 
+\newpage
 %BUSQUEDA MEDICO
-\textbf {Realizar una búsqueda para encontrar un aspirante}
+\subsection {Realizar una búsqueda para encontrar un aspirante}
 
-Si te fuese complicado encontrar una persona en concreto en la lista de candidatos puedes hacer empleo del sistema de filtros proporcionado por la aplicación (Figura C.3). Para acceder al mismo solamente tienes que pulsar en el botón flotante en la parte inferior derecha de la pantalla. Enfermedades cardiovasculares te permite ejecutar búsquedas de acuerdo al número de colegiado (1) del solicitante (parcial o completo), el nombre del aspirante (2), su dirección de correo electrónico (3) y/o una mezcla cualesquiera de estos últimos.
+Si te fuese complicado encontrar una persona en concreto en la lista de candidatos puedes hacer empleo del sistema de filtros proporcionado por la aplicación (Figura 9.22). Para acceder al mismo solamente tienes que pulsar en el botón flotante en la parte inferior derecha de la pantalla. Enfermedades cardiovasculares te permite ejecutar búsquedas de acuerdo al número de colegiado (1) del solicitante (parcial o completo), el nombre del aspirante (2), su dirección de correo electrónico (3) y/o una mezcla cualesquiera de estos últimos.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/buscar_medico_n.png}
-\caption{Manual - Buscar un aspirante}
+\caption{Manual de administrador - Buscar un aspirante}
 \end{figure}
 
+\newpage
 %CONSULTAR MEDICO
-\textbf {Consultar uno de los aspirantes}
+\subsection {Consultar uno de los aspirantes}
 
-Una vez presionas sobre uno de los aspirantes en la pantalla anterior (Figura C.3) tendrás acceso a la información detallada del mismo (Figura C.4), la cual incluye su número de colegiado (1), nombre (2) y apellidos (3), dirección de correo electrónico (4) y teléfono de contacto (5). En función de estos datos, tomarás una decisión sobre si se le debería conceder permisos en la aplicación como personal sanitario o no. Para ello, utilizarás el botón \textquotedbl Validar\textquotedbl{} en caso de confirmación de cuenta y el botón \textquotedbl Rechazar\textquotedbl{} en el acontecimiento contrario.
+Una vez presionas sobre uno de los aspirantes en la pantalla anterior (Figura 9.23) tendrás acceso a la información detallada del mismo (Figura C.4), la cual incluye su número de colegiado (1), nombre (2) y apellidos (3), dirección de correo electrónico (4) y teléfono de contacto (5). En función de estos datos, tomarás una decisión sobre si se le debería conceder permisos en la aplicación como personal sanitario o no. Para ello, utilizarás el botón \textquotedbl Validar\textquotedbl{} en caso de confirmación de cuenta y el botón \textquotedbl Rechazar\textquotedbl{} en el acontecimiento contrario.
 
 \begin{figure}[H]
 \centering
 \includegraphics[height= 7cm]{capturas_manual/validar_medico_n.png}
-\caption{Manual - Consultar un aspirante}
+\caption{Manual de administrador - Consultar un aspirante}
 \end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																		          MANUAL DE  INSTALACIÓN    												                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Manual de instalacion}
+
+%SISTEMA OPERATIVO
+\subsection {Sistema Operativo}
+
+Para hacer las funciones de servidor de la aplicación no hay un requisito específico en lo que a SO se refiere. En la presente sección procederemos a exponer la metodología a seguir para la preparación del entorno en la distribución Ubuntu del Sistema Operativo Linux, en concreto, para Ubuntu 16.04.
+
+Este sistema operativo puede ser descargado de la página oficial de Ubuntu o directamente a través del siguiente enlace:
+
+\noindent \url {https://www.ubuntu.com/download/desktop/contribute?version=16.04.2&architecture=amd64}
+
+Terminada la instalación del sistema operativo, realizamos la actualización del sistema de repositorios con los siguientes comandos:
+
+\textit {\$ sudo apt-get update}
+
+\textit {\$ sudo apt-get upgrade}
+
+%APACHE
+\subsection {Apache}
+
+Para desempeñar las funciones concernientes a los servicios web empleamos Apache. 
+
+La instalación se lleva a cabo con la instruccion expuesta a continuación:
+
+\textit {\$ sudo apt-get install apache2}
+
+Para confirmar que el proceso no ha sufrido impedimentos puedes visitar la dirección IP pública en tu servidor web (http://la\_ip\_de\_su\_servidor). Si eres capaz de visualizar la página predeterminada de Apache y Ubuntu 16.04 entonces su servidor web está correctamente instalado.
+
+%PHP
+\subsection {PHP}
+
+Instala PHP con el siguiente comando:
+
+\textit {\$ sudo apt install php libapache2-mod-php}
+
+Presiona \textit {Enter} cuando se te pregunte por confirmación.
+
+A continuación, se expone un método rápido y sencillo para aquellos que deseen comprobar si esta instalación no ha tenido problemas.
+
+Crea un archivo \textquotedbl  info.php\textquotedbl{} en \textit {/var/www/html/} e inserta el siguiente código en el mismo:
+
+\begin{center}
+\begin{lstlisting}[language=C]
+<?php
+	phpinfo();
+?>
+\end{lstlisting}
+\end{center}
+
+Reinicia Apache para verificar estas modificaciones con el comando:
+
+\textit {\$ service apache2 restart}
+
+Accede a la url (http://youripaddress/info.php). Si todo ha sido llevado a cabo satisfactoriamente, debería mostrarte información sobre la versión de PHP instalada.
+
+%MySQL
+\subsection {MySQL}
+
+Esta aplicación utiliza MySQL para la gestión de los datos. 
+
+Ejecuta el siguiente comando para su instalación:
+
+\textit {\$ sudo apt install mysql-server}
+
+En el proceso de instalación, se te cuestionará sobre la contraseña de root a utilizar en MySQL y otros parámetros de configuración. 
+
+Para comprobar si el procedimiento ha tenido éxito, el siguiente comando te permite comprobar si MySQL está en funcionamiento.
+
+\textit {\$ systemctl status mysql}
+
+Si deseas garantizar unos mínimos de seguridad en el sistema de base de datos, MySQL ofrece un proceso automático para este fin al que se accede con este comando:
+
+\textit {\$ sudo mysql\_secure\_installation}
+
+Una vez finalizado el trámite, puedes conectarte como root con el comando:
+
+\textit {\$ mysql -u root -p}
+
+Se te abrirá una terminal de MySQL en la que podrás introducir sentencias SQL para el manejo de la base de datos. 
+
+%Phpmyamdin
+\subsection {phpMyAdmin}
+
+Esta herramienta no es estrictamente necesaria, pero se incluye como alternativa gráfica para aquellos que sientan incomodidad con la manipulación de la información en la base de datos por medio de la terminal. Las instrucciones a seguir se detallan en las siguientes líneas.
+
+\begin{enumerate}
+\item Actualizamos nuestro índice de paquetes local y usamos apt para descargar los archivos e instalarlos en nuestro sistema:
+
+\textit {\$ sudo apt-get update}
+
+\textit {\$ sudo apt-get install phpmyadmin php-mbstring php-gettext}
+
+Tras ejecutar este comando, se realizará la configuración de la instalación.
+
+El primer punto de importancia es la selección del servidor. En el mensaje, apache2 aparecerá resaltado pero ello no significa que se haya seleccionado. Para solventar este problema de forma rápida pulsa \textit {Space}, \textit {Tab} y \textit {Enter} para finalizar la selección.
+
+Selecciona \textquotedbl yes\textquotedbl{} cuando se le pregunte si desea utilizar\textquotedbl dbconfig-common\textquotedbl{} para configuar la base de datos.
+
+A continuación, se le pedirá la contraseña del administrador de la base de datos.
+
+Por último, se le pedirá que elija y confirme una contraseña para la aplicación phpMyAdmin.
+
+\item Para habilitar explícitamente las extensiones PHP \textquotedbl mcrypt\textquotedbl{} y \textquotedbl mbstring\textquotedbl{} escribimos
+
+\textit {\$ sudo phpenmod mcrypt }
+
+\textit {\$ sudo phpenmod mbstring }
+
+\item Reiniciamos Apache para hacer efectivas las modificaciones.
+
+\textit {\$ sudo systemctl restart apache2}
+
+\end{enumerate}
+
+Al visitar la siguiente url (https://nombre\_del\_dominio\_o\_IP/phpmyadmin), si no ha ocurrido ningun imprevisto, deberíamos acceder a la venta de login de la interfaz de phpMyAdmin.
+
+%ANDROID STUDIO
+\subsection {Android Studio}
+
+Para el desarrollo de la aplicación móvil que desempeña la función de cliente precisamos de Android Studio. En este caso, explicitaremos los puntos a seguir para reproducir la instalación de este IDE.
+
+**Incluir capturas de pantalla
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %																		           BIBLIOGRAFIA														                                                                  %
@@ -1358,23 +1674,175 @@ Una vez presionas sobre uno de los aspirantes en la pantalla anterior (Figura C.
 \begin{thebibliography}{10}
 
 %ARTICULO                                                          
-\bibitem{light}
-   Jennifer~S. Light.
-   \newblock When computers were women.
-   \newblock \textit{Technology and Culture}, 40:3:455--483, juliol, 1999.
+%\bibitem{light}
+%   Jennifer~S. Light.
+%   \newblock When computers were women.
+%   \newblock \textit{Technology and Culture}, 40:3:455--483, juliol, 1999.
 
 % LIBRO                       
-\bibitem{ifrah}
-   Georges Ifrah.
-   \newblock \textit{Historia universal de las cifras}.
-   \newblock Espasa Calpe, S.A., Madrid, sisena edició, 2008.
+%\bibitem{ifrah}
+%   Georges Ifrah.
+%   \newblock \textit{Historia universal de las cifras}.
+%   \newblock Espasa Calpe, S.A., Madrid, sisena edició, 2008.
 
 % URL                                                        
+%\bibitem{WAR}
+%   Comunicat de premsa del Departament de la Guerra, 
+%   emés el 16 de febrer de 1946. 
+%   \newblock Consultat a 
+%   \url{http://americanhistory.si.edu/comphist/pr1.pdf}.
+
 \bibitem{WAR}
-   Comunicat de premsa del Departament de la Guerra, 
-   emés el 16 de febrer de 1946. 
-   \newblock Consultat a 
-   \url{http://americanhistory.si.edu/comphist/pr1.pdf}.
+   Informe de las 50 mejores aplicaciones en salud.\\
+   \guillemotleft La diabetes será el área terapéutica con el mayor potencial de negocio, seguida por las enfermedades cardiovasculares... \guillemotright\\
+   \newblock Consultar en:\\
+   \url{ http://www.theappdate.es/static/media/uploads/2014/03/Informe-TAD-50-Mejores-Apps-de-Salud.pdf}.
+
+\bibitem{WAR}
+   Soporte a desarroladores para el desarrollo de aplicaciones en Android.\\
+   \newblock Consultar en:\\
+   \url{https://developer.android.com/develop/index.html}.
+
+\bibitem{WAR}
+   Tutorial para incluir Apache, MySQL, PHP en Ubuntu 16.04.\\
+   \newblock Consultar en:\\
+   \url{https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu}.
+
+\bibitem{WAR}
+   Conectar mediante MySQL connector con una apliación Android.\\
+   \newblock Consultar en:\\
+   \url{ https://capdroid.wordpress.com/2012/07/10/configuring-and-accessing-mysql-jdbc-driver-on-android-application/}.
+
+\bibitem{WAR}
+   Herramienta para la generación de PDF en Android.\\
+   \newblock Consultar en:\\
+   \url{ https://www.qoppa.com/android/}.
+
+\bibitem{WAR}
+   Sitio web de consulta y tutoriales sobre PHP, SQL.\\
+   \newblock Consultar en:\\
+   \url{ https://www.w3schools.com/}.
+
+\bibitem{WAR}
+   Cálculo del índice de paquete al año para el tabaquismo.\\
+   \newblock Consultar en:\\
+   \url{ https://plus.google.com/105882872886976026566/posts/Ap5j5QnuTZe}.
+
+\bibitem{WAR}
+   Dirección para cubrir la funcionalidad de consultar los fármacos.\\
+   \newblock Consultar en:\\
+   \url{ http://www.vademecum.es/medicamentos-a_1}.
+
+\bibitem{WAR}
+   Introducción al Euroscore\\
+   \newblock Consultar en:\\
+   \url{ http://euroscore.org/what_is_euroscore.htm}.
+
+\bibitem{WAR}
+   Calculadora online de riesgo cardiovascular Euroscore.\\
+   \newblock Consultar en:\\
+   \url{ http://euroscore.org/what_is_euroscore.htm}.
+
+\bibitem{WAR}
+   Tríptico algorítmo de tratamiento de la hiperglucemia en la diabetes tipo 2.\\
+   \newblock Consultar en:\\
+   \url{ http://www.redgdps.org/gestor/upload/file/Algoritmo\%20RedGDPS\%20Triptico\%20english.pdf}.
+
+\bibitem{WAR}
+   Algorítmo de tratamiento de la diabetes tipo 2.\\
+   \newblock Consultar en:\\
+   \url{ http://www.cadime.es/docs/algoritmos/CADIME_ALGORITMO_2016_TTO_DM2.pdf}.
+
+\bibitem{WAR}
+   Algorítmo terapéutico de la hipercolesterolemia.\\
+   \newblock Consultar en:\\
+   \url{ http://www.smiba.org.ar/revista/vol_05/05_04_06.htm}.
+
+\bibitem{light}
+   Aurora Yáñez, 
+   \newblock La Sanidad del futuro a través de las TIC \\
+   \newblock \textit{Innovación en salud - El Mundo}, 13 de febero del 2017.\\
+   \newblock Consultar en:\\
+   \url{ http://www.innovacionensalud.elmundo.es/salud-digital/la-sanidad-del-futuro-a-traves-de-las-tic}.
+
+\bibitem{WAR}
+   Algorítmo terapéutico de la hipercolesterolemia.\\
+   \newblock Consultar en:\\
+   \url{ https://mail.google.com/mail/u/0/\#label/2016\%2F2017+TFG/157afa27ee2f517d}.
+
+\bibitem{WAR}
+   Monitorización continua de glucosa, medidor Dexcom.\\
+   \newblock Consultar en:\\
+   \url{ http://www.dexcom.com/en-GB}.
+
+\bibitem{WAR}
+   Monitorización continua de glucosa, sensor Freestyle.\\
+   \newblock Consultar en:\\
+   \url{ https://www.freestylelibre.es/}.
+
+\bibitem{WAR}
+   Monitorización continua de glucosa, medidor Medtronic.\\
+   \newblock Consultar en:\\
+   \url{ https://www.medtronic-diabetes.com/es/}.
+
+\bibitem{light}
+   @jcosmoscc,
+   \newblock Android Nougat ya está presente en más del 7\% de los dispositivos, Gingerbread sorprende con un ligero repunte.\\
+   \newblock \textit{Xataka Android}, 3 de mayo del 2017.\\
+   \newblock Consultar en:\\
+   \url{ https://www.xatakandroid.com/mercado/android-nougat-ya-esta-presente-en-mas-del-7-de-los-dispositivos-gingerbread-sorprende-con-un-ligero-repunte}.
+
+\bibitem{light}
+   @jcosmoscc, 
+   \newblock Android Marshmallow sigue creciendo tímidamente, sólo el 0,7\% de los dispositivos han actualizado\\
+   \newblock \textit{Xataka Android}, 5 de enero del 2016.\\
+   \newblock Consultar en:\\
+   \url{ https://www.xatakandroid.com/mercado/android-marshmallow-sigue-creciendo-timidamente-solo-el-0-7-de-los-dispositivos-han-actualizado}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, el colesterol.\\	
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/colesterol.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascula,r la diabetes.\\	
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/diabetes.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, la hipertensión arterial.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/hipertension-tension-alta.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, la edad.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/edad.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, el tabaco.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/fumar-tabaco-tabaquismo.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, el género.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/sexo-genero.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, el raza.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/raza-etnia-linaje.html}.
+
+\bibitem{WAR}
+   Prevención del riesgo cardiovascular, sendentarismo.\\
+   \newblock Consultar en:\\
+   \url{ http://www.fundaciondelcorazon.com/prevencion/riesgo-cardiovascular/falta-ejercicio-sedentarismo.html}.
+
+\bibitem{WAR}
+  Versiones de Android con su respectivo nivel de API.\\
+   \newblock Consultar en:\\
+   \url{ https://es.wikipedia.org/wiki/Anexo:Historial_de_versiones_de_Android}.
 
 \end{thebibliography}
 

@@ -64,7 +64,7 @@
 
 \newcommand{\authorname}{Realizado por}
 \newcommand{\tutorname}{Director}
-\newcommand{\coursename}{Curso}
+\newcommand{\coursename}{}%Curso
 \newcommand{\keywordsname}{Palabras clave}
 
 \newcommand{\algorithmname}{Algoritmos}
@@ -80,7 +80,7 @@
      \renewcommand{\tfgname}{TRABAJO FIN DE GRADO}
      \renewcommand{\authorname}{Realizado por}
      \renewcommand{\tutorname}{{Director}}
-     \renewcommand{\coursename}{Curso}
+     \renewcommand{\coursename}{}%Curso
      \renewcommand{\keywordsname}{Palabras clave}
      \renewcommand{\tablename}{Tabla}
      \renewcommand{\listtablename}{\'Indice de tablas}
@@ -291,6 +291,10 @@
 
 %TITULO
 \LARGE\bfseries\@title
+
+\begin{color}{grisfosc}
+Departamento de arquitectura de computadores y autom\'atica
+\end{color}
 
 %IMAGEN
  \vfill
