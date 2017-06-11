@@ -78,9 +78,9 @@ public class DAOCardiovascular {
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        String dir = "http://147.96.114.219:8888/php/" + phpFile;
+        //String dir = "http://147.96.114.219:8888/php/" + phpFile;
 
-        //String dir = "http://educacion.dacya.ucm.es/cardiovascular/php/" + phpFile;
+        String dir = "http://educacion.dacya.ucm.es/cardiovascular/php/" + phpFile;
 
 
         try {
@@ -200,9 +200,9 @@ public class DAOCardiovascular {
 
             }
 
-            cardiovascularString = "El paciente " + argumentPaciente.getId() + " con edad " + argumentPaciente.getEdad() +
+            cardiovascularString = "El paciente " + argumentPaciente.getId() + " de edad " + argumentPaciente.getEdad() +
                     " tiene riesgo coronario " + cardiovascularString + " (" + argumentPaciente.getCardiovascular()
-                    + "% ).\n" +
+                    + "%).\n" +
                     "Debido a los factores: tabaquismo (" + tabaquismo + "), " +
                     "hipertensión arterial (Sistólica " + sistolica + " y Diastólica " + diastolica + "), " +
                     "colesterol (Total " + colesterol + "), " +
