@@ -104,27 +104,27 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".Algoritmos_Main_MenuActivity"
-            android:label="Menú Algorítmos"
+            android:label="Menú Algoritmos"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".diabetesAlgoritmosActivity"
-            android:label="Algorítmos Diabetes"
+            android:label="Algoritmos Diabetes"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".htaAlgoritmosActivity"
-            android:label="Algorítmos HTA"
+            android:label="Algoritmos HTA"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".imcAlgoritmosActivity"
-            android:label="Algorítmos IMC"
+            android:label="Algoritmos IMC"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".tabacoAlgoritmosActivity"
-            android:label="Algorítmos Tabaquismo"
+            android:label="Algoritmos Tabaquismo"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".colesterolAlgoritmosActivity"
-            android:label="Algorítmos Colesterol"
+            android:label="Algoritmos Colesterol"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".CreatePDF"
@@ -136,7 +136,7 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".tratamientoMenuActivity"
-            android:label="Menú Tratimientos"
+            android:label="Menú Tratamientos"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".RCV_Hombres_AlgoritmosActivity"
@@ -144,7 +144,7 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".RCV_Hombres_Diabeticos_AlgoritmosActivity"
-            android:label="Hombres Diabeticos"
+            android:label="Hombres Diabéticos"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".RCV_Muejeres_AlgoritmosActivity"
@@ -152,7 +152,7 @@
             android:screenOrientation="portrait"/>
 
         <activity android:name=".RCV_Muejeres_Diabeticas_AlgoritmosActivity"
-            android:label="Mujeres Diabeticas"
+            android:label="Mujeres Diabéticas"
             android:screenOrientation="portrait"/>
 
         <activity android:name=".tratamientoActivity"

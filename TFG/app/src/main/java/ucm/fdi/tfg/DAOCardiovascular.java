@@ -78,7 +78,8 @@ public class DAOCardiovascular {
     public URL getUrl(String phpFile) {
 
         URL url = null;
-        //String dir = "http://147.96.114.219:8888/php/" + phpFile;
+
+        //String dir = "http://192.168.1.199:8888/php/" + phpFile;
 
         String dir = "http://educacion.dacya.ucm.es/cardiovascular/php/" + phpFile;
 

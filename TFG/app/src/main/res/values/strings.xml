@@ -25,7 +25,7 @@
 
     <string name="button_new_patient">Nuevo registro</string>
     <string name="button_patients">Pacientes guardados</string>
-    <string name="button_algorithms">Algorítmos Dx</string>
+    <string name="button_algorithms">Algoritmos Dx</string>
     <string name="button_profile">Mi perfil</string>
     <string name="button_drugs">Fármacos</string>
 

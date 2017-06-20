@@ -66,6 +66,7 @@
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/fdi"
             android:layout_below="@+id/textView"
+            android:layout_marginTop="42dp"
             android:layout_marginLeft="210dp"/>
 
     </RelativeLayout>
