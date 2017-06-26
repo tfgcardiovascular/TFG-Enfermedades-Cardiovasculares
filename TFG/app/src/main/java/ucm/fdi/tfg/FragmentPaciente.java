@@ -714,7 +714,8 @@ public class FragmentPaciente extends Fragment {
 
                         linePhp.add( line );
 
-                        if ( linePhp.size() == 3 )
+
+                        if ( linePhp.size() == 26 )
                         {
 
                             // Create medic Object
@@ -725,14 +726,47 @@ public class FragmentPaciente extends Fragment {
                             medic.setSexo(linePhp.get(1));
                             medic.setEdad(linePhp.get(2));
 
+                            // Imc
+                            medic.setHeight( linePhp.get( 3 ) );
+                            medic.setWeight( linePhp.get( 4 ) );
+                            medic.setImc( linePhp.get( 5 ) );
+
+                            medic.setSistolica( linePhp.get( 6 ) );
+                            medic.setDiastolica( linePhp.get( 7 ) );
+
+                            medic.setCantidad( linePhp.get( 8 ) );
+                            medic.setAdiccion( linePhp.get( 9 ) );
+                            medic.setIpa( linePhp.get( 10 ) );
+
+                            medic.setHdl( linePhp.get( 11 ) );
+                            medic.setColesterolTotal( linePhp.get( 12 ) );
+                            medic.setTrigliceridos( linePhp.get( 13 ) );
+                            medic.setLdl( linePhp.get( 14 ) );
+
+                            medic.setTipo( linePhp.get( 15 ) );
+                            medic.setTratamiento( linePhp.get( 16 ) );
+                            medic.setHbac( linePhp.get( 17 ) );
+                            medic.setMonitorizacion( linePhp.get( 18 ) );
+
+                            medic.setYearEnfermo( linePhp.get( 19 ) );
+
+                            medic.setLastEyes( linePhp.get( 20 ) );
+
+                            medic.setCreatinina( linePhp.get( 21 ) );
+
+                            medic.setMicroalbuminuria( linePhp.get( 22 ) );
+                            medic.setRaza( linePhp.get( 23 ) );
+
+                            medic.setUrea( linePhp.get( 24 ) );
+
+                            medic.setCardiovascular( linePhp.get( 25 ) );
+                            // medic.setFinalTratamiento( linePhp.get( 26 ) );
+
                             // Update Medic ArrayList
                             medicPhp.add( medic );
 
                             // Reset linePhp
                             linePhp.clear();
-
-
-
                         }
 
 
